@@ -1,0 +1,79 @@
+{
+  "schema": "scuba.financial-stress-response-structure-audit/v1",
+  "runs": [
+    {
+      "run": "hosted-validation-v1",
+      "evidence_path": "artifacts/financial-stress/hosted-validation-v1/response_evidence.json",
+      "evidence_sha256": "e43d795bb308ac78b52f2658ccfa3432c154eb3d04a2011f6b23998186caa2b5",
+      "training_rows": 24000,
+      "requested_input_columns": 182,
+      "prediction_shape": [
+        8000,
+        2
+      ],
+      "reported_columns": 182,
+      "class_order": [
+        0,
+        1
+      ],
+      "package_version": "9.0.0",
+      "probabilities_finite": true,
+      "probabilities_in_range": true,
+      "maximum_row_sum_error": 7.450580596923828e-08,
+      "full_raw_response_saved": false,
+      "original_response_field_inventory_available": false
+    },
+    {
+      "run": "final-hosted-v1",
+      "evidence_path": "artifacts/financial-stress/final-hosted-v1/response_evidence.json",
+      "evidence_sha256": "478c3c1414b7a6d62d43511175a83a31b2282af97c38c4ecb621e11c66011fe9",
+      "training_rows": 24000,
+      "requested_input_columns": 182,
+      "prediction_shape": [
+        8000,
+        2
+      ],
+      "reported_columns": 182,
+      "class_order": [
+        0,
+        1
+      ],
+      "package_version": "9.0.0",
+      "probabilities_finite": true,
+      "probabilities_in_range": true,
+      "maximum_row_sum_error": 7.450580596923828e-08,
+      "full_raw_response_saved": false,
+      "original_response_field_inventory_available": false
+    },
+    {
+      "run": "full-data-hosted-v2",
+      "evidence_path": "artifacts/financial-stress/full-data-hosted-v2/response_evidence.json",
+      "evidence_sha256": "43492c3802000c4aece98223cf8c4296a4fad7b7a283b65695051692224d817f",
+      "training_rows": 40000,
+      "requested_input_columns": 182,
+      "prediction_shape": [
+        30000,
+        2
+      ],
+      "reported_columns": 184,
+      "class_order": [
+        0,
+        1
+      ],
+      "package_version": "9.0.0",
+      "probabilities_finite": true,
+      "probabilities_in_range": true,
+      "maximum_row_sum_error": 7.450580596923828e-08,
+      "full_raw_response_saved": false,
+      "original_response_field_inventory_available": false
+    }
+  ],
+  "findings": {
+    "prediction_columns": "Two class probabilities in class order [0,1], not a prediction and a metadata column.",
+    "metadata_location": "Separate metadata object, as read by the capture code and declared by the published API schema.",
+    "output_inclusive_count_hypothesis": "182+2=184 fits full-data arithmetic, but a uniform input-plus-output count is contradicted by both earlier runs. A branch-specific server counting change remains unverified.",
+    "capture_gap": "Old capture saved selected fields and valid probabilities only. Unknown response fields, their names, and timings were not retained. We cannot establish that the original server response lacked feature names.",
+    "retrieval": "Published REST routes and inspected SDK expose no identified read-only prediction-response retrieval method. MCP prediction download URLs do not establish retrieval for this existing REST call.",
+    "acceptance": "No acceptance override or new prediction."
+  }
+}

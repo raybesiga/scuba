@@ -1,0 +1,35 @@
+{
+  "actual_tokens": 0,
+  "checked_at_unix": 1790026800.4880672,
+  "estimated_total_tokens": 15728,
+  "estimates": [
+    {
+      "estimated_tokens": 15728,
+      "pricing_version": "quota_v3",
+      "request": {
+        "model_version": "v3.5",
+        "n_estimators": 8,
+        "operation": "predict",
+        "raw_columns": 182,
+        "test_rows": 30000,
+        "train_rows": 40000
+      }
+    }
+  ],
+  "evidence": "live_metadata_only",
+  "model_limits": {
+    "dataset_max_size_bytes": 5368709120,
+    "limits": {
+      "max_classes": 160,
+      "max_cols": 20000,
+      "predict_row_pairs_budget": 250000000000,
+      "test_set_max_cells": 200000000,
+      "test_set_max_rows": 1000000,
+      "train_set_max_cells": 200000000,
+      "train_set_max_rows": 1000000
+    },
+    "model_version": "v3.5"
+  },
+  "plan_sha256": "f6ce910eb00861246f85d19782d08d3f59eb62328dc9b12a21f4d4a09b011a26",
+  "rows_uploaded": 0
+}

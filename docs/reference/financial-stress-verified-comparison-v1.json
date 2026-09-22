@@ -1,0 +1,661 @@
+{
+  "checks": {
+    "input_and_prediction_hashes": true,
+    "one_prediction_attempt": true,
+    "review_counts_recomputed": true,
+    "same_row_order_and_labels": true,
+    "saved_response_identity_revalidated": true,
+    "sklearn_metrics_recomputed": true
+  },
+  "csv_precision_note": "XGBoost CSV values restored to original float32 then promoted to float64; all other columns round-trip as float64.",
+  "dataset": "Financial Stress",
+  "features": 182,
+  "final_evaluated": false,
+  "metrics": {
+    "catboost": {
+      "ap_unavailable_reason": null,
+      "average_precision": 0.5651471256824689,
+      "brier_score": 0.09801906669191696,
+      "ece_10_bins": 0.05200031923975493,
+      "log_loss": 0.32611888907290076,
+      "negatives": 6800,
+      "positives": 1200,
+      "prevalence": 0.15,
+      "reliability": [
+        {
+          "lower": 0.0,
+          "mean_probability": 0.06458321165067063,
+          "observed_fraction": 0.02960620868065536,
+          "rows": 3479,
+          "upper": 0.1,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.1,
+          "mean_probability": 0.14088451020131282,
+          "observed_fraction": 0.11336472292647591,
+          "rows": 2761,
+          "upper": 0.2,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.2,
+          "mean_probability": 0.24219465973643023,
+          "observed_fraction": 0.2988855116514691,
+          "rows": 987,
+          "upper": 0.3,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.3,
+          "mean_probability": 0.342397315117193,
+          "observed_fraction": 0.5197215777262181,
+          "rows": 431,
+          "upper": 0.4,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.4,
+          "mean_probability": 0.4465321832927301,
+          "observed_fraction": 0.6785714285714286,
+          "rows": 168,
+          "upper": 0.5,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.5,
+          "mean_probability": 0.5459831749053581,
+          "observed_fraction": 0.8365384615384616,
+          "rows": 104,
+          "upper": 0.6,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.6,
+          "mean_probability": 0.6463233139944982,
+          "observed_fraction": 0.8888888888888888,
+          "rows": 54,
+          "upper": 0.7,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.7,
+          "mean_probability": 0.7408573945180144,
+          "observed_fraction": 1.0,
+          "rows": 12,
+          "upper": 0.8,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.8,
+          "mean_probability": 0.8419706865504685,
+          "observed_fraction": 1.0,
+          "rows": 3,
+          "upper": 0.9,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.9,
+          "mean_probability": 0.927883372195155,
+          "observed_fraction": 1.0,
+          "rows": 1,
+          "upper": 1.0,
+          "upper_inclusive": true
+        }
+      ],
+      "roc_auc": 0.8433927696078432,
+      "rows": 8000,
+      "sparse": false,
+      "threshold_0.5": {
+        "fn": 1049,
+        "fp": 23,
+        "tn": 6777,
+        "tp": 151
+      },
+      "top_budgets": {
+        "0.05": {
+          "boundary_probability": 0.3818629238738456,
+          "capture": 0.25583333333333336,
+          "effective_fraction": 0.05,
+          "fn": 893,
+          "fp": 93,
+          "lift": 5.116666666666666,
+          "selected": 400,
+          "tn": 6707,
+          "tp": 307
+        },
+        "0.1": {
+          "boundary_probability": 0.29526802220508913,
+          "capture": 0.41833333333333333,
+          "effective_fraction": 0.1,
+          "fn": 698,
+          "fp": 298,
+          "lift": 4.183333333333334,
+          "selected": 800,
+          "tn": 6502,
+          "tp": 502
+        }
+      }
+    },
+    "constant_prior": {
+      "ap_unavailable_reason": null,
+      "average_precision": 0.15,
+      "brier_score": 0.12749999999999997,
+      "ece_10_bins": 5.551115123125783e-17,
+      "log_loss": 0.422709087805991,
+      "negatives": 6800,
+      "positives": 1200,
+      "prevalence": 0.15,
+      "reliability": [
+        {
+          "lower": 0.0,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.1,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.1,
+          "mean_probability": 0.14999999999999994,
+          "observed_fraction": 0.15,
+          "rows": 8000,
+          "upper": 0.2,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.2,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.3,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.3,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.4,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.4,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.5,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.5,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.6,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.6,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.7,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.7,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.8,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.8,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.9,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.9,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 1.0,
+          "upper_inclusive": true
+        }
+      ],
+      "roc_auc": 0.5,
+      "rows": 8000,
+      "sparse": false,
+      "threshold_0.5": {
+        "fn": 1200,
+        "fp": 0,
+        "tn": 6800,
+        "tp": 0
+      },
+      "top_budgets": {
+        "0.05": {
+          "boundary_probability": 0.15,
+          "capture": 0.0575,
+          "effective_fraction": 0.05,
+          "fn": 1131,
+          "fp": 331,
+          "lift": 1.15,
+          "selected": 400,
+          "tn": 6469,
+          "tp": 69
+        },
+        "0.1": {
+          "boundary_probability": 0.15,
+          "capture": 0.11333333333333333,
+          "effective_fraction": 0.1,
+          "fn": 1064,
+          "fp": 664,
+          "lift": 1.1333333333333335,
+          "selected": 800,
+          "tn": 6136,
+          "tp": 136
+        }
+      }
+    },
+    "logistic_regression": {
+      "ap_unavailable_reason": null,
+      "average_precision": 0.39095448310797154,
+      "brier_score": 0.11165709957185475,
+      "ece_10_bins": 0.01882141834754047,
+      "log_loss": 0.37189725092836406,
+      "negatives": 6800,
+      "positives": 1200,
+      "prevalence": 0.15,
+      "reliability": [
+        {
+          "lower": 0.0,
+          "mean_probability": 0.05263391372880144,
+          "observed_fraction": 0.053953488372093024,
+          "rows": 3225,
+          "upper": 0.1,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.1,
+          "mean_probability": 0.14520241389037275,
+          "observed_fraction": 0.12379540400296515,
+          "rows": 2698,
+          "upper": 0.2,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.2,
+          "mean_probability": 0.24267371425592973,
+          "observed_fraction": 0.2558314522197141,
+          "rows": 1329,
+          "upper": 0.3,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.3,
+          "mean_probability": 0.3406299124469644,
+          "observed_fraction": 0.4043478260869565,
+          "rows": 460,
+          "upper": 0.4,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.4,
+          "mean_probability": 0.44170926893984974,
+          "observed_fraction": 0.5564516129032258,
+          "rows": 124,
+          "upper": 0.5,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.5,
+          "mean_probability": 0.5425064410148492,
+          "observed_fraction": 0.4666666666666667,
+          "rows": 45,
+          "upper": 0.6,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.6,
+          "mean_probability": 0.6473076727328667,
+          "observed_fraction": 0.6857142857142857,
+          "rows": 35,
+          "upper": 0.7,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.7,
+          "mean_probability": 0.7519743209159558,
+          "observed_fraction": 0.5384615384615384,
+          "rows": 13,
+          "upper": 0.8,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.8,
+          "mean_probability": 0.8379123180772252,
+          "observed_fraction": 0.42857142857142855,
+          "rows": 28,
+          "upper": 0.9,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.9,
+          "mean_probability": 0.9660569493411789,
+          "observed_fraction": 0.7674418604651163,
+          "rows": 43,
+          "upper": 1.0,
+          "upper_inclusive": true
+        }
+      ],
+      "roc_auc": 0.7569746323529412,
+      "rows": 8000,
+      "sparse": false,
+      "threshold_0.5": {
+        "fn": 1103,
+        "fp": 67,
+        "tn": 6733,
+        "tp": 97
+      },
+      "top_budgets": {
+        "0.05": {
+          "boundary_probability": 0.36523267585030694,
+          "capture": 0.18166666666666667,
+          "effective_fraction": 0.05,
+          "fn": 982,
+          "fp": 182,
+          "lift": 3.6333333333333337,
+          "selected": 400,
+          "tn": 6618,
+          "tp": 218
+        },
+        "0.1": {
+          "boundary_probability": 0.29465650077643174,
+          "capture": 0.305,
+          "effective_fraction": 0.1,
+          "fn": 834,
+          "fp": 434,
+          "lift": 3.0500000000000003,
+          "selected": 800,
+          "tn": 6366,
+          "tp": 366
+        }
+      }
+    },
+    "tabpfn_3_5_plus": {
+      "ap_unavailable_reason": null,
+      "average_precision": 0.6624560165579673,
+      "brier_score": 0.08078648454824253,
+      "ece_10_bins": 0.010842892802495042,
+      "log_loss": 0.2693678323640908,
+      "negatives": 6800,
+      "positives": 1200,
+      "prevalence": 0.15,
+      "reliability": [
+        {
+          "lower": 0.0,
+          "mean_probability": 0.03293126401595893,
+          "observed_fraction": 0.030127693535514765,
+          "rows": 5012,
+          "upper": 0.1,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.1,
+          "mean_probability": 0.14594246197651028,
+          "observed_fraction": 0.14559721011333915,
+          "rows": 1147,
+          "upper": 0.2,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.2,
+          "mean_probability": 0.24560438623202258,
+          "observed_fraction": 0.23103448275862068,
+          "rows": 580,
+          "upper": 0.3,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.3,
+          "mean_probability": 0.3509216489671152,
+          "observed_fraction": 0.389873417721519,
+          "rows": 395,
+          "upper": 0.4,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.4,
+          "mean_probability": 0.44973499794718635,
+          "observed_fraction": 0.46887966804979253,
+          "rows": 241,
+          "upper": 0.5,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.5,
+          "mean_probability": 0.5475949554020548,
+          "observed_fraction": 0.6502463054187192,
+          "rows": 203,
+          "upper": 0.6,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.6,
+          "mean_probability": 0.6484712506785537,
+          "observed_fraction": 0.7196969696969697,
+          "rows": 132,
+          "upper": 0.7,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.7,
+          "mean_probability": 0.7472621494973147,
+          "observed_fraction": 0.7407407407407407,
+          "rows": 108,
+          "upper": 0.8,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.8,
+          "mean_probability": 0.8523514663052355,
+          "observed_fraction": 0.9316239316239316,
+          "rows": 117,
+          "upper": 0.9,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.9,
+          "mean_probability": 0.9442142220643851,
+          "observed_fraction": 1.0,
+          "rows": 65,
+          "upper": 1.0,
+          "upper_inclusive": true
+        }
+      ],
+      "roc_auc": 0.8876912990196077,
+      "rows": 8000,
+      "sparse": false,
+      "threshold_0.5": {
+        "fn": 719,
+        "fp": 144,
+        "tn": 6656,
+        "tp": 481
+      },
+      "top_budgets": {
+        "0.05": {
+          "boundary_probability": 0.6174523234367371,
+          "capture": 0.2783333333333333,
+          "effective_fraction": 0.05,
+          "fn": 866,
+          "fp": 66,
+          "lift": 5.566666666666666,
+          "selected": 400,
+          "tn": 6734,
+          "tp": 334
+        },
+        "0.1": {
+          "boundary_probability": 0.4324412941932678,
+          "capture": 0.4708333333333333,
+          "effective_fraction": 0.1,
+          "fn": 635,
+          "fp": 235,
+          "lift": 4.708333333333334,
+          "selected": 800,
+          "tn": 6565,
+          "tp": 565
+        }
+      }
+    },
+    "xgboost": {
+      "ap_unavailable_reason": null,
+      "average_precision": 0.5980555346473146,
+      "brier_score": 0.09076868962062391,
+      "ece_10_bins": 0.03332607417885446,
+      "log_loss": 0.301892260695675,
+      "negatives": 6800,
+      "positives": 1200,
+      "prevalence": 0.15,
+      "reliability": [
+        {
+          "lower": 0.0,
+          "mean_probability": 0.050336520052771394,
+          "observed_fraction": 0.02984729291994447,
+          "rows": 4322,
+          "upper": 0.1,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.1,
+          "mean_probability": 0.1425190163784448,
+          "observed_fraction": 0.1299342105263158,
+          "rows": 1824,
+          "upper": 0.2,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.2,
+          "mean_probability": 0.2436846270342499,
+          "observed_fraction": 0.275820170109356,
+          "rows": 823,
+          "upper": 0.3,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.3,
+          "mean_probability": 0.343821271401521,
+          "observed_fraction": 0.3890160183066362,
+          "rows": 437,
+          "upper": 0.4,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.4,
+          "mean_probability": 0.44610131739683756,
+          "observed_fraction": 0.6505576208178439,
+          "rows": 269,
+          "upper": 0.5,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.5,
+          "mean_probability": 0.5463133709154268,
+          "observed_fraction": 0.717391304347826,
+          "rows": 138,
+          "upper": 0.6,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.6,
+          "mean_probability": 0.6535622483552105,
+          "observed_fraction": 0.8484848484848485,
+          "rows": 99,
+          "upper": 0.7,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.7,
+          "mean_probability": 0.7460177233990501,
+          "observed_fraction": 0.8970588235294118,
+          "rows": 68,
+          "upper": 0.8,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.8,
+          "mean_probability": 0.8413723389307658,
+          "observed_fraction": 0.8666666666666667,
+          "rows": 15,
+          "upper": 0.9,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.9,
+          "mean_probability": 0.9306472063064575,
+          "observed_fraction": 1.0,
+          "rows": 5,
+          "upper": 1.0,
+          "upper_inclusive": true
+        }
+      ],
+      "roc_auc": 0.8622314950980392,
+      "rows": 8000,
+      "sparse": false,
+      "threshold_0.5": {
+        "fn": 938,
+        "fp": 63,
+        "tn": 6737,
+        "tp": 262
+      },
+      "top_budgets": {
+        "0.05": {
+          "boundary_probability": 0.46875184774398804,
+          "capture": 0.2608333333333333,
+          "effective_fraction": 0.05,
+          "fn": 887,
+          "fp": 87,
+          "lift": 5.216666666666667,
+          "selected": 400,
+          "tn": 6713,
+          "tp": 313
+        },
+        "0.1": {
+          "boundary_probability": 0.3456542491912842,
+          "capture": 0.44083333333333335,
+          "effective_fraction": 0.1,
+          "fn": 671,
+          "fp": 271,
+          "lift": 4.408333333333333,
+          "selected": 800,
+          "tn": 6529,
+          "tp": 529
+        }
+      }
+    }
+  },
+  "model_identity": {
+    "policy": "plus-checkpoint-20260909-v1",
+    "reported_model_path": "/app/tabpfn_models/tabpfn-v3.5-20260909.safetensors",
+    "requested_alias": "v3.5_default",
+    "scope": "server-reported identity; checkpoint bytes not independently attested"
+  },
+  "partition": "validation",
+  "positives": 1200,
+  "predictions_sha256": "444b8a9143fdd9e73c99fc3eb32f72a1f207a29fbb10ca478a47197bcbc92508",
+  "source_sha256": {
+    "hosted_manifest": "46987bfa6761a2df0e9c77ee6ebf12e023102623d47d9cd291a18082d4c285c9",
+    "hosted_response": "e43d795bb308ac78b52f2658ccfa3432c154eb3d04a2011f6b23998186caa2b5",
+    "local_manifest": "d35edaf4019e783c58ed64f718c9055a3cd8085e20ad4bd4982d380833910d98",
+    "prepared_manifest": "a0b3f2799579f65dff6a5ef37a1534d0f613230580f22a02ba18d0e694e879b3"
+  },
+  "status": "verified",
+  "train_rows": 24000,
+  "validation_rows": 8000,
+  "verification_api_calls": 0,
+  "verification_script_sha256": "b966cefdb23ad517b5b1b89715b7bdd7c73d75febca9a7261e99cf9d4879222c"
+}

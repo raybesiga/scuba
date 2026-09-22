@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "classification": "synthetic",
+  "source": "artifacts/m4-complete-report",
+  "source_manifest_sha256": "48d7ba0ef7bc6e5119a323f75a5638c7e621be68bcb867d3f3fd91694194f93e",
+  "validation_run": "artifacts/m4-validation-seed-3501",
+  "files": {
+    "artifacts/m4-complete-report/index.html": "33af5a7d90adfd4a606fe9fc513a0389e5f1a269620131c0c3d7931286272360",
+    "artifacts/m4-complete-report/manifest.json": "48d7ba0ef7bc6e5119a323f75a5638c7e621be68bcb867d3f3fd91694194f93e",
+    "artifacts/m4-complete-report/report.json": "5e72969ce33c9adf9a1dcb13f140423ca4f0562805428bf8134b9f8ab7a69ad4",
+    "artifacts/m4-final-random_reference-3501/evaluation.json": "ef83706ef705a9b42893513ddea8016d8787b85c3c39a27e0b87577d35e4291d",
+    "artifacts/m4-final-random_reference-3501/manifest.json": "318f5902ca95f342291e2ecc8b4fb3af8a2fddbf85d2ade8c3eeccb14a920ac8",
+    "artifacts/m4-final-random_reference-3502/evaluation.json": "7fb5df9a88373bfe6771c97e2b08833c6b8890bb1dfaa8f3e2e3ba20dda7211d",
+    "artifacts/m4-final-random_reference-3502/manifest.json": "1cc409043010b4d1dc5490822b57dcbe415b890b588b113ee71335828c4f4c17",
+    "artifacts/m4-final-random_reference-3503/evaluation.json": "a290d2a538dd9988391f872887df60185ed4ebd1535dd6a23924df67bbd2fdbd",
+    "artifacts/m4-final-random_reference-3503/manifest.json": "8946acb0560c2d9acc0b76d820f9a5a283b6bf06e79bcf814512dc66e5ba76ae",
+    "artifacts/m4-final-temporal-3501/evaluation.json": "13c5cbb45f18a588bd160da87846c07059df428baa7dffca0dc7fa9dc0731752",
+    "artifacts/m4-final-temporal-3501/manifest.json": "60eedc87e27e983634473b4125de657483e0986229a586230c98bbc45cd0a5bb",
+    "artifacts/m4-final-temporal-3502/evaluation.json": "c7c185799fa59f5ea94611c4d85f7fd74529ed5aba6b512323dcfd2a974d317c",
+    "artifacts/m4-final-temporal-3502/manifest.json": "4d68ddf0da051f248e56f49b65fccbbed4657cbee697a2db4bff7858e504e43d",
+    "artifacts/m4-final-temporal-3503/evaluation.json": "b96d9726b82c19186142b258eb5cff48927dbc48a1ea238fdc0d4998bec63b47",
+    "artifacts/m4-final-temporal-3503/manifest.json": "39145ff931a2a9ba99752b41824fe10455c8884420d0b0d217b79a57a1a9b744",
+    "artifacts/m4-hosted-final-comparison/evaluation.json": "6de3e9277232f0ac272256525b28cba30d11159cfe50e38d89ce000e65051cf1",
+    "artifacts/m4-hosted-final-comparison/manifest.json": "42e282f57cc94f65c0686a53141f4e399307088336ac3665e9c567f4da21ad39",
+    "artifacts/m4-validation-seed-3501/evaluation.json": "6ddcf68842b1abaf49b1407fba942bc0288ac34b7d26f285880af10ce32f65e1",
+    "artifacts/m4-validation-seed-3501/manifest.json": "cb209b77d12e9a75321a4e41e3f9c43832a7f815af1b57825c93745db781b841"
+  }
+}

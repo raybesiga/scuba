@@ -1,0 +1,172 @@
+{
+  "checks": {
+    "class_order": true,
+    "columns": false,
+    "fit_mode": true,
+    "model_path": true,
+    "n_estimators": true,
+    "package_version": true,
+    "probabilities": true,
+    "random_state": true,
+    "rows": true,
+    "task": true
+  },
+  "classification": "external_challenge_data_origin_unverified",
+  "configuration_container_type": "dict",
+  "configuration_fields_present": {
+    "fit_mode": true,
+    "model_path": true,
+    "n_estimators": true,
+    "random_state": true
+  },
+  "documentation_review": {
+    "finding": "test_set_num_cols is declared as an integer without raw-versus-transformed semantics.",
+    "finding_preprocessing": "Preprocessing may expand features; documentation does not establish why this response reports two extra columns.",
+    "openapi_url": "https://docs.priorlabs.ai/api-reference/openapi.json",
+    "preprocessing_url": "https://docs.priorlabs.ai/improving-performance/preprocessing",
+    "read_only_upload_summary": "Official SDK get_data_summary returned an empty datasets_summary; no resource dimensions were available."
+  },
+  "local_status": "unverified_column_count_mismatch",
+  "maximum_probability_sum_error": 7.450580596923828e-08,
+  "metadata_container_type": "dict",
+  "metadata_fields_present": {
+    "package_version": true,
+    "task": true,
+    "test_set_num_cols": true,
+    "test_set_num_rows": true
+  },
+  "plan_sha256": "f6ce910eb00861246f85d19782d08d3f59eb62328dc9b12a21f4d4a09b011a26",
+  "prediction_partition": "test",
+  "probability_columns": 2,
+  "probability_rows": 30000,
+  "reported_columns": 184,
+  "reported_configuration": {
+    "fit_mode": {
+      "original_length": 17,
+      "present": true,
+      "status": "retained",
+      "transformations": [],
+      "type": "str",
+      "value": "fit_preprocessors"
+    },
+    "model_path": {
+      "original_length": 51,
+      "present": true,
+      "status": "retained",
+      "transformations": [],
+      "type": "str",
+      "value": "/app/tabpfn_models/tabpfn-v3.5-20260909.safetensors"
+    },
+    "n_estimators": {
+      "present": true,
+      "status": "retained",
+      "transformations": [],
+      "type": "int",
+      "value": 8
+    },
+    "random_state": {
+      "present": true,
+      "status": "retained",
+      "transformations": [],
+      "type": "int",
+      "value": 3501
+    }
+  },
+  "reported_metadata": {
+    "billing_model_version": {
+      "original_length": 4,
+      "present": true,
+      "status": "retained",
+      "transformations": [],
+      "type": "str",
+      "value": "v3.5"
+    },
+    "cache_outcome": {
+      "original_length": 13,
+      "present": true,
+      "status": "retained",
+      "transformations": [],
+      "type": "str",
+      "value": "not_requested"
+    },
+    "classes": {
+      "original_length": 2,
+      "present": true,
+      "status": "retained",
+      "transformations": [],
+      "type": "list",
+      "value": [
+        {
+          "present": true,
+          "status": "retained",
+          "transformations": [],
+          "type": "int",
+          "value": 0
+        },
+        {
+          "present": true,
+          "status": "retained",
+          "transformations": [],
+          "type": "int",
+          "value": 1
+        }
+      ]
+    },
+    "execution_mode": {
+      "original_length": 8,
+      "present": true,
+      "status": "retained",
+      "transformations": [],
+      "type": "str",
+      "value": "standard"
+    },
+    "package_version": {
+      "original_length": 5,
+      "present": true,
+      "status": "retained",
+      "transformations": [],
+      "type": "str",
+      "value": "9.0.0"
+    },
+    "task": {
+      "original_length": 14,
+      "present": true,
+      "status": "retained",
+      "transformations": [],
+      "type": "str",
+      "value": "classification"
+    },
+    "test_set_num_cols": {
+      "present": true,
+      "status": "retained",
+      "transformations": [],
+      "type": "int",
+      "value": 184
+    },
+    "test_set_num_rows": {
+      "present": true,
+      "status": "retained",
+      "transformations": [],
+      "type": "int",
+      "value": 30000
+    }
+  },
+  "reported_model_identity": {
+    "original_length": 51,
+    "present": true,
+    "status": "retained",
+    "transformations": [],
+    "type": "str",
+    "value": "/app/tabpfn_models/tabpfn-v3.5-20260909.safetensors"
+  },
+  "requested_configuration": {
+    "fit_mode": "fit_preprocessors",
+    "model_path": "v3.5_default",
+    "n_estimators": 8,
+    "random_state": 3501
+  },
+  "requested_variant": "plus",
+  "saved_response_sha256": "43492c3802000c4aece98223cf8c4296a4fad7b7a283b65695051692224d817f",
+  "status": "unverified_response",
+  "uploaded_columns": 182
+}

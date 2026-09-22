@@ -1,0 +1,72 @@
+{
+  "category_audit": {
+    "earning_pattern": {
+      "full_category_set_matches_subset": true,
+      "full_distinct": 3,
+      "subset_distinct": 3,
+      "test_category_set_matches_train": true,
+      "test_distinct": 3
+    },
+    "gender": {
+      "full_category_set_matches_subset": true,
+      "full_distinct": 2,
+      "subset_distinct": 2,
+      "test_category_set_matches_train": true,
+      "test_distinct": 2
+    },
+    "region": {
+      "full_category_set_matches_subset": true,
+      "full_distinct": 7,
+      "subset_distinct": 7,
+      "test_category_set_matches_train": true,
+      "test_distinct": 7
+    },
+    "segment": {
+      "full_category_set_matches_subset": true,
+      "full_distinct": 3,
+      "subset_distinct": 3,
+      "test_category_set_matches_train": true,
+      "test_distinct": 3
+    },
+    "smartphone": {
+      "full_category_set_matches_subset": true,
+      "full_distinct": 2,
+      "subset_distinct": 2,
+      "test_category_set_matches_train": true,
+      "test_distinct": 2
+    }
+  },
+  "fit_status": {
+    "fitted_train_set_id": "01a0c8a8-0389-75a0-be50-e22621f0af37",
+    "status": "completed",
+    "timings": {
+      "elapsed_s": 11.35,
+      "fit_s": 0.0,
+      "queue_wait_s": 0.277,
+      "train_set_transform_s": 11.073
+    }
+  },
+  "issue_search": {
+    "exact_field_matches": 0,
+    "repository": "PriorLabs/tabpfn-client"
+  },
+  "low_cardinality_boundary_changes": [],
+  "new_fit_requests": 0,
+  "new_prediction_requests": 0,
+  "question_status": "draft_not_sent",
+  "rows_uploaded": 0,
+  "sdk_current_source": {
+    "finding": "test_set_num_cols is int without semantic description; client passes server metadata through",
+    "sha256": "af87acb367e2041bb3daea4bb3c394ea645f59bd6257151ec25a8c461f57189c",
+    "url": "https://github.com/PriorLabs/tabpfn-client/blob/main/src/tabpfn_client/api_models.py"
+  },
+  "status": "column_count_unresolved",
+  "training_constant_feature_counts": {
+    "full": 0,
+    "subset": 0
+  },
+  "training_missing_feature_counts": {
+    "full": 0,
+    "subset": 0
+  }
+}

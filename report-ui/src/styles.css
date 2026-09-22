@@ -1,0 +1,352 @@
+body {
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+.app-shell {
+  min-height: 100vh;
+  background: var(--color-background);
+}
+.topbar {
+  min-height: 88px;
+  border-bottom: 1px solid var(--gray-5);
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--accent-9);
+  color: var(--accent-contrast);
+  font-weight: 800;
+}
+.table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  margin-bottom: 12px;
+  border-radius: 0;
+}
+.table-scroll:focus-visible {
+  outline: 2px solid var(--accent-8);
+  outline-offset: 3px;
+}
+.table-scroll table {
+  min-width: 700px;
+  font-variant-numeric: tabular-nums;
+}
+.table-scroll th,
+.table-scroll td {
+  white-space: nowrap;
+}
+.table-scroll tbody tr:hover {
+  background: var(--accent-a2);
+}
+.tabs-scroll {
+  overflow-x: auto;
+}
+.tabs-scroll [role="tablist"] {
+  min-width: 530px;
+}
+.chart {
+  max-width: 760px;
+  padding: 24px;
+  background: var(--gray-2);
+  border: 1px solid var(--gray-5);
+  border-radius: 0;
+}
+.chart svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+.chart svg text {
+  font: 12px system-ui;
+  fill: var(--gray-11);
+}
+.axis {
+  stroke: var(--gray-8);
+  fill: none;
+}
+.diagonal {
+  stroke: var(--gray-8);
+  stroke-dasharray: 4 6;
+  fill: none;
+}
+.hosted_plus {
+  --series: var(--violet-11);
+}
+.catboost {
+  --series: var(--plum-11);
+}
+.xgboost {
+  --series: var(--teal-11);
+}
+.logistic_regression {
+  --series: var(--amber-11);
+}
+.constant_prior {
+  --series: var(--gray-10);
+}
+.series {
+  stroke: var(--series);
+  fill: var(--series);
+}
+.model-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--series);
+  flex-shrink: 0;
+}
+.source-json {
+  max-height: 320px;
+  overflow: auto;
+  padding: 20px;
+  background: var(--gray-2);
+  border: 1px solid var(--gray-5);
+  border-radius: 0;
+  font:
+    12px/1.6 ui-monospace,
+    monospace;
+}
+.break-word {
+  overflow-wrap: anywhere;
+}
+[role="tabpanel"] {
+  outline: none;
+}
+@media (max-width: 519px) {
+  .chart {
+    padding: 12px;
+  }
+  .topbar {
+    padding: 16px 0;
+  }
+  .table-scroll table {
+    font-size: 13px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Dashboard modules group a comparison, a fixed review decision, or an audit. */
+.topbar {
+  min-height: 72px;
+}
+.dashboard-heading {
+  padding: 32px 0 28px;
+}
+.dashboard-heading h1 {
+  letter-spacing: -1px;
+  font-weight: 600;
+}
+.workspace-status {
+  text-align: right;
+}
+.workspace-status svg {
+  vertical-align: -2px;
+  margin-right: 4px;
+  color: var(--accent-11);
+}
+.eyebrow {
+  font-size: 10px !important;
+  font-weight: 650;
+  letter-spacing: 1.5px;
+  color: var(--gray-11);
+}
+.dashboard-facts {
+  margin-bottom: 4px;
+}
+.fact {
+  padding: 22px 24px;
+  border: 1px solid var(--gray-5);
+  border-radius: 0;
+  background: var(--color-background);
+}
+.fact svg {
+  color: var(--accent-11);
+}
+.fact h2 {
+  font-variant-numeric: tabular-nums;
+  font-weight: 550;
+  letter-spacing: -1px;
+}
+.dashboard-module {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--gray-5);
+  border-radius: 0;
+  background: var(--color-background);
+}
+.dashboard-module h2 {
+  font-weight: 600;
+  letter-spacing: -0.4px;
+}
+.ap-row {
+  padding: 10px 0;
+}
+.ap-row svg {
+  display: block;
+  width: 100%;
+  height: 24px;
+}
+.plot-axis {
+  border-top: 1px solid var(--gray-5);
+  padding-top: 8px;
+  margin-top: 10px;
+}
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+.comparison-conclusion {
+  padding: 14px 16px;
+  border-radius: 0;
+  background: var(--accent-a2);
+}
+.comparison-conclusion svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--accent-11);
+}
+.budget-highlight {
+  padding: 12px 0;
+}
+.budget-highlight h2 {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1px;
+  font-weight: 500;
+  color: var(--accent-11);
+}
+.capture-track,
+.cohort-track {
+  height: 5px;
+  background: var(--gray-4);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.capture-track > div,
+.cohort-track > div {
+  height: 100%;
+  border-radius: 4px;
+}
+.cohort-track > div {
+  background: var(--accent-8);
+}
+.cohort-step {
+  min-width: 0;
+}
+.evidence-ribbon {
+  padding: 20px 24px;
+  border: 1px solid var(--gray-5);
+  border-radius: 0;
+  background: var(--gray-2);
+}
+.evidence-ribbon svg {
+  flex-shrink: 0;
+  color: var(--accent-11);
+}
+.tabs-scroll [role="tablist"] {
+  min-width: 620px;
+}
+.dark .dashboard-module,
+.dark .fact {
+  background: var(--gray-2);
+}
+@media (max-width: 519px) {
+  .dashboard-heading {
+    padding: 24px 0;
+  }
+  .workspace-status {
+    text-align: left;
+  }
+  .dashboard-module {
+    padding: 20px;
+  }
+  .fact {
+    padding: 18px 20px;
+  }
+  .evidence-ribbon {
+    padding: 20px;
+  }
+  .eyebrow {
+    letter-spacing: 1px;
+  }
+}
+
+/* Square corners apply to the Radix table surface and its overflow wrapper. */
+.table-scroll {
+  border-radius: 0;
+  --radius-1: 0px;
+  --radius-2: 0px;
+  --radius-3: 0px;
+  --radius-4: 0px;
+  --radius-5: 0px;
+  --radius-6: 0px;
+  --radius-full: 0px;
+  --radius-thumb: 0px;
+}
+.table-scroll .rt-TableRoot,
+.table-scroll .rt-TableRootTable {
+  border-radius: 0 !important;
+}
+.table-sort-button {
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.table-sort-button svg {
+  flex-shrink: 0;
+  color: var(--gray-10);
+}
+th[aria-sort="ascending"] .table-sort-button svg,
+th[aria-sort="descending"] .table-sort-button svg {
+  color: var(--accent-11);
+}
+.review-module {
+  padding: 24px;
+}
+.review-table table {
+  min-width: 560px;
+}
+.review-table [data-selected="true"] {
+  background: var(--accent-a2);
+}
+.month-bars {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  margin: 24px 0;
+  font-variant-numeric: tabular-nums;
+}
+.month-bar-space {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.month-bar-space > div {
+  width: 100%;
+  min-height: 1px;
+  background: var(--accent-8);
+  border-radius: 2px 2px 0 0;
+}
+.snapshot-breakdown {
+  margin-top: 24px;
+  font-size: 14px;
+}
+.snapshot-breakdown summary {
+  cursor: pointer;
+  color: var(--accent-11);
+  margin-bottom: 12px;
+}
+.snapshot-detail .table-scroll table {
+  min-width: 620px;
+}

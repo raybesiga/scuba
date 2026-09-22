@@ -1,0 +1,338 @@
+{
+  "evidence": "offline_source_contract_snapshot",
+  "reviewed_on": "2026-09-21",
+  "sources": {
+    "rest": {
+      "url": "https://docs.priorlabs.ai/api-reference/openapi.json",
+      "snapshot_date": "2026-09-20",
+      "sha256": "7051f7bce85dfbee02855fd0c6c792f6b595e7172e04fbd6741d634940860a1e"
+    },
+    "sdk": {
+      "version": "0.6.0",
+      "url": "https://pypi.org/project/tabpfn-client/0.6.0/",
+      "wheel_sha256": "6f38bb7778aeadcc9a551d3c39667b794a8a1798e626ead0c9d9d55beb03f381",
+      "api_models_sha256": "af87acb367e2041bb3daea4bb3c394ea645f59bd6257151ec25a8c461f57189c",
+      "client_sha256": "3d74c2629fc6a83d045c1a4158079b0bce70d02f018abaecd67842988e630206",
+      "serialization": "FitRequest/PredictRequest.model_dump(mode=\"json\", exclude_none=True); source inspection, SDK not executed"
+    }
+  },
+  "schemas": {
+    "rest": {
+      "FitRequest": {
+        "properties": [
+          "train_set_upload_id",
+          "task",
+          "tabpfn_systems",
+          "tabpfn_config",
+          "thinking_effort",
+          "thinking_timeout_s",
+          "thinking_effort_metric",
+          "force_refit"
+        ],
+        "required": [
+          "train_set_upload_id",
+          "task"
+        ]
+      },
+      "PredictRequest": {
+        "properties": [
+          "test_set_upload_id",
+          "fitted_train_set_id",
+          "task_config",
+          "force_refit"
+        ],
+        "required": [
+          "test_set_upload_id",
+          "fitted_train_set_id",
+          "task_config"
+        ]
+      },
+      "ClassifierConfig": {
+        "properties": [
+          "task",
+          "tabpfn_config",
+          "predict_params"
+        ],
+        "required": []
+      },
+      "ClassifierTabPFNConfig": {
+        "properties": [
+          "n_estimators",
+          "categorical_features_indices",
+          "softmax_temperature",
+          "average_before_softmax",
+          "random_state",
+          "inference_config",
+          "ignore_pretraining_limits",
+          "n_preprocessing_jobs",
+          "inference_precision",
+          "fit_mode",
+          "device",
+          "memory_saving_mode",
+          "model_path",
+          "balance_probabilities"
+        ],
+        "required": []
+      },
+      "ClassifierMetadata": {
+        "properties": [
+          "test_set_num_rows",
+          "test_set_num_cols",
+          "task",
+          "package_version",
+          "tabpfn_config"
+        ],
+        "required": [
+          "test_set_num_rows",
+          "test_set_num_cols",
+          "package_version",
+          "tabpfn_config"
+        ]
+      }
+    },
+    "sdk": {
+      "FitRequest": {
+        "properties": [
+          "task_config",
+          "tabpfn_systems",
+          "thinking_config",
+          "train_set_upload_id"
+        ],
+        "required": [
+          "task_config",
+          "train_set_upload_id"
+        ]
+      },
+      "PredictRequest": {
+        "properties": [
+          "test_set_upload_id",
+          "fitted_train_set_id",
+          "task_config"
+        ],
+        "required": [
+          "test_set_upload_id",
+          "fitted_train_set_id",
+          "task_config"
+        ]
+      },
+      "ClassifierConfig": {
+        "properties": [
+          "task",
+          "tabpfn_config",
+          "predict_params"
+        ],
+        "required": []
+      },
+      "ClassifierTabPFNConfig": {
+        "properties": [
+          "n_estimators",
+          "categorical_features_indices",
+          "softmax_temperature",
+          "average_before_softmax",
+          "random_state",
+          "inference_config",
+          "inference_precision",
+          "ignore_pretraining_limits",
+          "fit_mode",
+          "model_path",
+          "balance_probabilities"
+        ],
+        "required": []
+      },
+      "ClassifierMetadata": {
+        "properties": [
+          "test_set_num_rows",
+          "test_set_num_cols",
+          "n_estimators",
+          "billing_model_version",
+          "execution_mode",
+          "cache_outcome",
+          "task",
+          "package_version",
+          "tabpfn_config",
+          "classes"
+        ],
+        "required": [
+          "test_set_num_rows",
+          "test_set_num_cols",
+          "package_version",
+          "tabpfn_config"
+        ]
+      },
+      "ClassifierFitTaskConfig": {
+        "properties": [
+          "task",
+          "tabpfn_config"
+        ],
+        "required": []
+      },
+      "ThinkingConfig": {
+        "properties": [
+          "effort",
+          "timeout_secs",
+          "metric",
+          "group_col",
+          "time_col",
+          "group_time_col"
+        ],
+        "required": []
+      }
+    }
+  },
+  "requests": {
+    "plus": {
+      "rest_fit": {
+        "train_set_upload_id": "00000000-0000-4000-8000-000000000001",
+        "task": "classification",
+        "tabpfn_config": {
+          "model_path": "v3.5_default",
+          "n_estimators": 8,
+          "random_state": 3501,
+          "fit_mode": "fit_preprocessors"
+        },
+        "tabpfn_systems": [
+          "preprocessing",
+          "text"
+        ]
+      },
+      "sdk_fit": {
+        "train_set_upload_id": "00000000-0000-4000-8000-000000000001",
+        "task_config": {
+          "task": "classification",
+          "tabpfn_config": {
+            "model_path": "v3.5_default",
+            "n_estimators": 8,
+            "random_state": 3501,
+            "fit_mode": "fit_preprocessors"
+          }
+        },
+        "tabpfn_systems": [
+          "preprocessing",
+          "text"
+        ]
+      },
+      "rest_and_sdk_predict": {
+        "fitted_train_set_id": "00000000-0000-4000-8000-000000000002",
+        "test_set_upload_id": "00000000-0000-4000-8000-000000000003",
+        "task_config": {
+          "task": "classification",
+          "tabpfn_config": {
+            "model_path": "v3.5_default",
+            "n_estimators": 8,
+            "random_state": 3501,
+            "fit_mode": "fit_preprocessors"
+          },
+          "predict_params": {
+            "output_type": "probas"
+          }
+        }
+      }
+    },
+    "fast": {
+      "rest_fit": {
+        "train_set_upload_id": "00000000-0000-4000-8000-000000000001",
+        "task": "classification",
+        "tabpfn_config": {
+          "model_path": "v3.5-fast_default",
+          "n_estimators": 8,
+          "random_state": 3501,
+          "fit_mode": "fit_preprocessors"
+        },
+        "tabpfn_systems": [
+          "preprocessing",
+          "text"
+        ]
+      },
+      "sdk_fit": {
+        "train_set_upload_id": "00000000-0000-4000-8000-000000000001",
+        "task_config": {
+          "task": "classification",
+          "tabpfn_config": {
+            "model_path": "v3.5-fast_default",
+            "n_estimators": 8,
+            "random_state": 3501,
+            "fit_mode": "fit_preprocessors"
+          }
+        },
+        "tabpfn_systems": [
+          "preprocessing",
+          "text"
+        ]
+      },
+      "rest_and_sdk_predict": {
+        "fitted_train_set_id": "00000000-0000-4000-8000-000000000002",
+        "test_set_upload_id": "00000000-0000-4000-8000-000000000003",
+        "task_config": {
+          "task": "classification",
+          "tabpfn_config": {
+            "model_path": "v3.5-fast_default",
+            "n_estimators": 8,
+            "random_state": 3501,
+            "fit_mode": "fit_preprocessors"
+          },
+          "predict_params": {
+            "output_type": "probas"
+          }
+        }
+      }
+    },
+    "thinking": {
+      "rest_fit": {
+        "train_set_upload_id": "00000000-0000-4000-8000-000000000001",
+        "task": "classification",
+        "tabpfn_config": {
+          "model_path": "v3.5_default",
+          "n_estimators": 8,
+          "random_state": 3501,
+          "fit_mode": "fit_preprocessors"
+        },
+        "tabpfn_systems": [
+          "preprocessing",
+          "text",
+          "thinking"
+        ],
+        "thinking_effort": "medium",
+        "thinking_timeout_s": 300,
+        "thinking_effort_metric": "log_loss"
+      },
+      "sdk_fit": {
+        "train_set_upload_id": "00000000-0000-4000-8000-000000000001",
+        "task_config": {
+          "task": "classification",
+          "tabpfn_config": {
+            "model_path": "v3.5_default",
+            "n_estimators": 8,
+            "random_state": 3501,
+            "fit_mode": "fit_preprocessors"
+          }
+        },
+        "tabpfn_systems": [
+          "preprocessing",
+          "text",
+          "thinking"
+        ],
+        "thinking_config": {
+          "effort": "medium",
+          "timeout_secs": 300.0,
+          "metric": "log_loss"
+        }
+      },
+      "rest_and_sdk_predict": {
+        "fitted_train_set_id": "00000000-0000-4000-8000-000000000002",
+        "test_set_upload_id": "00000000-0000-4000-8000-000000000003",
+        "task_config": {
+          "task": "classification",
+          "tabpfn_config": {
+            "model_path": "v3.5_default",
+            "n_estimators": 8,
+            "random_state": 3501,
+            "fit_mode": "fit_preprocessors"
+          },
+          "predict_params": {
+            "output_type": "probas"
+          }
+        }
+      }
+    }
+  }
+}

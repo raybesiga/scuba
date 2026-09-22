@@ -1,0 +1,36 @@
+{
+  "archive_manifest_sha256": "93cfe97d8b15b36ed81d26a7fb22f7ccde206de734bc5ae6cc88f68413f116ba",
+  "classification": "external_challenge_data_origin_unverified",
+  "data_sources": {
+    "ablation": "3e884d488f5df392b559188d666940a90e42a48437bd73f513cbc0be4d36e383",
+    "final_evaluation": "5f939a58c28f2f0ac67c076d54909cae527219175e1dec20f22c956dce045b79",
+    "hosted": "46987bfa6761a2df0e9c77ee6ebf12e023102623d47d9cd291a18082d4c285c9",
+    "local": "d35edaf4019e783c58ed64f718c9055a3cd8085e20ad4bd4982d380833910d98",
+    "prepared": "a0b3f2799579f65dff6a5ef37a1534d0f613230580f22a02ba18d0e694e879b3"
+  },
+  "evidence_sha256": "86a8650ff501123cc2b56da88006dd3ad94c16942825be4d281a2958f6ffa4b4",
+  "export_source_sha256": "fd7c4fe6ec16b0711201949b7c896896d1e27c6ad92d01546d0ef0898b35950e",
+  "html_sha256": "ff34863cfa3e0e73cd825557bbf51bd8229e169a55081d31c3be464a6c80e34d",
+  "network_requests_in_build": 0,
+  "presentation": "Radix Themes",
+  "review_exports_sha256": {
+    "review-400.csv": "126aeda6651c74774ec0aba97419ecda36a9dd64700473e019d39b84c72358e4",
+    "review-800.csv": "f4cc1b288b70cf6cdab8348676ae04ea453e831c0fb2870adfd59c1de1927425"
+  },
+  "source_manifest_sha256": "a0b3f2799579f65dff6a5ef37a1534d0f613230580f22a02ba18d0e694e879b3",
+  "status": "complete",
+  "ui_lock_sha256": "62b128829ea36ae12c10e7918633125ed2b51f0d319ddcbffbf26b5ebcc76b01",
+  "ui_source_sha256": {
+    "build.mjs": "98fb8e345d1051be64d3a2ab03ee76c7f09dbeb1202a80925678abe6ac650cb5",
+    "src/App.tsx": "4b15e74559993d4e52334f3de4eaf8c1c96ed120623a4df66cd78304d0090826",
+    "src/Dashboard.tsx": "7cf06f20696c1e3cf06f0d24aa3723d30dce876d732c3c1c184fd56e200c8518",
+    "src/FinancialStress.tsx": "ee78e837ecb61941caf5e32b687df383cf015dc25015b1d275d1e5defaebfa48",
+    "src/main.tsx": "b561a698e636c81dd5fa3fa90fa57ebea6cd15bbc47a3a8f7ebaa2d505a560bf",
+    "src/palette.css": "bf89bacccffe012c4732c7d9ff8d50b11b6a970156392de774351d3289c388bc",
+    "src/sorting.ts": "aef2ecda72c57ed3451a756592dc3229d88d30f5abea1a5b1333624520935b8c",
+    "src/stress.ts": "24844d735098a7b9aa0bcedd4c178ca130e49ed8e6a38f06b0fd54b3866e8d61",
+    "src/styles.css": "705fee69ac8511ab914b65570ec739b93a7a11d564a73ed4cb10b838b79c686c",
+    "src/styles.d.ts": "35d26ea66c86da9701e4f4b467913481ffeae910761cea34c775c5dacb7f8eaa",
+    "src/types.ts": "b4e96beee04f1f3c6c7f626bd4b170c7bed40d1f871383ab1068360535a03f4d"
+  }
+}

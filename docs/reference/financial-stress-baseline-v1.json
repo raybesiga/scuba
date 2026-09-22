@@ -1,0 +1,282 @@
+{
+  "evaluation_partition": "validation",
+  "final_evaluated": false,
+  "fit_seconds": 0.29860220800037496,
+  "hosted_calls": 0,
+  "metrics": {
+    "constant_prior": {
+      "ap_unavailable_reason": null,
+      "average_precision": 0.15,
+      "brier_score": 0.12749999999999997,
+      "ece_10_bins": 5.551115123125783e-17,
+      "log_loss": 0.422709087805991,
+      "negatives": 6800,
+      "positives": 1200,
+      "prevalence": 0.15,
+      "reliability": [
+        {
+          "lower": 0.0,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.1,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.1,
+          "mean_probability": 0.14999999999999994,
+          "observed_fraction": 0.15,
+          "rows": 8000,
+          "upper": 0.2,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.2,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.3,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.3,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.4,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.4,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.5,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.5,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.6,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.6,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.7,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.7,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.8,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.8,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.9,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.9,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 1.0,
+          "upper_inclusive": true
+        }
+      ],
+      "roc_auc": 0.5,
+      "rows": 8000,
+      "sparse": false,
+      "threshold_0.5": {
+        "fn": 1200,
+        "fp": 0,
+        "tn": 6800,
+        "tp": 0
+      },
+      "top_budgets": {
+        "0.05": {
+          "boundary_probability": 0.15,
+          "capture": 0.0575,
+          "effective_fraction": 0.05,
+          "fn": 1131,
+          "fp": 331,
+          "lift": 1.15,
+          "selected": 400,
+          "tn": 6469,
+          "tp": 69
+        },
+        "0.1": {
+          "boundary_probability": 0.15,
+          "capture": 0.11333333333333333,
+          "effective_fraction": 0.1,
+          "fn": 1064,
+          "fp": 664,
+          "lift": 1.1333333333333335,
+          "selected": 800,
+          "tn": 6136,
+          "tp": 136
+        }
+      }
+    },
+    "logistic_regression": {
+      "ap_unavailable_reason": null,
+      "average_precision": 0.39095448310797154,
+      "brier_score": 0.11165709957185475,
+      "ece_10_bins": 0.01882141834754047,
+      "log_loss": 0.37189725092836406,
+      "negatives": 6800,
+      "positives": 1200,
+      "prevalence": 0.15,
+      "reliability": [
+        {
+          "lower": 0.0,
+          "mean_probability": 0.05263391372880144,
+          "observed_fraction": 0.053953488372093024,
+          "rows": 3225,
+          "upper": 0.1,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.1,
+          "mean_probability": 0.14520241389037275,
+          "observed_fraction": 0.12379540400296515,
+          "rows": 2698,
+          "upper": 0.2,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.2,
+          "mean_probability": 0.24267371425592973,
+          "observed_fraction": 0.2558314522197141,
+          "rows": 1329,
+          "upper": 0.3,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.3,
+          "mean_probability": 0.3406299124469644,
+          "observed_fraction": 0.4043478260869565,
+          "rows": 460,
+          "upper": 0.4,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.4,
+          "mean_probability": 0.44170926893984974,
+          "observed_fraction": 0.5564516129032258,
+          "rows": 124,
+          "upper": 0.5,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.5,
+          "mean_probability": 0.5425064410148492,
+          "observed_fraction": 0.4666666666666667,
+          "rows": 45,
+          "upper": 0.6,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.6,
+          "mean_probability": 0.6473076727328667,
+          "observed_fraction": 0.6857142857142857,
+          "rows": 35,
+          "upper": 0.7,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.7,
+          "mean_probability": 0.7519743209159558,
+          "observed_fraction": 0.5384615384615384,
+          "rows": 13,
+          "upper": 0.8,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.8,
+          "mean_probability": 0.8379123180772252,
+          "observed_fraction": 0.42857142857142855,
+          "rows": 28,
+          "upper": 0.9,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.9,
+          "mean_probability": 0.9660569493411789,
+          "observed_fraction": 0.7674418604651163,
+          "rows": 43,
+          "upper": 1.0,
+          "upper_inclusive": true
+        }
+      ],
+      "roc_auc": 0.7569746323529412,
+      "rows": 8000,
+      "sparse": false,
+      "threshold_0.5": {
+        "fn": 1103,
+        "fp": 67,
+        "tn": 6733,
+        "tp": 97
+      },
+      "top_budgets": {
+        "0.05": {
+          "boundary_probability": 0.36523267585030694,
+          "capture": 0.18166666666666667,
+          "effective_fraction": 0.05,
+          "fn": 982,
+          "fp": 182,
+          "lift": 3.6333333333333337,
+          "selected": 400,
+          "tn": 6618,
+          "tp": 218
+        },
+        "0.1": {
+          "boundary_probability": 0.29465650077643174,
+          "capture": 0.305,
+          "effective_fraction": 0.1,
+          "fn": 834,
+          "fp": 434,
+          "lift": 3.0500000000000003,
+          "selected": 800,
+          "tn": 6366,
+          "tp": 366
+        }
+      }
+    }
+  },
+  "predict_seconds": 0.0118772920104675,
+  "predictions_sha256": "ff720a86d367bb85fb12286db97a67fc55848555e5b11239388ad7361ffcf544",
+  "prepared_manifest_sha256": "a0b3f2799579f65dff6a5ef37a1534d0f613230580f22a02ba18d0e694e879b3",
+  "runtime": {
+    "evaluation_sha256": "1c580299bd1e18ad6954f2ab34b9766f062be2b5eec7e76de8514dbba5899f08",
+    "module_sha256": "7dd2b5cb3710d18d5decdcd444a2005b3398596b3aa9fa9e6e3230b49d216592",
+    "packages": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "threadpoolctl": "3.7.0"
+    },
+    "python": "3.14.5"
+  },
+  "settings": {
+    "C": 1.0,
+    "class_weight": null,
+    "max_iter": 2000,
+    "preprocessing": "training-only median/scale and most-frequent/one-hot",
+    "seed": 3501,
+    "solver": "lbfgs",
+    "threads": 1
+  },
+  "version": "financial-stress/v1"
+}

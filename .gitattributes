@@ -1,0 +1,6 @@
+# Preserve exact third-party source bytes across platforms.
+datasets/nedbank/files/** -text
+datasets/nedbank/parts/** -text -diff
+# Avoid rendering customer identifiers in routine source diffs.
+datasets/nedbank/files/*.csv -diff
+datasets/financial-stress/files/** -text -diff

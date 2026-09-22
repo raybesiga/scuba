@@ -1,0 +1,653 @@
+{
+  "approved_estimated_tokens": 10000,
+  "classification": "external_challenge_data_origin_unverified",
+  "cohort_audit": [
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 33,
+          "selected": 43
+        },
+        "0.1": {
+          "captured": 67,
+          "selected": 95
+        }
+      },
+      "dimension": "region",
+      "group": "Central Zone",
+      "log_loss": 0.2785075793599495,
+      "mean_probability": 0.1418277241399335,
+      "positives": 150,
+      "prevalence": 0.15136226034308778,
+      "roc_auc": 0.8838604835513277,
+      "rows": 991,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 75,
+          "selected": 95
+        },
+        "0.1": {
+          "captured": 114,
+          "selected": 164
+        }
+      },
+      "dimension": "region",
+      "group": "Coastal & Eastern Corridor",
+      "log_loss": 0.25538753243757084,
+      "mean_probability": 0.14107715892429515,
+      "positives": 238,
+      "prevalence": 0.13423575860124085,
+      "roc_auc": 0.8808994607615033,
+      "rows": 1773,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 12,
+          "selected": 17
+        },
+        "0.1": {
+          "captured": 28,
+          "selected": 41
+        }
+      },
+      "dimension": "region",
+      "group": "Islander",
+      "log_loss": 0.3067412450483836,
+      "mean_probability": 0.14524515439798885,
+      "positives": 81,
+      "prevalence": 0.16135458167330677,
+      "roc_auc": 0.8727896542623383,
+      "rows": 502,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 42,
+          "selected": 55
+        },
+        "0.1": {
+          "captured": 70,
+          "selected": 108
+        }
+      },
+      "dimension": "region",
+      "group": "Lake Zone (Northwest)",
+      "log_loss": 0.26654654812725287,
+      "mean_probability": 0.14552545483663812,
+      "positives": 144,
+      "prevalence": 0.138328530259366,
+      "roc_auc": 0.879436083240431,
+      "rows": 1041,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 62,
+          "selected": 71
+        },
+        "0.1": {
+          "captured": 105,
+          "selected": 155
+        }
+      },
+      "dimension": "region",
+      "group": "Northern Highlands",
+      "log_loss": 0.285556347161365,
+      "mean_probability": 0.15271043533158835,
+      "positives": 209,
+      "prevalence": 0.15608663181478716,
+      "roc_auc": 0.8761697082609985,
+      "rows": 1339,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 54,
+          "selected": 67
+        },
+        "0.1": {
+          "captured": 93,
+          "selected": 131
+        }
+      },
+      "dimension": "region",
+      "group": "Southern Highlands",
+      "log_loss": 0.29949688710397887,
+      "mean_probability": 0.14204270114752265,
+      "positives": 238,
+      "prevalence": 0.16585365853658537,
+      "roc_auc": 0.8786883174322361,
+      "rows": 1435,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 37,
+          "selected": 52
+        },
+        "0.1": {
+          "captured": 65,
+          "selected": 106
+        }
+      },
+      "dimension": "region",
+      "group": "Western Zone",
+      "log_loss": 0.29018846293475925,
+      "mean_probability": 0.1588733058756722,
+      "positives": 140,
+      "prevalence": 0.15233949945593037,
+      "roc_auc": 0.8754905556574364,
+      "rows": 919,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 38,
+          "selected": 48
+        },
+        "0.1": {
+          "captured": 66,
+          "selected": 104
+        }
+      },
+      "dimension": "segment",
+      "group": "HVC",
+      "log_loss": 0.34299247190229865,
+      "mean_probability": 0.2012451604353225,
+      "positives": 132,
+      "prevalence": 0.1835883171070932,
+      "roc_auc": 0.8481234835578957,
+      "rows": 719,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 127,
+          "selected": 157
+        },
+        "0.1": {
+          "captured": 237,
+          "selected": 353
+        }
+      },
+      "dimension": "segment",
+      "group": "LVC",
+      "log_loss": 0.3120579576722321,
+      "mean_probability": 0.1662560785940052,
+      "positives": 540,
+      "prevalence": 0.17104846373139057,
+      "roc_auc": 0.8673983498209712,
+      "rows": 3157,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 150,
+          "selected": 195
+        },
+        "0.1": {
+          "captured": 239,
+          "selected": 343
+        }
+      },
+      "dimension": "segment",
+      "group": "MVC",
+      "log_loss": 0.24425431313860665,
+      "mean_probability": 0.12120163677724134,
+      "positives": 528,
+      "prevalence": 0.1280310378273521,
+      "roc_auc": 0.8914719005966226,
+      "rows": 4124,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 47,
+          "selected": 55
+        },
+        "0.1": {
+          "captured": 81,
+          "selected": 117
+        }
+      },
+      "dimension": "earning_pattern",
+      "group": "Irregular Earner",
+      "log_loss": 0.27427150092464114,
+      "mean_probability": 0.14595306715128956,
+      "positives": 174,
+      "prevalence": 0.147083685545224,
+      "roc_auc": 0.8810817584270303,
+      "rows": 1183,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 75,
+          "selected": 98
+        },
+        "0.1": {
+          "captured": 127,
+          "selected": 191
+        }
+      },
+      "dimension": "earning_pattern",
+      "group": "Monthly Earner",
+      "log_loss": 0.260423588556198,
+      "mean_probability": 0.1406429567556265,
+      "positives": 270,
+      "prevalence": 0.13588324106693508,
+      "roc_auc": 0.8810543799477988,
+      "rows": 1987,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 193,
+          "selected": 247
+        },
+        "0.1": {
+          "captured": 334,
+          "selected": 492
+        }
+      },
+      "dimension": "earning_pattern",
+      "group": "Weekly Earner",
+      "log_loss": 0.2892667683224818,
+      "mean_probability": 0.14850543002695843,
+      "positives": 756,
+      "prevalence": 0.1565217391304348,
+      "roc_auc": 0.8766623678872083,
+      "rows": 4830,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 197,
+          "selected": 250
+        },
+        "0.1": {
+          "captured": 346,
+          "selected": 501
+        }
+      },
+      "dimension": "gender",
+      "group": "F",
+      "log_loss": 0.27993565629973954,
+      "mean_probability": 0.14817618310243671,
+      "positives": 730,
+      "prevalence": 0.15246449456975772,
+      "roc_auc": 0.8815348677059351,
+      "rows": 4788,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 118,
+          "selected": 150
+        },
+        "0.1": {
+          "captured": 196,
+          "selected": 299
+        }
+      },
+      "dimension": "gender",
+      "group": "M",
+      "log_loss": 0.2798105307252336,
+      "mean_probability": 0.14319230879487785,
+      "positives": 470,
+      "prevalence": 0.14632627646326277,
+      "roc_auc": 0.8736416965408074,
+      "rows": 3212,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 73,
+          "selected": 93
+        },
+        "0.1": {
+          "captured": 114,
+          "selected": 167
+        }
+      },
+      "dimension": "age_band",
+      "group": "18\u201329",
+      "log_loss": 0.2627756941390473,
+      "mean_probability": 0.1450684073118155,
+      "positives": 243,
+      "prevalence": 0.13736574335782928,
+      "roc_auc": 0.8793720908909491,
+      "rows": 1769,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 85,
+          "selected": 107
+        },
+        "0.1": {
+          "captured": 154,
+          "selected": 233
+        }
+      },
+      "dimension": "age_band",
+      "group": "30\u201344",
+      "log_loss": 0.304379360009102,
+      "mean_probability": 0.14694001089765826,
+      "positives": 358,
+      "prevalence": 0.16089887640449438,
+      "roc_auc": 0.8668179764387645,
+      "rows": 2225,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 89,
+          "selected": 110
+        },
+        "0.1": {
+          "captured": 146,
+          "selected": 217
+        }
+      },
+      "dimension": "age_band",
+      "group": "45\u201359",
+      "log_loss": 0.2716968351635775,
+      "mean_probability": 0.14120868091219677,
+      "positives": 337,
+      "prevalence": 0.1446351931330472,
+      "roc_auc": 0.8793894357253355,
+      "rows": 2330,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 68,
+          "selected": 90
+        },
+        "0.1": {
+          "captured": 128,
+          "selected": 183
+        }
+      },
+      "dimension": "age_band",
+      "group": "60+",
+      "log_loss": 0.2768111230126738,
+      "mean_probability": 0.15323239691903634,
+      "positives": 262,
+      "prevalence": 0.15632458233890215,
+      "roc_auc": 0.8917477352969756,
+      "rows": 1676,
+      "sparse": false
+    }
+  ],
+  "end_to_end_seconds": 30.428047916997457,
+  "evaluation_partition": "final",
+  "evidence": "live_verified",
+  "final_evaluated": true,
+  "integration": {
+    "actual_tokens": null,
+    "actual_tokens_reason": "Published prediction response has no per-operation token charge.",
+    "approved_estimate_budget": 10000,
+    "checkpoint_identity": {
+      "policy": "plus-checkpoint-20260909-v1",
+      "reported_model_path": "/app/tabpfn_models/tabpfn-v3.5-20260909.safetensors",
+      "requested_alias": "v3.5_default",
+      "scope": "server-reported identity; checkpoint bytes not independently attested"
+    },
+    "fitted_train_set_id": "01a0c57c-f307-7250-be0b-b705ddff3759",
+    "fresh_preflight": {
+      "actual_tokens": 0,
+      "checked_at_unix": 1790026370.408641,
+      "estimated_total_tokens": 10000,
+      "estimates": [
+        {
+          "estimated_tokens": 10000,
+          "pricing_version": "quota_v3",
+          "request": {
+            "model_version": "v3.5",
+            "n_estimators": 8,
+            "operation": "predict",
+            "raw_columns": 182,
+            "test_rows": 8000,
+            "train_rows": 24000
+          }
+        }
+      ],
+      "evidence": "live_metadata_only",
+      "model_limits": {
+        "dataset_max_size_bytes": 5368709120,
+        "limits": {
+          "max_classes": 160,
+          "max_cols": 20000,
+          "predict_row_pairs_budget": 250000000000,
+          "test_set_max_cells": 200000000,
+          "test_set_max_rows": 1000000,
+          "train_set_max_cells": 200000000,
+          "train_set_max_rows": 1000000
+        },
+        "model_version": "v3.5"
+      },
+      "plan_sha256": "98c1762494db77aed4a25565cce0a29f24448640bc83683b52736b4522b42a3d",
+      "rows_uploaded": 0
+    },
+    "requested_variant": "plus",
+    "server_metadata": {
+      "identity_validation": {
+        "policy": "plus-checkpoint-20260909-v1",
+        "reported_model_path": "/app/tabpfn_models/tabpfn-v3.5-20260909.safetensors",
+        "requested_alias": "v3.5_default",
+        "scope": "server-reported identity; checkpoint bytes not independently attested"
+      },
+      "package_version": "9.0.0",
+      "tabpfn_config": {
+        "fit_mode": "fit_preprocessors",
+        "model_path": "/app/tabpfn_models/tabpfn-v3.5-20260909.safetensors",
+        "n_estimators": 8,
+        "random_state": 3501
+      },
+      "test_set_num_cols": 182,
+      "test_set_num_rows": 8000
+    },
+    "stages": [
+      {
+        "elapsed_seconds": 0.9628197910205927,
+        "stage": "get_model_limits"
+      },
+      {
+        "elapsed_seconds": 0.42811570898629725,
+        "stage": "estimate_cost"
+      },
+      {
+        "elapsed_seconds": 0.5714620419894345,
+        "stage": "prepare_test_set_upload"
+      },
+      {
+        "elapsed_seconds": 7.262659166997764,
+        "stage": "upload_final_test_features"
+      },
+      {
+        "elapsed_seconds": 20.8513808339776,
+        "stage": "predict"
+      }
+    ]
+  },
+  "metrics": {
+    "ap_unavailable_reason": null,
+    "average_precision": 0.6275683184326136,
+    "brier_score": 0.08427911871645688,
+    "ece_10_bins": 0.008315780079457909,
+    "log_loss": 0.2798854183815754,
+    "negatives": 6800,
+    "positives": 1200,
+    "prevalence": 0.15,
+    "reliability": [
+      {
+        "lower": 0.0,
+        "mean_probability": 0.03319707591659748,
+        "observed_fraction": 0.031578947368421054,
+        "rows": 4940,
+        "upper": 0.1,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.1,
+        "mean_probability": 0.14260096303717104,
+        "observed_fraction": 0.1377245508982036,
+        "rows": 1169,
+        "upper": 0.2,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.2,
+        "mean_probability": 0.24568638221077296,
+        "observed_fraction": 0.2382608695652174,
+        "rows": 575,
+        "upper": 0.3,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.3,
+        "mean_probability": 0.34748586288724953,
+        "observed_fraction": 0.3918269230769231,
+        "rows": 416,
+        "upper": 0.4,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.4,
+        "mean_probability": 0.4459293187768371,
+        "observed_fraction": 0.48518518518518516,
+        "rows": 270,
+        "upper": 0.5,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.5,
+        "mean_probability": 0.5458257080223153,
+        "observed_fraction": 0.5944700460829493,
+        "rows": 217,
+        "upper": 0.6,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.6,
+        "mean_probability": 0.6493733598173951,
+        "observed_fraction": 0.6546762589928058,
+        "rows": 139,
+        "upper": 0.7,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.7,
+        "mean_probability": 0.7441427421569824,
+        "observed_fraction": 0.752,
+        "rows": 125,
+        "upper": 0.8,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.8,
+        "mean_probability": 0.8449261157783037,
+        "observed_fraction": 0.8969072164948454,
+        "rows": 97,
+        "upper": 0.9,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.9,
+        "mean_probability": 0.9384562166837546,
+        "observed_fraction": 0.9807692307692307,
+        "rows": 52,
+        "upper": 1.0,
+        "upper_inclusive": true
+      }
+    ],
+    "roc_auc": 0.8784363970588234,
+    "rows": 8000,
+    "sparse": false,
+    "threshold_0.5": {
+      "fn": 748,
+      "fp": 178,
+      "tn": 6622,
+      "tp": 452
+    },
+    "top_budgets": {
+      "0.05": {
+        "boundary_probability": 0.610321044921875,
+        "capture": 0.2625,
+        "effective_fraction": 0.05,
+        "fn": 885,
+        "fp": 85,
+        "lift": 5.25,
+        "selected": 400,
+        "tn": 6715,
+        "tp": 315
+      },
+      "0.1": {
+        "boundary_probability": 0.4323744773864746,
+        "capture": 0.45166666666666666,
+        "effective_fraction": 0.1,
+        "fn": 658,
+        "fp": 258,
+        "lift": 4.516666666666667,
+        "selected": 800,
+        "tn": 6542,
+        "tp": 542
+      }
+    }
+  },
+  "plan_sha256": "98c1762494db77aed4a25565cce0a29f24448640bc83683b52736b4522b42a3d",
+  "predictions_sha256": "147ce68220f6a6f82dfba061da0c27b89698d1b596ea1641c2575b871a31143d",
+  "protocol_sha256": "9aa6ff02a3cca8f62be5b1a071433faf005292510dc526d2a087c6d2a655a560",
+  "response_sha256": "478c3c1414b7a6d62d43511175a83a31b2282af97c38c4ecb621e11c66011fe9",
+  "runtime": {
+    "comparison_source_sha256": "d12c251ee8212b7f5125c15dc898aee2cab8e3b53e42620daf1da70b8c3f9852",
+    "dependency_lock_sha256": "969aeca7e4f28a14ba690ee25d2d03b4d64182441060996d11ac658c9efd06ed",
+    "evaluation_sha256": "1c580299bd1e18ad6954f2ab34b9766f062be2b5eec7e76de8514dbba5899f08",
+    "integration_source_sha256": {
+      "__init__.py": "f81a20b30140ed82172d53b7d36af744b51cd6ce0ce36295be002b7d22d9cdb0",
+      "secrets.py": "bf4bacffb5c65fd2f916cd4602843b04cfa92cb608b0fddae52b57cf490d86c9",
+      "tabpfn_evidence.py": "501afc5fa6e1207b1023c4f36b56dd00f1eba65051bbd4bdd2f27e635136f8c3",
+      "tabpfn_identity.py": "87d6737290c283fc6b941e35a70cc067ee7cf0af2f99e9242454101cb89132e6",
+      "tabpfn_plan.py": "06b75f02c2ab401a4f8f6a358a1bad578aab945cfff18f025c09452c833d17e2",
+      "tabpfn_rest.py": "235b9519e088c62d2e5d569f10fec8446bb288d2c2ce4cda473843781d7a0a5e",
+      "tabpfn_revalidation.py": "9ca3168f61189b95e0633992c391e6e0ffcdca52aa1f9f35a46bd0758562a461",
+      "tabpfn_runner.py": "8867fe39d00be684fa39ab76be36a0d7eb9bdc76a4c54c45933ad212c969351b"
+    },
+    "module_sha256": "ebeb00946c7eb53d2dfd315e2a8945aa64c414f089dae2218b32cdee69ca590d",
+    "packages": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "threadpoolctl": "3.7.0"
+    },
+    "python": "3.14.5",
+    "tree_packages": {
+      "catboost": "1.2.10",
+      "xgboost": "3.4.1"
+    }
+  },
+  "status": "complete"
+}

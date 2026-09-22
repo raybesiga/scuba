@@ -1,0 +1,102 @@
+{
+  "schema": "scuba.financial-stress-complete-response-diagnostic/v1",
+  "status": "column_count_unresolved_after_one_authorised_diagnostic",
+  "model": "TabPFN-3.5-Plus",
+  "source_manifest_sha256": "a22239af9e82ade60e74d9c1ee2f7be530fac8759dbe376a8a63df67104aa932",
+  "plan_sha256": "f6ce910eb00861246f85d19782d08d3f59eb62328dc9b12a21f4d4a09b011a26",
+  "archive_sha256": "d771dd77319a0e24c6173a61b261fb0c5034a63c9dea9dfc10e8d64b704e17c4",
+  "filtered_response_sha256": "352e4b5d81a2c09ad7822c00bea62c37432b7fdc6cffe31c158eafa8797d9323",
+  "previous_response_sha256": "43492c3802000c4aece98223cf8c4296a4fad7b7a283b65695051692224d817f",
+  "http_status": 200,
+  "archive_redactions": 0,
+  "top_level_fields": [
+    "prediction",
+    "metadata",
+    "timings"
+  ],
+  "metadata": {
+    "test_set_num_rows": 30000,
+    "test_set_num_cols": 184,
+    "n_estimators": 8,
+    "billing_model_version": "v3.5",
+    "execution_mode": "standard",
+    "cache_outcome": "not_requested",
+    "task": "classification",
+    "package_version": "9.0.0",
+    "tabpfn_config": {
+      "n_estimators": 8,
+      "categorical_features_indices": [
+        179,
+        180,
+        181
+      ],
+      "softmax_temperature": null,
+      "average_before_softmax": false,
+      "random_state": 3501,
+      "inference_config": {
+        "TRANSFORM_DATES": false,
+        "TRANSFORM_TEXT": false
+      },
+      "inference_precision": "auto",
+      "ignore_pretraining_limits": true,
+      "n_preprocessing_jobs": 4,
+      "fit_mode": "fit_preprocessors",
+      "device": [
+        "cuda:0"
+      ],
+      "memory_saving_mode": true,
+      "model_path": "/app/tabpfn_models/tabpfn-v3.5-20260909.safetensors",
+      "balance_probabilities": false
+    },
+    "classes": [
+      0,
+      1
+    ],
+    "top_k": null
+  },
+  "timings": {
+    "test_set_transform_queue_wait_s": null,
+    "test_set_transform_s": null,
+    "predict_queue_wait_s": 0.208,
+    "predict_s": 26.076
+  },
+  "probability_shape": [
+    30000,
+    2
+  ],
+  "matches_previous_probabilities_exactly": true,
+  "maximum_probability_difference": 0.0,
+  "maximum_probability_row_sum_error": 7.450580596923828e-08,
+  "checks": {
+    "class_order": true,
+    "columns": false,
+    "fit_mode": true,
+    "model_path": true,
+    "n_estimators": true,
+    "package_version": true,
+    "probabilities": true,
+    "random_state": true,
+    "rows": true,
+    "task": true
+  },
+  "stages": [
+    {
+      "elapsed_seconds": 0.8004478749935515,
+      "stage": "get_model_limits"
+    },
+    {
+      "elapsed_seconds": 0.23705729201901704,
+      "stage": "estimate_cost"
+    },
+    {
+      "elapsed_seconds": 27.909929124987684,
+      "stage": "predict"
+    }
+  ],
+  "estimate": 15728,
+  "rows_uploaded": 0,
+  "fit_requests": 0,
+  "prediction_requests": 1,
+  "additional_prediction_planned": false,
+  "interpretation": "Complete response contains prediction, metadata and timings, but no named input/transformed feature schema. Categorical indices [179,180,181] refer to numeric balance columns in the uploaded order, suggesting a processed/reordered representation or incorrect metadata; neither explains the extra two columns conclusively. Full-data predictions stay unverified. Reserved-holdout evidence is unchanged."
+}

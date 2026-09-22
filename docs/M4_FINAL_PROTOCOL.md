@@ -1,0 +1,13 @@
+# M4 final execution record
+
+Declared before final test inference, 21 September 2026. This implements [M4 protocol v1](M4_SPEC.md) without changing models, features, calibration or decision thresholds.
+
+Each seed receives a hashed final plan before its test labels are parsed by the final loader. The plan pins M1 inputs, the accepted M2 settings, dependency lock, model/feature/split source hashes and both M4 protocol documents. Reconstruct the temporal and diagnostic random splits and compare their complete memberships with the frozen M1 membership files. Main training remains the original training partition. Random-reference training follows the already-declared stratified row membership; it is a separate diagnostic model fit.
+
+Run temporal evaluation for all three seeds before running the random reference. In each regime and seed, run every local model in three separate, sequential Python processes. Use one model thread, preserve all repetitions and require byte-identical predictions across repeats. Score test before validation in each fitted process. For temporal fits, require validation predictions to reproduce the frozen M2 predictions exactly. This check tests that the original model recipe was retained; test results never select a repetition or recipe.
+
+Record package-import time, input loading, feature construction, model preprocessing/fit, test preprocessing/predict, validation predict and total process wall time separately. Summarise the three repetitions with medians and ranges. Fresh processes do not guarantee a cold OS file cache; do not flush caches or call these measurements hardware-independent. Run other compute-heavy verification outside the measurement interval.
+
+Use the existing M4 diagnostics and 1,000 customer-cluster bootstrap draws for test and random-reference validation cohorts, including every declared slice. Preserve unadjusted exploratory intervals and unavailable estimates. Random-minus-temporal gaps are descriptive point differences across different cohorts and fitted models; report direction for AP, log loss, Brier, ECE, capture and lift. They are not paired causal effects. Confusion-count differences have different denominators and must not be treated as comparable error rates.
+
+The local standalone report must clearly separate validation, temporal test and diagnostic random-reference evidence. Hosted Plus validation may be displayed from its accepted M3/M4 artifact. Hosted final test, random-reference, sensitivity and other variants remain unavailable until separately approved. Preparing an offline hosted test plan does not upload rows or authorize billing. Any quoted token budget before a fresh service estimate is provisional, not a live estimate or guaranteed charge.

@@ -1,0 +1,82 @@
+By joining and submitting to this Hackathon, you confirm that you have read, understood, and accepted these terms in full.
+
+1. Overview
+This is a free-to-enter TabPFN-3.5 Hackathon (the "Hackathon") taking place from 15 September 2026 to 6 October 2026 in which participants build and submit a project demonstrating TabPFN-3.5. The Hackathon is for learning and reputation: there is no entry fee, and no purchase is necessary. This Hackathon is organized and conducted by Prior Labs GmbH ("Prior Labs" or the "Organizer").
+
+2. Eligibility & registration
+2.1 The Hackathon is open to individuals who are at least 18 years old or who have reached the age of majority in their respective country of residence at the time of joining.
+
+2.2 A valid Prior Labs user account is required. All submissions are tied to your account. You must provide accurate registration information and you may only register one account for yourself; accounts are not transferable.
+
+2.3 The organizers may verify your age and identity (for example, by requesting a valid photo ID) as a condition of participation or of receiving any prize.
+
+2.4 To participate you must accept these terms. Any personal data you provide is processed in accordance with the Prior Labs Privacy Policy (https://priorlabs.ai/privacy-policy).
+
+3. Project requirements and submissions
+3.1 Your project must be built with TabPFN-3.5. You may combine TabPFN-3.5 with other models and tools, provided TabPFN-3.5 is a core part of your project.
+
+3.2 Reproducibility. The linked repository must contain the code and instructions needed to run your project, and include your input data or make it available at a public URL.
+
+3.3 Your responsibility for code and data. You are solely responsible for the code, data, and other materials you submit or publish in connection with the Hackathon. You certify that you own or hold all rights necessary to use and publish them and that they do not infringe any third party's rights. Prior Labs does not review, endorse, or assume any responsibility for participant-submitted code or data. The organizers may disqualify, at their reasonable discretion, any entry that is unlawful, infringing, offensive or otherwise inappropriate.
+
+3.4 API credits for participants. The Prior Labs API (including its "thinking" mode) is free for everyone with a Prior Labs account, with a limited default usage allowance. When you join the Hackathon and submit a request, Prior Labs will grant you additional API credits. These credits are provided free of charge and cannot be purchased, have no cash value, are non-transferable, and may only be used with the Prior Labs API subject to the applicable Terms and Acceptable Use Policy (https://priorlabs.ai/aup). They are not a prize and do not depend on the outcome of the Hackathon. The amount and conditions are at Prior Labs' fair, reasonable, and non-discriminatory discretion and may change.
+
+3.5 An entry is submitted through the Hackathon page and consists of (i) a link to a public source-code repository containing your project, released under the Apache License, Version 2.0, and (ii) a description of what your project does sufficiently detailed to allow a third-party developer to comprehend the project. The submission form may include additional optional fields, for example a video link or further materials; anything you provide via these fields is treated as part of your entry.
+
+3.6 The Hackathon opens for submissions on 15 September 2026 at 00:00 CEST and closes on 6 October 2026 at 23:59 CEST.
+
+3.7 You may update your entry until submissions close; the latest submission counts. Late submissions are not accepted. The time of receipt on Prior Labs' systems is decisive for whether a submission is on time. Multiple submissions. You may submit more than one project until submissions close. Each project must be submitted as a separate entry and will be judged individually.
+
+4. Judging
+4.1 Entries are reviewed and winners are selected by a panel of judges appointed by Prior Labs from among its personnel.
+
+4.2 The objective of the Hackathon is to build a working project that demonstrably showcases the capabilities of TabPFN-3.5. Entries are evaluated by the judges against the following criteria: (i) Showcase of TabPFN-3.5 (50%) - how prominently and effectively the project uses TabPFN-3.5 and how convincingly it demonstrates the model's capabilities in a working prototype; (ii) Creativity and originality (30%) - how novel and inventive the idea is and what practical value it delivers; and (iii) Technical quality and reproducibility (20%) - the quality of the implementation and whether the project can be reproduced from the linked repository in accordance with clause 4.2.
+
+4.3 The judges select the top 3 participants (the "Winners") and may additionally award honorable mentions.
+
+4.4 The judges' decisions, including which entries are in scope, are final. Within the criteria and weightings set out in clause 5.2, the judges have reasonable discretion in assessing the entries. Recourse to the courts in respect of the selection of winners is excluded.
+
+4.5 Winners are notified using the contact details associated with their account. A winner must respond within seven (7) days of notification; if a winner does not respond in time, the entitlement to recognition or to any prize may lapse and may be awarded to the next-ranked entry.
+
+5. Rights to your submission and recognition
+5.1 Use of submissions. Prior Labs does not intend to use participants' submitted projects or code in its products or services.
+
+5.2 By submitting an entry, you agree that your project (including the linked repository, your project description and any optional materials you provide with your entry) may be shared and highlighted to the community via Prior Labs channels, including the Prior Labs Discord server and Prior Labs' social media accounts, with attribution.
+
+5.3 If you provide your X handle or LinkedIn profile with your entry, you agree that they may be used to credit and tag you when your project is shared.
+
+6. Prizes, allocation and delivery
+6.1 The following prizes (the "Prizes") are awarded:
+
+•
+1st Place – NVIDIA DGX Spark
+•
+2nd Place – NVIDIA Jetson AGX Orin 64GB
+•
+3rd Place – NVIDIA GeForce RTX 4090
+•
+Honorable Mentions – the projects are shared with the community by Prior Labs.
+Honorable mentions are a form of recognition only and do not carry any material prize.
+
+6.2 In-kind prizes are procured by Prior Labs after the winners have been determined and shipped directly to a single delivery address nominated by the winner in their own name. Prior Labs will arrange shipping within a reasonable period after the winner has provided complete and accurate delivery details and, where applicable, the information required under clause 6.3. Prizes cannot be exchanged, transferred or paid out in cash, and recourse to the courts is excluded.
+
+6.3 Each party is responsible for assessing and fulfilling its own tax obligations arising in connection with the Hackathon and any prize.
+
+6.4 Hardware prizes are shipped only to eligible destinations and will not be shipped to countries, territories or persons subject to applicable export controls or sanctions. It is the winner's responsibility to verify, before nominating a delivery address, whether the hardware prize can lawfully be shipped to and received at that address; if it cannot, the winner must nominate an alternative eligible delivery address. The winner is responsible for lawful import and for any import duties or local taxes.
+
+6.5 Participation is free of charge, but you bear your own costs of participation (including internet access, your own hardware, any commercial software licences, and any travel or accommodation). No costs are reimbursed and there is no entitlement to compensation.
+
+7. Data protection, General Terms and Acceptable Use Policy
+7.1 The data controller for personal data processed in connection with this Hackathon is Prior Labs GmbH, Kaiser-Joseph-Str. 254, 79098, Freiburg im Breisgau, Germany.
+
+7.2 In addition to the Prior Labs Privacy Policy (https://priorlabs.ai/privacy-policy), Prior Labs processes your account e-mail address, the time of your acceptance of these terms, your repository link, your project description, and, if you choose to provide them, your X handle and LinkedIn profile URL to operate the Hackathon and to credit you when your project is shared (Art. 6(1)(b) GDPR). If you have separately consented to marketing communications, your e-mail address is processed on that basis (Art. 6(1)(a) GDPR); you may withdraw that consent at any time via dataprotection@priorlabs.ai.
+
+7.3 These terms supplement the Prior Labs General Terms and Conditions (https://priorlabs.ai/general-terms-and-conditions) and Acceptable Use Policy (https://priorlabs.ai/aup). In the event of a conflict regarding the Hackathon specifically, these Hackathon terms prevail.
+
+7.4 The Hackathon is governed by the laws of the Federal Republic of Germany. For participants who are consumers habitually resident in another country, the choice of German law does not deprive them of the protection afforded by the mandatory provisions of the law of their country of habitual residence (Art. 6(2) Rome I Regulation).
+
+7.5 If the participant is a merchant (Kaufmann), a legal entity under public law, or a special fund under public law within the meaning of the German Code of Civil Procedure, the exclusive place of jurisdiction for all disputes arising from or in connection with the Hackathon is Berlin, Germany. For all other participants, the statutory rules on jurisdiction apply.
+
+7.6 Prior Labs provides the Hackathon platform and infrastructure free of charge. For this unremunerated provision, Prior Labs is liable only for damages caused by intent (Vorsatz) or gross negligence (grobe Fahrlässigkeit), in accordance with § 521 BGB applied by analogy. Liability under the German Product Liability Act (Produkthaftungsgesetz) and for fraudulent misrepresentation remains unaffected. These limitations apply equally to Prior Labs' legal representatives and vicarious agents.
+
+7.7 The organizers may disqualify any participant who breaches these terms or attempts to manipulate the Hackathon, and may amend, suspend, or cancel the Hackathon where there is a valid reason to do so considering participants' reasonable interests.

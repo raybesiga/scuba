@@ -1,0 +1,35 @@
+{
+  "payloads": {
+    "train": {
+      "rows": 40000,
+      "header_columns": 182,
+      "row_widths": {
+        "182": 40000
+      },
+      "matches_approved_hash": true,
+      "contains_id": false,
+      "contains_target": false
+    },
+    "labels": {
+      "rows": 40000,
+      "header_columns": 1,
+      "row_widths": {
+        "1": 40000
+      },
+      "matches_approved_hash": true,
+      "contains_id": false,
+      "contains_target": true
+    },
+    "test": {
+      "rows": 30000,
+      "header_columns": 182,
+      "row_widths": {
+        "182": 30000
+      },
+      "matches_approved_hash": true,
+      "contains_id": false,
+      "contains_target": false
+    }
+  },
+  "training_schema_changes": []
+}

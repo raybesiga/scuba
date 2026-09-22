@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prior-labs-scuba"
+version = "0.2.0"
+description = "Fictional mobile-money dormancy evaluation and integration-readiness demo"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+scuba = "scuba.cli:main"
+
+[project.optional-dependencies]
+models = [
+    "catboost==1.2.10",
+    "numpy==2.5.3",
+    "pandas==3.0.6",
+    "scikit-learn==1.9.1",
+    "threadpoolctl==3.7.0",
+    "xgboost==3.4.1",
+]
+tabpfn = [
+    "httpx==0.28.1",
+    "python-dotenv==1.2.3",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[dependency-groups]
+dev = [
+    "ruff==0.16.8",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = ["artifacts"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

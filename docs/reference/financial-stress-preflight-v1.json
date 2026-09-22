@@ -1,0 +1,67 @@
+{
+  "plan_sha256": "b30b83427a7fecb6c439e0ec47d54fed4159afeb3f85cc71d00a084a814a36d0",
+  "preflight": {
+    "actual_tokens": 0,
+    "checked_at_unix": 1790014926.7251148,
+    "estimated_total_tokens": 10000,
+    "estimates": [
+      {
+        "estimated_tokens": 10000,
+        "pricing_version": "quota_v3",
+        "request": {
+          "model_version": "v3.5",
+          "n_estimators": 8,
+          "operation": "predict",
+          "raw_columns": 182,
+          "test_rows": 8000,
+          "train_rows": 24000
+        }
+      }
+    ],
+    "evidence": "live_metadata_only",
+    "model_limits": {
+      "dataset_max_size_bytes": 5368709120,
+      "limits": {
+        "max_classes": 160,
+        "max_cols": 20000,
+        "predict_row_pairs_budget": 250000000000,
+        "test_set_max_cells": 200000000,
+        "test_set_max_rows": 1000000,
+        "train_set_max_cells": 200000000,
+        "train_set_max_rows": 1000000
+      },
+      "model_version": "v3.5"
+    },
+    "plan_sha256": "b30b83427a7fecb6c439e0ec47d54fed4159afeb3f85cc71d00a084a814a36d0",
+    "rows_uploaded": 0
+  },
+  "rows_uploaded": 0,
+  "runtime": {
+    "comparison_source_sha256": "e876f76a59e2c8312c59c602db0499f4dd97acae8efeb5e3e7ba126d9752851d",
+    "dependency_lock_sha256": "969aeca7e4f28a14ba690ee25d2d03b4d64182441060996d11ac658c9efd06ed",
+    "evaluation_sha256": "1c580299bd1e18ad6954f2ab34b9766f062be2b5eec7e76de8514dbba5899f08",
+    "module_sha256": "ebeb00946c7eb53d2dfd315e2a8945aa64c414f089dae2218b32cdee69ca590d",
+    "packages": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "threadpoolctl": "3.7.0"
+    },
+    "python": "3.14.5",
+    "tree_packages": {
+      "catboost": "1.2.10",
+      "xgboost": "3.4.1"
+    }
+  },
+  "stages": [
+    {
+      "elapsed_seconds": 1.029839583003195,
+      "stage": "get_model_limits"
+    },
+    {
+      "elapsed_seconds": 0.25752191701030824,
+      "stage": "estimate_cost"
+    }
+  ],
+  "status": "awaiting_upload_and_budget_approval"
+}
