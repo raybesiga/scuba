@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "dataset": "Financial Stress Prediction Challenge \u2014 September Edition",
+  "source_url": "https://zindi.world/competitions/financial-stress-prediction-challenge-2026-09-01/data",
+  "licence": "CC BY-SA 4.0, per challenge rules supplied by user",
+  "origin": "real versus synthetic not established",
+  "files": [
+    {
+      "name": "data_dictionary.csv",
+      "bytes": 32369,
+      "sha256": "8643afb61b89e068642d5a3520f62c8656c7c9b134f68b7b1b3eed447411bef4",
+      "parts": [
+        {
+          "path": "files/data_dictionary.csv",
+          "bytes": 32369,
+          "sha256": "8643afb61b89e068642d5a3520f62c8656c7c9b134f68b7b1b3eed447411bef4"
+        }
+      ]
+    },
+    {
+      "name": "SampleSubmission.csv",
+      "bytes": 570011,
+      "sha256": "abe8491a7a01fb2567632589ed2633db62352d4711de29a911fff0c26db45535",
+      "parts": [
+        {
+          "path": "files/SampleSubmission.csv",
+          "bytes": 570011,
+          "sha256": "abe8491a7a01fb2567632589ed2633db62352d4711de29a911fff0c26db45535"
+        }
+      ]
+    },
+    {
+      "name": "StarterNotebook.ipynb",
+      "bytes": 13275,
+      "sha256": "1afe22ee1e043f11cff4984495b21da9f76d6e6b2dc2d2a3ea992c776821cd7c",
+      "parts": [
+        {
+          "path": "files/StarterNotebook.ipynb",
+          "bytes": 13275,
+          "sha256": "1afe22ee1e043f11cff4984495b21da9f76d6e6b2dc2d2a3ea992c776821cd7c"
+        }
+      ]
+    },
+    {
+      "name": "Test.csv",
+      "bytes": 27406110,
+      "sha256": "d77a87cd19d06e364cad49404fdd1f60172d35812e6572ffbaf774e8fc0200a6",
+      "parts": [
+        {
+          "path": "files/Test.csv",
+          "bytes": 27406110,
+          "sha256": "d77a87cd19d06e364cad49404fdd1f60172d35812e6572ffbaf774e8fc0200a6"
+        }
+      ]
+    },
+    {
+      "name": "Train.csv",
+      "bytes": 36613471,
+      "sha256": "d7b5f10e7f7855644337ad2a8f460f8581596ffc787b0a1e11944bf7ed46f185",
+      "parts": [
+        {
+          "path": "files/Train.csv",
+          "bytes": 36613471,
+          "sha256": "d7b5f10e7f7855644337ad2a8f460f8581596ffc787b0a1e11944bf7ed46f185"
+        }
+      ]
+    }
+  ]
+}
