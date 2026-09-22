@@ -426,6 +426,7 @@ function Evidence({
     metrics = final ? data.final_evaluation!.metrics : data.metrics,
     cohort = final ? data.final_evaluation!.cohort : data.cohorts.validation,
     m = metrics[model],
+    review = metrics.tabpfn_3_5_plus.top_budgets[budget],
     groups = (
       final ? data.final_evaluation!.cohort_audit : data.cohort_audit
     ).filter((r) => r.dimension === dimension);
@@ -483,108 +484,102 @@ function Evidence({
           the workspace.
         </Text>
       </Box>
-      <Grid columns={{ initial: "1", md: "2fr 1fr" }} gap="5" align="start">
-        <Box>
-          <Flex justify="between" align="center" gap="3" wrap="wrap">
-            <Heading as="h2" size="4">
-              Do probabilities match outcomes?
-            </Heading>
-            <Select.Root value={model} onValueChange={setModel}>
-              <Select.Trigger aria-label="Calibration model" />
-              <Select.Content>
-                {models.map((k) => (
-                  <Select.Item key={k} value={k}>
-                    {stressNames[k]}
-                  </Select.Item>
-                ))}
-              </Select.Content>
-            </Select.Root>
-          </Flex>
-          <Text as="p" size="2" color="gray" mt="2" mb="4">
-            For groups assigned similar probabilities, compare the average
-            prediction with the fraction that experienced stress.
-          </Text>
-          <Text as="p" size="1" color="gray" mb="4">
-            Prediction gap = observed stress − mean prediction, in percentage
-            points (pp), calculated before rounding. Sort by gap to show the
-            largest differences first.
-          </Text>
-          <DataTable
-            label="Calibration with group sizes"
-            headers={[
-              "Predicted range",
-              "Snapshots",
-              "Mean prediction",
-              "Observed stress",
-              "Prediction gap",
-            ]}
-            rows={m.reliability.map((b) => [
-              `${Math.round(b.lower * 100)}–${Math.round(b.upper * 100)}%`,
-              number(b.rows),
-              percent(b.mean_probability),
-              percent(b.observed_fraction),
-              (() => {
-                const gap = predictionGap(
-                  b.mean_probability,
-                  b.observed_fraction,
-                );
-                return (
-                  <Flex direction="column" gap="1">
-                    <Text color={gap.color} weight="medium">
-                      {gap.value}
-                    </Text>
-                    {gap.label && (
-                      <Text size="1" color={gap.color}>
-                        {gap.label}
+      <Box>
+        <Grid columns={{ initial: "1", md: "2fr 1fr" }} gap="5">
+          <Box>
+            <Flex justify="between" align="center" gap="3" wrap="wrap">
+              <Heading as="h2" size="4">
+                Do probabilities match outcomes?
+              </Heading>
+              <Select.Root value={model} onValueChange={setModel}>
+                <Select.Trigger aria-label="Calibration model" />
+                <Select.Content>
+                  {models.map((k) => (
+                    <Select.Item key={k} value={k}>
+                      {stressNames[k]}
+                    </Select.Item>
+                  ))}
+                </Select.Content>
+              </Select.Root>
+            </Flex>
+            <Text as="p" size="2" color="gray" mt="2" mb="4">
+              For groups assigned similar probabilities, compare the average
+              prediction with the fraction that experienced stress.
+            </Text>
+          </Box>
+        </Grid>
+        <Grid columns={{ initial: "1", md: "2fr 1fr" }} gap="5" align="start">
+          <Box>
+            <DataTable
+              label="Calibration with group sizes"
+              headers={[
+                "Predicted range",
+                "Snapshots",
+                "Mean prediction",
+                "Observed stress",
+                "Prediction gap",
+              ]}
+              rows={m.reliability.map((b) => [
+                `${Math.round(b.lower * 100)}–${Math.round(b.upper * 100)}%`,
+                number(b.rows),
+                percent(b.mean_probability),
+                percent(b.observed_fraction),
+                (() => {
+                  const gap = predictionGap(
+                    b.mean_probability,
+                    b.observed_fraction,
+                  );
+                  return (
+                    <Flex direction="column" gap="1">
+                      <Text color={gap.color} weight="medium">
+                        {gap.value}
                       </Text>
-                    )}
-                  </Flex>
-                );
-              })(),
-            ])}
-            sortValues={m.reliability.map((b) => [
-              b.lower,
-              b.rows,
-              b.mean_probability,
-              b.observed_fraction,
-              predictionGap(b.mean_probability, b.observed_fraction).absolute,
-            ])}
-            sortOptions={{
-              4: {
-                firstDirection: "descending",
-                description:
-                  "Sort by largest absolute gap, then smallest, then restore predicted-range order. The sign shows the direction of the gap.",
-              },
-            }}
-          />
-        </Box>
-        <Box className="dashboard-module">
-          <Heading as="h3" size="4">
-            Read the group size too
-          </Heading>
-          <Text as="p" size="2" mt="3">
-            If a group averages 30% predicted risk, roughly 30% should
-            experience stress for the probabilities to be well calibrated.
-          </Text>
-          <Text as="p" size="2" color="gray" mt="3">
-            Small groups can fluctuate sharply. This table shows their support
-            explicitly; it does not provide confidence intervals.
-          </Text>
-          <Text as="p" size="2" mt="4">
-            Average calibration gap:{" "}
-            <strong>{(100 * m.ece_10_bins).toFixed(1)} pp</strong>
-          </Text>
-          <Text as="p" size="1" color="gray" mt="1">
-            Average absolute gap across ten probability ranges, weighted by
-            group size.
-          </Text>
-          <Text as="p" size="1" color="gray" mt="3">
-            Grey means the gap rounds to zero at the displayed precision, not
-            statistically proven agreement. Positive gaps mean the model
-            underestimated stress; negative gaps mean it overestimated stress.
-          </Text>
-        </Box>
-      </Grid>
+                      {gap.label && (
+                        <Text size="1" color={gap.color}>
+                          {gap.label}
+                        </Text>
+                      )}
+                    </Flex>
+                  );
+                })(),
+              ])}
+              sortValues={m.reliability.map((b) => [
+                b.lower,
+                b.rows,
+                b.mean_probability,
+                b.observed_fraction,
+                predictionGap(b.mean_probability, b.observed_fraction).absolute,
+              ])}
+              sortOptions={{
+                4: {
+                  firstDirection: "descending",
+                  description:
+                    "Observed stress minus mean prediction, in percentage points (pp), calculated before rounding. Sort by largest absolute gap, then smallest, then restore predicted-range order.",
+                },
+              }}
+            />
+          </Box>
+          <Box className="dashboard-module">
+            <Heading as="h3" size="4">
+              Reading the gaps
+            </Heading>
+            <Text as="p" size="2" mt="3">
+              Positive: stress was underestimated. Negative: overestimated.
+              Grey: the gap rounds to zero, not proof of agreement.
+            </Text>
+            <Text as="p" size="2" mt="4">
+              Average calibration gap:{" "}
+              <strong>{(100 * m.ece_10_bins).toFixed(1)} pp</strong>
+            </Text>
+            <Text as="p" size="1" color="gray" mt="1">
+              Absolute gaps weighted by group size; pp = percentage points.
+            </Text>
+            <Text as="p" size="1" color="gray" mt="3">
+              Small groups are less stable. No confidence intervals are shown.
+            </Text>
+          </Box>
+        </Grid>
+      </Box>
       <Box>
         <Flex justify="between" align="center" gap="3" wrap="wrap">
           <Heading as="h2" size="4">
@@ -641,16 +636,25 @@ function Evidence({
             g.budgets[budget].captured,
           ])}
         />
+        <Text as="p" size="2" mt="3">
+          The shortlist finds {number(review.tp)} of {number(cohort.positives)}{" "}
+          stress cases across {number(groups.length)} groups, with{" "}
+          {number(review.selected)} snapshots reviewed.
+        </Text>
+        <Text as="p" size="2" color="gray" mt="2">
+          Higher AUROC means better ranking; lower log loss means better
+          probability estimates. Small groups need cautious interpretation.
+        </Text>
       </Box>
       {!final && (
         <Box>
           <Heading as="h2" size="4">
-            Sensitivity to age and gender
+            Age and gender: local baselines
           </Heading>
           <Text as="p" size="2" color="gray" mt="2" mb="4">
-            Local models refitted on the same rows with age and gender omitted.
-            TabPFN has not been rerun without these fields. Other predictors may
-            still act as proxies.
+            Removing these fields changed baseline log loss by 0.001 or less.
+            TabPFN-3.5-Plus has not been tested this way; these results do not
+            establish fairness.
           </Text>
           <DataTable
             label="Local feature exclusion comparison"
