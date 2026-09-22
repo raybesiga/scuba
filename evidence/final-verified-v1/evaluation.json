@@ -1,0 +1,1055 @@
+{
+  "cohort": {
+    "positives": 1200,
+    "rows": 8000
+  },
+  "cohort_audit": [
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 33,
+          "selected": 43
+        },
+        "0.1": {
+          "captured": 67,
+          "selected": 95
+        }
+      },
+      "dimension": "region",
+      "group": "Central Zone",
+      "log_loss": 0.2785075793599495,
+      "mean_probability": 0.1418277241399335,
+      "positives": 150,
+      "prevalence": 0.15136226034308778,
+      "roc_auc": 0.8838604835513277,
+      "rows": 991,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 75,
+          "selected": 95
+        },
+        "0.1": {
+          "captured": 114,
+          "selected": 164
+        }
+      },
+      "dimension": "region",
+      "group": "Coastal & Eastern Corridor",
+      "log_loss": 0.25538753243757084,
+      "mean_probability": 0.14107715892429515,
+      "positives": 238,
+      "prevalence": 0.13423575860124085,
+      "roc_auc": 0.8808994607615033,
+      "rows": 1773,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 12,
+          "selected": 17
+        },
+        "0.1": {
+          "captured": 28,
+          "selected": 41
+        }
+      },
+      "dimension": "region",
+      "group": "Islander",
+      "log_loss": 0.3067412450483836,
+      "mean_probability": 0.14524515439798885,
+      "positives": 81,
+      "prevalence": 0.16135458167330677,
+      "roc_auc": 0.8727896542623383,
+      "rows": 502,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 42,
+          "selected": 55
+        },
+        "0.1": {
+          "captured": 70,
+          "selected": 108
+        }
+      },
+      "dimension": "region",
+      "group": "Lake Zone (Northwest)",
+      "log_loss": 0.26654654812725287,
+      "mean_probability": 0.14552545483663812,
+      "positives": 144,
+      "prevalence": 0.138328530259366,
+      "roc_auc": 0.879436083240431,
+      "rows": 1041,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 62,
+          "selected": 71
+        },
+        "0.1": {
+          "captured": 105,
+          "selected": 155
+        }
+      },
+      "dimension": "region",
+      "group": "Northern Highlands",
+      "log_loss": 0.285556347161365,
+      "mean_probability": 0.15271043533158835,
+      "positives": 209,
+      "prevalence": 0.15608663181478716,
+      "roc_auc": 0.8761697082609985,
+      "rows": 1339,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 54,
+          "selected": 67
+        },
+        "0.1": {
+          "captured": 93,
+          "selected": 131
+        }
+      },
+      "dimension": "region",
+      "group": "Southern Highlands",
+      "log_loss": 0.29949688710397887,
+      "mean_probability": 0.14204270114752265,
+      "positives": 238,
+      "prevalence": 0.16585365853658537,
+      "roc_auc": 0.8786883174322361,
+      "rows": 1435,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 37,
+          "selected": 52
+        },
+        "0.1": {
+          "captured": 65,
+          "selected": 106
+        }
+      },
+      "dimension": "region",
+      "group": "Western Zone",
+      "log_loss": 0.29018846293475925,
+      "mean_probability": 0.1588733058756722,
+      "positives": 140,
+      "prevalence": 0.15233949945593037,
+      "roc_auc": 0.8754905556574364,
+      "rows": 919,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 38,
+          "selected": 48
+        },
+        "0.1": {
+          "captured": 66,
+          "selected": 104
+        }
+      },
+      "dimension": "segment",
+      "group": "HVC",
+      "log_loss": 0.34299247190229865,
+      "mean_probability": 0.2012451604353225,
+      "positives": 132,
+      "prevalence": 0.1835883171070932,
+      "roc_auc": 0.8481234835578957,
+      "rows": 719,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 127,
+          "selected": 157
+        },
+        "0.1": {
+          "captured": 237,
+          "selected": 353
+        }
+      },
+      "dimension": "segment",
+      "group": "LVC",
+      "log_loss": 0.3120579576722321,
+      "mean_probability": 0.1662560785940052,
+      "positives": 540,
+      "prevalence": 0.17104846373139057,
+      "roc_auc": 0.8673983498209712,
+      "rows": 3157,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 150,
+          "selected": 195
+        },
+        "0.1": {
+          "captured": 239,
+          "selected": 343
+        }
+      },
+      "dimension": "segment",
+      "group": "MVC",
+      "log_loss": 0.24425431313860665,
+      "mean_probability": 0.12120163677724134,
+      "positives": 528,
+      "prevalence": 0.1280310378273521,
+      "roc_auc": 0.8914719005966226,
+      "rows": 4124,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 47,
+          "selected": 55
+        },
+        "0.1": {
+          "captured": 81,
+          "selected": 117
+        }
+      },
+      "dimension": "earning_pattern",
+      "group": "Irregular Earner",
+      "log_loss": 0.27427150092464114,
+      "mean_probability": 0.14595306715128956,
+      "positives": 174,
+      "prevalence": 0.147083685545224,
+      "roc_auc": 0.8810817584270303,
+      "rows": 1183,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 75,
+          "selected": 98
+        },
+        "0.1": {
+          "captured": 127,
+          "selected": 191
+        }
+      },
+      "dimension": "earning_pattern",
+      "group": "Monthly Earner",
+      "log_loss": 0.260423588556198,
+      "mean_probability": 0.1406429567556265,
+      "positives": 270,
+      "prevalence": 0.13588324106693508,
+      "roc_auc": 0.8810543799477988,
+      "rows": 1987,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 193,
+          "selected": 247
+        },
+        "0.1": {
+          "captured": 334,
+          "selected": 492
+        }
+      },
+      "dimension": "earning_pattern",
+      "group": "Weekly Earner",
+      "log_loss": 0.2892667683224818,
+      "mean_probability": 0.14850543002695843,
+      "positives": 756,
+      "prevalence": 0.1565217391304348,
+      "roc_auc": 0.8766623678872083,
+      "rows": 4830,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 197,
+          "selected": 250
+        },
+        "0.1": {
+          "captured": 346,
+          "selected": 501
+        }
+      },
+      "dimension": "gender",
+      "group": "F",
+      "log_loss": 0.27993565629973954,
+      "mean_probability": 0.14817618310243671,
+      "positives": 730,
+      "prevalence": 0.15246449456975772,
+      "roc_auc": 0.8815348677059351,
+      "rows": 4788,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 118,
+          "selected": 150
+        },
+        "0.1": {
+          "captured": 196,
+          "selected": 299
+        }
+      },
+      "dimension": "gender",
+      "group": "M",
+      "log_loss": 0.2798105307252336,
+      "mean_probability": 0.14319230879487785,
+      "positives": 470,
+      "prevalence": 0.14632627646326277,
+      "roc_auc": 0.8736416965408074,
+      "rows": 3212,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 73,
+          "selected": 93
+        },
+        "0.1": {
+          "captured": 114,
+          "selected": 167
+        }
+      },
+      "dimension": "age_band",
+      "group": "18\u201329",
+      "log_loss": 0.2627756941390473,
+      "mean_probability": 0.1450684073118155,
+      "positives": 243,
+      "prevalence": 0.13736574335782928,
+      "roc_auc": 0.8793720908909491,
+      "rows": 1769,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 85,
+          "selected": 107
+        },
+        "0.1": {
+          "captured": 154,
+          "selected": 233
+        }
+      },
+      "dimension": "age_band",
+      "group": "30\u201344",
+      "log_loss": 0.304379360009102,
+      "mean_probability": 0.14694001089765826,
+      "positives": 358,
+      "prevalence": 0.16089887640449438,
+      "roc_auc": 0.8668179764387645,
+      "rows": 2225,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 89,
+          "selected": 110
+        },
+        "0.1": {
+          "captured": 146,
+          "selected": 217
+        }
+      },
+      "dimension": "age_band",
+      "group": "45\u201359",
+      "log_loss": 0.2716968351635775,
+      "mean_probability": 0.14120868091219677,
+      "positives": 337,
+      "prevalence": 0.1446351931330472,
+      "roc_auc": 0.8793894357253355,
+      "rows": 2330,
+      "sparse": false
+    },
+    {
+      "budgets": {
+        "0.05": {
+          "captured": 68,
+          "selected": 90
+        },
+        "0.1": {
+          "captured": 128,
+          "selected": 183
+        }
+      },
+      "dimension": "age_band",
+      "group": "60+",
+      "log_loss": 0.2768111230126738,
+      "mean_probability": 0.15323239691903634,
+      "positives": 262,
+      "prevalence": 0.15632458233890215,
+      "roc_auc": 0.8917477352969756,
+      "rows": 1676,
+      "sparse": false
+    }
+  ],
+  "identity": {
+    "policy": "plus-checkpoint-20260909-v1",
+    "reported_model_path": "/app/tabpfn_models/tabpfn-v3.5-20260909.safetensors",
+    "requested_alias": "v3.5_default",
+    "scope": "server-reported identity; checkpoint bytes not independently attested"
+  },
+  "metrics": {
+    "catboost": {
+      "ap_unavailable_reason": null,
+      "average_precision": 0.5447267888550994,
+      "brier_score": 0.09958274408806371,
+      "ece_10_bins": 0.05264860601751266,
+      "log_loss": 0.3299764233045866,
+      "negatives": 6800,
+      "positives": 1200,
+      "prevalence": 0.15,
+      "reliability": [
+        {
+          "lower": 0.0,
+          "mean_probability": 0.06437605073686502,
+          "observed_fraction": 0.029411764705882353,
+          "rows": 3434,
+          "upper": 0.1,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.1,
+          "mean_probability": 0.14015188250743252,
+          "observed_fraction": 0.1121461841633823,
+          "rows": 2791,
+          "upper": 0.2,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.2,
+          "mean_probability": 0.24391150168444165,
+          "observed_fraction": 0.32146389713155293,
+          "rows": 1011,
+          "upper": 0.3,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.3,
+          "mean_probability": 0.3427681446187285,
+          "observed_fraction": 0.4988610478359909,
+          "rows": 439,
+          "upper": 0.4,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.4,
+          "mean_probability": 0.44398828326739953,
+          "observed_fraction": 0.676923076923077,
+          "rows": 195,
+          "upper": 0.5,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.5,
+          "mean_probability": 0.540570702105841,
+          "observed_fraction": 0.7761194029850746,
+          "rows": 67,
+          "upper": 0.6,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.6,
+          "mean_probability": 0.63831766025558,
+          "observed_fraction": 0.925,
+          "rows": 40,
+          "upper": 0.7,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.7,
+          "mean_probability": 0.7330478308218857,
+          "observed_fraction": 0.875,
+          "rows": 16,
+          "upper": 0.8,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.8,
+          "mean_probability": 0.8352518781115044,
+          "observed_fraction": 1.0,
+          "rows": 6,
+          "upper": 0.9,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.9,
+          "mean_probability": 0.9037352276684524,
+          "observed_fraction": 1.0,
+          "rows": 1,
+          "upper": 1.0,
+          "upper_inclusive": true
+        }
+      ],
+      "roc_auc": 0.8383776960784313,
+      "rows": 8000,
+      "sparse": false,
+      "threshold_0.5": {
+        "fn": 1090,
+        "fp": 20,
+        "tn": 6780,
+        "tp": 110
+      },
+      "top_budgets": {
+        "0.05": {
+          "boundary_probability": 0.3709315375598136,
+          "capture": 0.24166666666666667,
+          "effective_fraction": 0.05,
+          "fn": 910,
+          "fp": 110,
+          "lift": 4.833333333333333,
+          "selected": 400,
+          "tn": 6690,
+          "tp": 290
+        },
+        "0.1": {
+          "boundary_probability": 0.2959857526698629,
+          "capture": 0.3933333333333333,
+          "effective_fraction": 0.1,
+          "fn": 728,
+          "fp": 328,
+          "lift": 3.933333333333333,
+          "selected": 800,
+          "tn": 6472,
+          "tp": 472
+        }
+      }
+    },
+    "constant_prior": {
+      "ap_unavailable_reason": null,
+      "average_precision": 0.15,
+      "brier_score": 0.12749999999999997,
+      "ece_10_bins": 5.551115123125783e-17,
+      "log_loss": 0.422709087805991,
+      "negatives": 6800,
+      "positives": 1200,
+      "prevalence": 0.15,
+      "reliability": [
+        {
+          "lower": 0.0,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.1,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.1,
+          "mean_probability": 0.14999999999999994,
+          "observed_fraction": 0.15,
+          "rows": 8000,
+          "upper": 0.2,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.2,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.3,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.3,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.4,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.4,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.5,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.5,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.6,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.6,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.7,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.7,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.8,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.8,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 0.9,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.9,
+          "mean_probability": null,
+          "observed_fraction": null,
+          "rows": 0,
+          "upper": 1.0,
+          "upper_inclusive": true
+        }
+      ],
+      "roc_auc": 0.5,
+      "rows": 8000,
+      "sparse": false,
+      "threshold_0.5": {
+        "fn": 1200,
+        "fp": 0,
+        "tn": 6800,
+        "tp": 0
+      },
+      "top_budgets": {
+        "0.05": {
+          "boundary_probability": 0.15,
+          "capture": 0.04583333333333333,
+          "effective_fraction": 0.05,
+          "fn": 1145,
+          "fp": 345,
+          "lift": 0.9166666666666667,
+          "selected": 400,
+          "tn": 6455,
+          "tp": 55
+        },
+        "0.1": {
+          "boundary_probability": 0.15,
+          "capture": 0.105,
+          "effective_fraction": 0.1,
+          "fn": 1074,
+          "fp": 674,
+          "lift": 1.05,
+          "selected": 800,
+          "tn": 6126,
+          "tp": 126
+        }
+      }
+    },
+    "logistic_regression": {
+      "ap_unavailable_reason": null,
+      "average_precision": 0.36546576230972566,
+      "brier_score": 0.11394051773060701,
+      "ece_10_bins": 0.017764784843699356,
+      "log_loss": 0.3805696253478628,
+      "negatives": 6800,
+      "positives": 1200,
+      "prevalence": 0.15,
+      "reliability": [
+        {
+          "lower": 0.0,
+          "mean_probability": 0.05412809921274419,
+          "observed_fraction": 0.058693594193751975,
+          "rows": 3169,
+          "upper": 0.1,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.1,
+          "mean_probability": 0.1454787501660791,
+          "observed_fraction": 0.12858141160027953,
+          "rows": 2862,
+          "upper": 0.2,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.2,
+          "mean_probability": 0.24420918954815787,
+          "observed_fraction": 0.2575039494470774,
+          "rows": 1266,
+          "upper": 0.3,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.3,
+          "mean_probability": 0.33855759374159217,
+          "observed_fraction": 0.38954869358669836,
+          "rows": 421,
+          "upper": 0.4,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.4,
+          "mean_probability": 0.4407115684443031,
+          "observed_fraction": 0.5172413793103449,
+          "rows": 116,
+          "upper": 0.5,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.5,
+          "mean_probability": 0.5449161416986041,
+          "observed_fraction": 0.6041666666666666,
+          "rows": 48,
+          "upper": 0.6,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.6,
+          "mean_probability": 0.6414519738814503,
+          "observed_fraction": 0.5666666666666667,
+          "rows": 30,
+          "upper": 0.7,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.7,
+          "mean_probability": 0.7524008442106411,
+          "observed_fraction": 0.3333333333333333,
+          "rows": 24,
+          "upper": 0.8,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.8,
+          "mean_probability": 0.8469325537331506,
+          "observed_fraction": 0.6086956521739131,
+          "rows": 23,
+          "upper": 0.9,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.9,
+          "mean_probability": 0.9631588204963843,
+          "observed_fraction": 0.6829268292682927,
+          "rows": 41,
+          "upper": 1.0,
+          "upper_inclusive": true
+        }
+      ],
+      "roc_auc": 0.7410165441176471,
+      "rows": 8000,
+      "sparse": false,
+      "threshold_0.5": {
+        "fn": 1104,
+        "fp": 70,
+        "tn": 6730,
+        "tp": 96
+      },
+      "top_budgets": {
+        "0.05": {
+          "boundary_probability": 0.35713859640727336,
+          "capture": 0.17333333333333334,
+          "effective_fraction": 0.05,
+          "fn": 992,
+          "fp": 192,
+          "lift": 3.466666666666667,
+          "selected": 400,
+          "tn": 6608,
+          "tp": 208
+        },
+        "0.1": {
+          "boundary_probability": 0.2885124109213638,
+          "capture": 0.29333333333333333,
+          "effective_fraction": 0.1,
+          "fn": 848,
+          "fp": 448,
+          "lift": 2.9333333333333336,
+          "selected": 800,
+          "tn": 6352,
+          "tp": 352
+        }
+      }
+    },
+    "tabpfn_3_5_plus": {
+      "ap_unavailable_reason": null,
+      "average_precision": 0.6275683184326136,
+      "brier_score": 0.08427911871645688,
+      "ece_10_bins": 0.008315780079457909,
+      "log_loss": 0.2798854183815754,
+      "negatives": 6800,
+      "positives": 1200,
+      "prevalence": 0.15,
+      "reliability": [
+        {
+          "lower": 0.0,
+          "mean_probability": 0.03319707591659748,
+          "observed_fraction": 0.031578947368421054,
+          "rows": 4940,
+          "upper": 0.1,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.1,
+          "mean_probability": 0.14260096303717104,
+          "observed_fraction": 0.1377245508982036,
+          "rows": 1169,
+          "upper": 0.2,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.2,
+          "mean_probability": 0.24568638221077296,
+          "observed_fraction": 0.2382608695652174,
+          "rows": 575,
+          "upper": 0.3,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.3,
+          "mean_probability": 0.34748586288724953,
+          "observed_fraction": 0.3918269230769231,
+          "rows": 416,
+          "upper": 0.4,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.4,
+          "mean_probability": 0.4459293187768371,
+          "observed_fraction": 0.48518518518518516,
+          "rows": 270,
+          "upper": 0.5,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.5,
+          "mean_probability": 0.5458257080223153,
+          "observed_fraction": 0.5944700460829493,
+          "rows": 217,
+          "upper": 0.6,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.6,
+          "mean_probability": 0.6493733598173951,
+          "observed_fraction": 0.6546762589928058,
+          "rows": 139,
+          "upper": 0.7,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.7,
+          "mean_probability": 0.7441427421569824,
+          "observed_fraction": 0.752,
+          "rows": 125,
+          "upper": 0.8,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.8,
+          "mean_probability": 0.8449261157783037,
+          "observed_fraction": 0.8969072164948454,
+          "rows": 97,
+          "upper": 0.9,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.9,
+          "mean_probability": 0.9384562166837546,
+          "observed_fraction": 0.9807692307692307,
+          "rows": 52,
+          "upper": 1.0,
+          "upper_inclusive": true
+        }
+      ],
+      "roc_auc": 0.8784363970588234,
+      "rows": 8000,
+      "sparse": false,
+      "threshold_0.5": {
+        "fn": 748,
+        "fp": 178,
+        "tn": 6622,
+        "tp": 452
+      },
+      "top_budgets": {
+        "0.05": {
+          "boundary_probability": 0.610321044921875,
+          "capture": 0.2625,
+          "effective_fraction": 0.05,
+          "fn": 885,
+          "fp": 85,
+          "lift": 5.25,
+          "selected": 400,
+          "tn": 6715,
+          "tp": 315
+        },
+        "0.1": {
+          "boundary_probability": 0.4323744773864746,
+          "capture": 0.45166666666666666,
+          "effective_fraction": 0.1,
+          "fn": 658,
+          "fp": 258,
+          "lift": 4.516666666666667,
+          "selected": 800,
+          "tn": 6542,
+          "tp": 542
+        }
+      }
+    },
+    "xgboost": {
+      "ap_unavailable_reason": null,
+      "average_precision": 0.5766529506406038,
+      "brier_score": 0.09278748393171579,
+      "ece_10_bins": 0.03296092665492324,
+      "log_loss": 0.3072824419517234,
+      "negatives": 6800,
+      "positives": 1200,
+      "prevalence": 0.15,
+      "reliability": [
+        {
+          "lower": 0.0,
+          "mean_probability": 0.05011118428242281,
+          "observed_fraction": 0.030664794007490635,
+          "rows": 4272,
+          "upper": 0.1,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.1,
+          "mean_probability": 0.1416113679107813,
+          "observed_fraction": 0.1279443254817987,
+          "rows": 1868,
+          "upper": 0.2,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.2,
+          "mean_probability": 0.2455024486107211,
+          "observed_fraction": 0.2679900744416873,
+          "rows": 806,
+          "upper": 0.3,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.3,
+          "mean_probability": 0.3446602906676249,
+          "observed_fraction": 0.42946058091286304,
+          "rows": 482,
+          "upper": 0.4,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.4,
+          "mean_probability": 0.4443279307622176,
+          "observed_fraction": 0.6423076923076924,
+          "rows": 260,
+          "upper": 0.5,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.5,
+          "mean_probability": 0.5436665022078856,
+          "observed_fraction": 0.7098765432098766,
+          "rows": 162,
+          "upper": 0.6,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.6,
+          "mean_probability": 0.6456390973887866,
+          "observed_fraction": 0.7468354430379747,
+          "rows": 79,
+          "upper": 0.7,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.7,
+          "mean_probability": 0.7451001599777577,
+          "observed_fraction": 0.9069767441860465,
+          "rows": 43,
+          "upper": 0.8,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.8,
+          "mean_probability": 0.8547882100810176,
+          "observed_fraction": 0.9565217391304348,
+          "rows": 23,
+          "upper": 0.9,
+          "upper_inclusive": false
+        },
+        {
+          "lower": 0.9,
+          "mean_probability": 0.922441565990448,
+          "observed_fraction": 1.0,
+          "rows": 5,
+          "upper": 1.0,
+          "upper_inclusive": true
+        }
+      ],
+      "roc_auc": 0.8559699754901962,
+      "rows": 8000,
+      "sparse": false,
+      "threshold_0.5": {
+        "fn": 960,
+        "fp": 72,
+        "tn": 6728,
+        "tp": 240
+      },
+      "top_budgets": {
+        "0.05": {
+          "boundary_probability": 0.4587911069393158,
+          "capture": 0.24666666666666667,
+          "effective_fraction": 0.05,
+          "fn": 904,
+          "fp": 104,
+          "lift": 4.933333333333334,
+          "selected": 400,
+          "tn": 6696,
+          "tp": 296
+        },
+        "0.1": {
+          "boundary_probability": 0.3443112075328827,
+          "capture": 0.4266666666666667,
+          "effective_fraction": 0.1,
+          "fn": 688,
+          "fp": 288,
+          "lift": 4.266666666666667,
+          "selected": 800,
+          "tn": 6512,
+          "tp": 512
+        }
+      }
+    }
+  },
+  "prepared_manifest_sha256": "a0b3f2799579f65dff6a5ef37a1534d0f613230580f22a02ba18d0e694e879b3",
+  "protocol_sha256": "9aa6ff02a3cca8f62be5b1a071433faf005292510dc526d2a087c6d2a655a560",
+  "sources": {
+    "hosted": "74db598a4f52cf6819bcc8c9136f124a655271e5766b8408f3d8c59f47da4145",
+    "local": "c0b240b47b1ad39fefa90cce9e80211f5e10c0867823c8d5181120c9b9594cc9",
+    "response": "478c3c1414b7a6d62d43511175a83a31b2282af97c38c4ecb621e11c66011fe9"
+  },
+  "status": "verified_final",
+  "verification": {
+    "api_requests": 0,
+    "fit_requests": 0,
+    "independent_metrics": true,
+    "model_count": 5,
+    "rows": 8000
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "status": "verified_local_release_candidate",
+  "python_tests": 155,
+  "ui_tests": 9,
+  "ruff": "passed",
+  "typescript": "passed",
+  "ui_format": "passed",
+  "rebuild_matching_files": [
+    "archive/evidence.json",
+    "archive/index.html",
+    "archive/manifest.json",
+    "evidence.json",
+    "index.html",
+    "manifest.json",
+    "review-400.csv",
+    "review-800.csv"
+  ],
+  "browser_checks": [
+    "validation capacity switches 800 to 400 and updates export",
+    "final holdout shows 542 versus 512 at 10%",
+    "square cards and readable final table"
+  ],
+  "dependencies": "Existing locked dependencies used; fresh install not verified",
+  "full_data_predictions": "excluded; column metadata unresolved",
+  "publication_status": "private preparation; public release and hackathon submission pending"
+}

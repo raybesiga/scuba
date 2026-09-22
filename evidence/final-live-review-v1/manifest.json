@@ -1,0 +1,40 @@
+{
+  "plan_sha256": "98c1762494db77aed4a25565cce0a29f24448640bc83683b52736b4522b42a3d",
+  "preflight": {
+    "actual_tokens": 0,
+    "checked_at_unix": 1790026139.7731168,
+    "estimated_total_tokens": 10000,
+    "estimates": [
+      {
+        "estimated_tokens": 10000,
+        "pricing_version": "quota_v3",
+        "request": {
+          "model_version": "v3.5",
+          "n_estimators": 8,
+          "operation": "predict",
+          "raw_columns": 182,
+          "test_rows": 8000,
+          "train_rows": 24000
+        }
+      }
+    ],
+    "evidence": "live_metadata_only",
+    "model_limits": {
+      "dataset_max_size_bytes": 5368709120,
+      "limits": {
+        "max_classes": 160,
+        "max_cols": 20000,
+        "predict_row_pairs_budget": 250000000000,
+        "test_set_max_cells": 200000000,
+        "test_set_max_rows": 1000000,
+        "train_set_max_cells": 200000000,
+        "train_set_max_rows": 1000000
+      },
+      "model_version": "v3.5"
+    },
+    "plan_sha256": "98c1762494db77aed4a25565cce0a29f24448640bc83683b52736b4522b42a3d",
+    "rows_uploaded": 0
+  },
+  "rows_uploaded": 0,
+  "status": "awaiting_upload_approval"
+}

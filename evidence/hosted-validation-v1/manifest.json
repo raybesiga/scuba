@@ -1,0 +1,270 @@
+{
+  "approved_estimated_tokens": 10000,
+  "classification": "external_challenge_data_origin_unverified",
+  "end_to_end_seconds": 58.06842645800498,
+  "evaluation_partition": "validation",
+  "evidence": "live_verified",
+  "final_evaluated": false,
+  "integration": {
+    "actual_tokens": null,
+    "actual_tokens_reason": "Published prediction response has no per-operation token charge.",
+    "approved_estimate_budget": 10000,
+    "checkpoint_identity": {
+      "policy": "plus-checkpoint-20260909-v1",
+      "reported_model_path": "/app/tabpfn_models/tabpfn-v3.5-20260909.safetensors",
+      "requested_alias": "v3.5_default",
+      "scope": "server-reported identity; checkpoint bytes not independently attested"
+    },
+    "fitted_train_set_id": "01a0c57c-f307-7250-be0b-b705ddff3759",
+    "fresh_preflight": {
+      "actual_tokens": 0,
+      "checked_at_unix": 1790019668.8656662,
+      "estimated_total_tokens": 10000,
+      "estimates": [
+        {
+          "estimated_tokens": 10000,
+          "pricing_version": "quota_v3",
+          "request": {
+            "model_version": "v3.5",
+            "n_estimators": 8,
+            "operation": "predict",
+            "raw_columns": 182,
+            "test_rows": 8000,
+            "train_rows": 24000
+          }
+        }
+      ],
+      "evidence": "live_metadata_only",
+      "model_limits": {
+        "dataset_max_size_bytes": 5368709120,
+        "limits": {
+          "max_classes": 160,
+          "max_cols": 20000,
+          "predict_row_pairs_budget": 250000000000,
+          "test_set_max_cells": 200000000,
+          "test_set_max_rows": 1000000,
+          "train_set_max_cells": 200000000,
+          "train_set_max_rows": 1000000
+        },
+        "model_version": "v3.5"
+      },
+      "plan_sha256": "b30b83427a7fecb6c439e0ec47d54fed4159afeb3f85cc71d00a084a814a36d0",
+      "rows_uploaded": 0
+    },
+    "requested_variant": "plus",
+    "server_metadata": {
+      "identity_validation": {
+        "policy": "plus-checkpoint-20260909-v1",
+        "reported_model_path": "/app/tabpfn_models/tabpfn-v3.5-20260909.safetensors",
+        "requested_alias": "v3.5_default",
+        "scope": "server-reported identity; checkpoint bytes not independently attested"
+      },
+      "package_version": "9.0.0",
+      "tabpfn_config": {
+        "fit_mode": "fit_preprocessors",
+        "model_path": "/app/tabpfn_models/tabpfn-v3.5-20260909.safetensors",
+        "n_estimators": 8,
+        "random_state": 3501
+      },
+      "test_set_num_cols": 182,
+      "test_set_num_rows": 8000
+    },
+    "stages": [
+      {
+        "elapsed_seconds": 0.8592964170093182,
+        "stage": "get_model_limits"
+      },
+      {
+        "elapsed_seconds": 0.270877416987787,
+        "stage": "estimate_cost"
+      },
+      {
+        "elapsed_seconds": 0.37940970799536444,
+        "stage": "prepare_train_set_upload"
+      },
+      {
+        "elapsed_seconds": 18.722031583005446,
+        "stage": "upload_train_features"
+      },
+      {
+        "elapsed_seconds": 0.5755515829951037,
+        "stage": "upload_train_labels"
+      },
+      {
+        "elapsed_seconds": 10.668469084004755,
+        "stage": "fit"
+      },
+      {
+        "elapsed_seconds": 0.3241000420093769,
+        "stage": "prepare_test_set_upload"
+      },
+      {
+        "elapsed_seconds": 12.296105667002848,
+        "stage": "upload_validation_features"
+      },
+      {
+        "elapsed_seconds": 13.869074957998237,
+        "stage": "predict"
+      }
+    ]
+  },
+  "metrics": {
+    "ap_unavailable_reason": null,
+    "average_precision": 0.6624560165579673,
+    "brier_score": 0.08078648454824253,
+    "ece_10_bins": 0.010842892802495042,
+    "log_loss": 0.2693678323640908,
+    "negatives": 6800,
+    "positives": 1200,
+    "prevalence": 0.15,
+    "reliability": [
+      {
+        "lower": 0.0,
+        "mean_probability": 0.03293126401595893,
+        "observed_fraction": 0.030127693535514765,
+        "rows": 5012,
+        "upper": 0.1,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.1,
+        "mean_probability": 0.14594246197651028,
+        "observed_fraction": 0.14559721011333915,
+        "rows": 1147,
+        "upper": 0.2,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.2,
+        "mean_probability": 0.24560438623202258,
+        "observed_fraction": 0.23103448275862068,
+        "rows": 580,
+        "upper": 0.3,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.3,
+        "mean_probability": 0.3509216489671152,
+        "observed_fraction": 0.389873417721519,
+        "rows": 395,
+        "upper": 0.4,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.4,
+        "mean_probability": 0.44973499794718635,
+        "observed_fraction": 0.46887966804979253,
+        "rows": 241,
+        "upper": 0.5,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.5,
+        "mean_probability": 0.5475949554020548,
+        "observed_fraction": 0.6502463054187192,
+        "rows": 203,
+        "upper": 0.6,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.6,
+        "mean_probability": 0.6484712506785537,
+        "observed_fraction": 0.7196969696969697,
+        "rows": 132,
+        "upper": 0.7,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.7,
+        "mean_probability": 0.7472621494973147,
+        "observed_fraction": 0.7407407407407407,
+        "rows": 108,
+        "upper": 0.8,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.8,
+        "mean_probability": 0.8523514663052355,
+        "observed_fraction": 0.9316239316239316,
+        "rows": 117,
+        "upper": 0.9,
+        "upper_inclusive": false
+      },
+      {
+        "lower": 0.9,
+        "mean_probability": 0.9442142220643851,
+        "observed_fraction": 1.0,
+        "rows": 65,
+        "upper": 1.0,
+        "upper_inclusive": true
+      }
+    ],
+    "roc_auc": 0.8876912990196077,
+    "rows": 8000,
+    "sparse": false,
+    "threshold_0.5": {
+      "fn": 719,
+      "fp": 144,
+      "tn": 6656,
+      "tp": 481
+    },
+    "top_budgets": {
+      "0.05": {
+        "boundary_probability": 0.6174523234367371,
+        "capture": 0.2783333333333333,
+        "effective_fraction": 0.05,
+        "fn": 866,
+        "fp": 66,
+        "lift": 5.566666666666666,
+        "selected": 400,
+        "tn": 6734,
+        "tp": 334
+      },
+      "0.1": {
+        "boundary_probability": 0.4324412941932678,
+        "capture": 0.4708333333333333,
+        "effective_fraction": 0.1,
+        "fn": 635,
+        "fp": 235,
+        "lift": 4.708333333333334,
+        "selected": 800,
+        "tn": 6565,
+        "tp": 565
+      }
+    }
+  },
+  "model": "TabPFN-3.5-Plus",
+  "plan_sha256": "b30b83427a7fecb6c439e0ec47d54fed4159afeb3f85cc71d00a084a814a36d0",
+  "predictions_sha256": "4d64ca3051d5f04c0918361556bec42751a6bc35b146658ea71d0e786953eade",
+  "prepared_manifest_sha256": "a0b3f2799579f65dff6a5ef37a1534d0f613230580f22a02ba18d0e694e879b3",
+  "response_sha256": "e43d795bb308ac78b52f2658ccfa3432c154eb3d04a2011f6b23998186caa2b5",
+  "runtime": {
+    "comparison_source_sha256": "1c090e820110f563563681e359f472d3b17088fab7c52f1c6b350846899f3f35",
+    "dependency_lock_sha256": "969aeca7e4f28a14ba690ee25d2d03b4d64182441060996d11ac658c9efd06ed",
+    "evaluation_sha256": "1c580299bd1e18ad6954f2ab34b9766f062be2b5eec7e76de8514dbba5899f08",
+    "integration_source_sha256": {
+      "__init__.py": "f81a20b30140ed82172d53b7d36af744b51cd6ce0ce36295be002b7d22d9cdb0",
+      "secrets.py": "bf4bacffb5c65fd2f916cd4602843b04cfa92cb608b0fddae52b57cf490d86c9",
+      "tabpfn_evidence.py": "501afc5fa6e1207b1023c4f36b56dd00f1eba65051bbd4bdd2f27e635136f8c3",
+      "tabpfn_identity.py": "87d6737290c283fc6b941e35a70cc067ee7cf0af2f99e9242454101cb89132e6",
+      "tabpfn_plan.py": "06b75f02c2ab401a4f8f6a358a1bad578aab945cfff18f025c09452c833d17e2",
+      "tabpfn_rest.py": "235b9519e088c62d2e5d569f10fec8446bb288d2c2ce4cda473843781d7a0a5e",
+      "tabpfn_revalidation.py": "9ca3168f61189b95e0633992c391e6e0ffcdca52aa1f9f35a46bd0758562a461",
+      "tabpfn_runner.py": "8867fe39d00be684fa39ab76be36a0d7eb9bdc76a4c54c45933ad212c969351b"
+    },
+    "module_sha256": "ebeb00946c7eb53d2dfd315e2a8945aa64c414f089dae2218b32cdee69ca590d",
+    "packages": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "threadpoolctl": "3.7.0"
+    },
+    "python": "3.14.5",
+    "tree_packages": {
+      "catboost": "1.2.10",
+      "xgboost": "3.4.1"
+    }
+  },
+  "status": "complete",
+  "version": "financial-stress-comparison/v1"
+}

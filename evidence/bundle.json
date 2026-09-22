@@ -1,0 +1,33 @@
+{
+  "classification": "external_challenge_data_origin_unverified",
+  "contains_credentials": false,
+  "files": {
+    "DATA_ATTRIBUTION.md": "2b823e78e28a531dca7e6d8da25dc4f2a7f33ec697b5f9ffd3bdd776b536c69b",
+    "archive/evidence.json": "a738dd7e472f5a15e4f5b9af12777d1f29ac3f636e446b66f5499c32f310b5f2",
+    "archive/index.html": "6d52d0e21f324ed578a3a75d6c396f3f3733bc3373570f69f1f4df6cc74a8dd6",
+    "archive/manifest.json": "93cfe97d8b15b36ed81d26a7fb22f7ccde206de734bc5ae6cc88f68413f116ba",
+    "comparison-verified-v1/metrics.json": "d35edaf4019e783c58ed64f718c9055a3cd8085e20ad4bd4982d380833910d98",
+    "comparison-verified-v1/validation_predictions.csv": "425d316158ba6aaa3b7d0ffd881688f391fa06c0146f4c3dde5dfcdab31d4744",
+    "final-freeze-v1/protocol.json": "08f75ca66c9ed59b10b2e2dd28526fdd472feffc6a76f97bbb6383491b027e3a",
+    "final-hosted-v1/final_predictions.csv": "147ce68220f6a6f82dfba061da0c27b89698d1b596ea1641c2575b871a31143d",
+    "final-hosted-v1/manifest.json": "74db598a4f52cf6819bcc8c9136f124a655271e5766b8408f3d8c59f47da4145",
+    "final-hosted-v1/response_evidence.json": "478c3c1414b7a6d62d43511175a83a31b2282af97c38c4ecb621e11c66011fe9",
+    "final-live-review-v1/manifest.json": "b0ecd1a204f2be35fb706a31338cbd01c819879b7f96ff13ffddeb7f9a49165c",
+    "final-live-review-v1/plan.json": "7c64e189c06c28b4b1e49be0d1c6335608811e7b80cc71789cfc645000109760",
+    "final-local-v1/final_predictions.csv": "16276b4656c23c666c3e708c27aeb7b84957be6a50e88ded493119f92d5dfa84",
+    "final-local-v1/metrics.json": "c0b240b47b1ad39fefa90cce9e80211f5e10c0867823c8d5181120c9b9594cc9",
+    "final-verified-v1/evaluation.json": "5f939a58c28f2f0ac67c076d54909cae527219175e1dec20f22c956dce045b79",
+    "hosted-validation-v1/manifest.json": "46987bfa6761a2df0e9c77ee6ebf12e023102623d47d9cd291a18082d4c285c9",
+    "hosted-validation-v1/response_evidence.json": "e43d795bb308ac78b52f2658ccfa3432c154eb3d04a2011f6b23998186caa2b5",
+    "hosted-validation-v1/validation_predictions.csv": "4d64ca3051d5f04c0918361556bec42751a6bc35b146658ea71d0e786953eade",
+    "prepared-v1/final.csv": "40fdde8deb065c0d9f260b565959b60eae1334e6ce8b6aa0685a27200941256e",
+    "prepared-v1/manifest.json": "a0b3f2799579f65dff6a5ef37a1534d0f613230580f22a02ba18d0e694e879b3",
+    "prepared-v1/membership.csv": "dd66ac0bc88a85e902808bd35688eb3e12f423c9f9b817a22ad11092718d65fc",
+    "prepared-v1/train.csv": "b1d1c540e0a7fb1c6481009f759feef4943d59f071cf743f329991cdeb3abcbf",
+    "prepared-v1/validation.csv": "d2d4ddfa321b77910a24d8f6c8723bfa3941600ed760df3bf44f78ded85f9221",
+    "without-age-gender-v1/metrics.json": "3e884d488f5df392b559188d666940a90e42a48437bd73f513cbc0be4d36e383",
+    "without-age-gender-v1/validation_predictions.csv": "790aa1537260b599234d18f9021242bd4453b90efc0ca5d18ff6e51d1638b027"
+  },
+  "publication_status": "local_draft_not_published",
+  "version": "scuba.financial-demo/v1"
+}
