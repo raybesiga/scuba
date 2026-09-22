@@ -485,100 +485,92 @@ function Evidence({
         </Text>
       </Box>
       <Box>
-        <Grid columns={{ initial: "1", md: "2fr 1fr" }} gap="5">
-          <Box>
-            <Flex justify="between" align="center" gap="3" wrap="wrap">
-              <Heading as="h2" size="4">
-                Do probabilities match outcomes?
-              </Heading>
-              <Select.Root value={model} onValueChange={setModel}>
-                <Select.Trigger aria-label="Calibration model" />
-                <Select.Content>
-                  {models.map((k) => (
-                    <Select.Item key={k} value={k}>
-                      {stressNames[k]}
-                    </Select.Item>
-                  ))}
-                </Select.Content>
-              </Select.Root>
-            </Flex>
-            <Text as="p" size="2" color="gray" mt="2" mb="4">
-              For groups assigned similar probabilities, compare the average
-              prediction with the fraction that experienced stress.
-            </Text>
-          </Box>
-        </Grid>
-        <Grid columns={{ initial: "1", md: "2fr 1fr" }} gap="5" align="start">
-          <Box>
-            <DataTable
-              label="Calibration with group sizes"
-              headers={[
-                "Predicted range",
-                "Snapshots",
-                "Mean prediction",
-                "Observed stress",
-                "Prediction gap",
-              ]}
-              rows={m.reliability.map((b) => [
-                `${Math.round(b.lower * 100)}–${Math.round(b.upper * 100)}%`,
-                number(b.rows),
-                percent(b.mean_probability),
-                percent(b.observed_fraction),
-                (() => {
-                  const gap = predictionGap(
-                    b.mean_probability,
-                    b.observed_fraction,
-                  );
-                  return (
-                    <Flex direction="column" gap="1">
-                      <Text color={gap.color} weight="medium">
-                        {gap.value}
-                      </Text>
-                      {gap.label && (
-                        <Text size="1" color={gap.color}>
-                          {gap.label}
-                        </Text>
-                      )}
-                    </Flex>
-                  );
-                })(),
-              ])}
-              sortValues={m.reliability.map((b) => [
-                b.lower,
-                b.rows,
+        <Flex justify="between" align="center" gap="3" wrap="wrap">
+          <Heading as="h2" size="4">
+            Do probabilities match outcomes?
+          </Heading>
+          <Select.Root value={model} onValueChange={setModel}>
+            <Select.Trigger aria-label="Calibration model" />
+            <Select.Content>
+              {models.map((k) => (
+                <Select.Item key={k} value={k}>
+                  {stressNames[k]}
+                </Select.Item>
+              ))}
+            </Select.Content>
+          </Select.Root>
+        </Flex>
+        <Text as="p" size="2" color="gray" mt="2" mb="4">
+          For groups assigned similar probabilities, compare the average
+          prediction with the fraction that experienced stress.
+        </Text>
+        <DataTable
+          label="Calibration with group sizes"
+          headers={[
+            "Predicted range",
+            "Snapshots",
+            "Mean prediction",
+            "Observed stress",
+            "Prediction gap",
+          ]}
+          rows={m.reliability.map((b) => [
+            `${Math.round(b.lower * 100)}–${Math.round(b.upper * 100)}%`,
+            number(b.rows),
+            percent(b.mean_probability),
+            percent(b.observed_fraction),
+            (() => {
+              const gap = predictionGap(
                 b.mean_probability,
                 b.observed_fraction,
-                predictionGap(b.mean_probability, b.observed_fraction).absolute,
-              ])}
-              sortOptions={{
-                4: {
-                  firstDirection: "descending",
-                  description:
-                    "Observed stress minus mean prediction, in percentage points (pp), calculated before rounding. Sort by largest absolute gap, then smallest, then restore predicted-range order.",
-                },
-              }}
-            />
-          </Box>
-          <Box className="dashboard-module">
-            <Heading as="h3" size="4">
-              Reading the gaps
-            </Heading>
-            <Text as="p" size="2" mt="3">
-              Positive: stress was underestimated. Negative: overestimated.
-              Grey: the gap rounds to zero, not proof of agreement.
-            </Text>
-            <Text as="p" size="2" mt="4">
-              Average calibration gap:{" "}
-              <strong>{(100 * m.ece_10_bins).toFixed(1)} pp</strong>
-            </Text>
-            <Text as="p" size="1" color="gray" mt="1">
-              Absolute gaps weighted by group size; pp = percentage points.
-            </Text>
-            <Text as="p" size="1" color="gray" mt="3">
-              Small groups are less stable. No confidence intervals are shown.
-            </Text>
-          </Box>
-        </Grid>
+              );
+              return (
+                <Flex direction="column" gap="1">
+                  <Text color={gap.color} weight="medium">
+                    {gap.value}
+                  </Text>
+                  {gap.label && (
+                    <Text size="1" color={gap.color}>
+                      {gap.label}
+                    </Text>
+                  )}
+                </Flex>
+              );
+            })(),
+          ])}
+          sortValues={m.reliability.map((b) => [
+            b.lower,
+            b.rows,
+            b.mean_probability,
+            b.observed_fraction,
+            predictionGap(b.mean_probability, b.observed_fraction).absolute,
+          ])}
+          sortOptions={{
+            4: {
+              firstDirection: "descending",
+              description:
+                "Observed stress minus mean prediction, in percentage points (pp), calculated before rounding. Sort by largest absolute gap, then smallest, then restore predicted-range order.",
+            },
+          }}
+        />
+        <Box mt="3">
+          <Heading as="h3" size="3">
+            Reading the gaps
+          </Heading>
+          <Text as="p" size="2" mt="2">
+            Positive: stress was underestimated. Negative: overestimated. Grey:
+            the gap rounds to zero, not proof of agreement.
+          </Text>
+          <Text as="p" size="2" mt="2">
+            Average calibration gap:{" "}
+            <strong>{(100 * m.ece_10_bins).toFixed(1)} pp</strong>
+          </Text>
+          <Text as="p" size="1" color="gray" mt="1">
+            Absolute gaps weighted by group size; pp = percentage points.
+          </Text>
+          <Text as="p" size="1" color="gray" mt="2">
+            Small groups are less stable. No confidence intervals are shown.
+          </Text>
+        </Box>
       </Box>
       <Box>
         <Flex justify="between" align="center" gap="3" wrap="wrap">
@@ -810,7 +802,7 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
                 Held-out snapshots
               </Heading>
               <Text size="2" color="gray">
-                Dates and distinct customers unverified
+                Evaluation rows were not used for training
               </Text>
             </Box>
           </Grid>
