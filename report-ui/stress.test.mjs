@@ -5,7 +5,52 @@ import {
   searchSnapshots,
   reviewCsv,
   totalActivity,
+  predictionGap,
 } from "./src/stress.ts";
+import { sortRowIndices } from "./src/sorting.ts";
+
+test("prediction gaps use unrounded probabilities and distinguish both directions", () => {
+  assert.deepEqual(predictionGap(0.5484, 0.6502), {
+    absolute: (0.6502 - 0.5484) * 100,
+    value: "+10.2 pp",
+    label: "Underestimated",
+    color: "amber",
+  });
+  assert.equal(predictionGap(0.033, 0.03).value, "−0.3 pp");
+  assert.equal(predictionGap(0.033, 0.03).label, "Overestimated");
+  assert.equal(predictionGap(0.033, 0.03).color, "blue");
+  // Rounding each probability first would incorrectly produce a 0.1 pp gap.
+  assert.equal(predictionGap(0.14649, 0.14651).value, "≈0.0 pp");
+});
+test("near-zero gaps are neutral at displayed precision and empty bins stay unavailable", () => {
+  for (const observed of [0.5, 0.50049, 0.49951]) {
+    const gap = predictionGap(0.5, observed);
+    assert.equal(gap.value, "≈0.0 pp");
+    assert.equal(gap.label, "Approximately equal");
+    assert.equal(gap.color, "gray");
+  }
+  assert.equal(predictionGap(0.5, 0.50051).value, "+0.1 pp");
+  assert.equal(predictionGap(0.5, 0.49949).value, "−0.1 pp");
+  for (const [mean, observed] of [
+    [null, null],
+    [0.5, null],
+    [null, 0.5],
+  ]) {
+    assert.equal(predictionGap(mean, observed).absolute, null);
+    assert.equal(predictionGap(mean, observed).value, "Unavailable");
+  }
+});
+test("absolute gap sorting prioritises large errors in either direction and keeps empty bins last", () => {
+  const gaps = [
+    [0.2, 0.25],
+    [0.4, 0.1],
+    [null, null],
+    [0.8, 1],
+    [0.5, 0.50001],
+  ].map(([mean, observed]) => predictionGap(mean, observed).absolute);
+  assert.deepEqual(sortRowIndices(gaps, "descending"), [1, 3, 0, 4, 2]);
+  assert.deepEqual(sortRowIndices(gaps, "ascending"), [4, 0, 3, 1, 2]);
+});
 
 const row = (id, probability, region = "Invented north") => ({
   id,

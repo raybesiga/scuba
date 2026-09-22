@@ -79,11 +79,16 @@ export function DataTable({
   rows,
   label: caption,
   sortValues,
+  sortOptions,
 }: {
   headers: string[];
   rows: React.ReactNode[][];
   label: string;
   sortValues?: SortValue[][];
+  sortOptions?: Record<
+    number,
+    { firstDirection: SortDirection; description: string }
+  >;
 }) {
   const [sort, setSort] = useState<{
     column: number;
@@ -100,9 +105,9 @@ export function DataTable({
       )
     : rows.map((_, i) => i);
   function changeSort(column: number) {
-    const first: SortDirection = headers[column].includes("↑")
-      ? "descending"
-      : "ascending";
+    const first: SortDirection =
+      sortOptions?.[column]?.firstDirection ??
+      (headers[column].includes("↑") ? "descending" : "ascending");
     if (sort?.column !== column) setSort({ column, direction: first });
     else if (sort.direction === first)
       setSort({
@@ -133,7 +138,10 @@ export function DataTable({
                 >
                   {sortable ? (
                     <Tooltip
-                      content={`${h.includes("↑") ? "Higher is better. " : h.includes("↓") ? "Lower is better. " : ""}Activate to sort, reverse, then restore source order.`}
+                      content={
+                        sortOptions?.[column]?.description ??
+                        `${h.includes("↑") ? "Higher is better. " : h.includes("↓") ? "Lower is better. " : ""}Activate to sort, reverse, then restore source order.`
+                      }
                     >
                       <Button
                         variant="ghost"

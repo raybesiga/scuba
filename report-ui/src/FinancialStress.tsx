@@ -32,6 +32,7 @@ import {
   searchSnapshots,
   totalActivity,
   stressNames,
+  predictionGap,
   type Snapshot,
   type StressReport,
 } from "./stress";
@@ -503,6 +504,11 @@ function Evidence({
             For groups assigned similar probabilities, compare the average
             prediction with the fraction that experienced stress.
           </Text>
+          <Text as="p" size="1" color="gray" mb="4">
+            Prediction gap = observed stress − mean prediction, in percentage
+            points (pp), calculated before rounding. Sort by gap to show the
+            largest differences first.
+          </Text>
           <DataTable
             label="Calibration with group sizes"
             headers={[
@@ -510,19 +516,46 @@ function Evidence({
               "Snapshots",
               "Mean prediction",
               "Observed stress",
+              "Prediction gap",
             ]}
             rows={m.reliability.map((b) => [
               `${Math.round(b.lower * 100)}–${Math.round(b.upper * 100)}%`,
               number(b.rows),
               percent(b.mean_probability),
               percent(b.observed_fraction),
+              (() => {
+                const gap = predictionGap(
+                  b.mean_probability,
+                  b.observed_fraction,
+                );
+                return (
+                  <Flex direction="column" gap="1">
+                    <Text color={gap.color} weight="medium">
+                      {gap.value}
+                    </Text>
+                    {gap.label && (
+                      <Text size="1" color={gap.color}>
+                        {gap.label}
+                      </Text>
+                    )}
+                  </Flex>
+                );
+              })(),
             ])}
             sortValues={m.reliability.map((b) => [
               b.lower,
               b.rows,
               b.mean_probability,
               b.observed_fraction,
+              predictionGap(b.mean_probability, b.observed_fraction).absolute,
             ])}
+            sortOptions={{
+              4: {
+                firstDirection: "descending",
+                description:
+                  "Sort by largest absolute gap, then smallest, then restore predicted-range order. The sign shows the direction of the gap.",
+              },
+            }}
           />
         </Box>
         <Box className="dashboard-module">
@@ -538,10 +571,17 @@ function Evidence({
             explicitly; it does not provide confidence intervals.
           </Text>
           <Text as="p" size="2" mt="4">
-            Calibration error: <strong>{percent(m.ece_10_bins)}</strong>
+            Average calibration gap:{" "}
+            <strong>{(100 * m.ece_10_bins).toFixed(1)} pp</strong>
           </Text>
           <Text as="p" size="1" color="gray" mt="1">
-            Weighted absolute gap across ten fixed bins.
+            Average absolute gap across ten probability ranges, weighted by
+            group size.
+          </Text>
+          <Text as="p" size="1" color="gray" mt="3">
+            Grey means the gap rounds to zero at the displayed precision, not
+            statistically proven agreement. Positive gaps mean the model
+            underestimated stress; negative gaps mean it overestimated stress.
           </Text>
         </Box>
       </Grid>

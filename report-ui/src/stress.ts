@@ -5,6 +5,30 @@ export const stressNames: Record<string, string> = {
   logistic_regression: "Logistic regression",
   constant_prior: "Constant prior",
 };
+export function predictionGap(mean: number | null, observed: number | null) {
+  if (mean === null || observed === null)
+    return {
+      absolute: null,
+      value: "Unavailable",
+      label: "",
+      color: "gray" as const,
+    };
+  const gap = (observed - mean) * 100;
+  const magnitude = Math.abs(gap).toFixed(1);
+  if (magnitude === "0.0")
+    return {
+      absolute: Math.abs(gap),
+      value: "≈0.0 pp",
+      label: "Approximately equal",
+      color: "gray" as const,
+    };
+  return {
+    absolute: Math.abs(gap),
+    value: `${gap > 0 ? "+" : "−"}${magnitude} pp`,
+    label: gap > 0 ? "Underestimated" : "Overestimated",
+    color: gap > 0 ? ("amber" as const) : ("blue" as const),
+  };
+}
 export type Snapshot = {
   id: string;
   probability: number;
