@@ -40,6 +40,9 @@ body {
 .table-scroll td {
   white-space: nowrap;
 }
+.table-scroll .rt-TableHeader {
+  background-color: var(--accent-3);
+}
 .table-scroll tbody tr:hover {
   background: var(--accent-a2);
 }

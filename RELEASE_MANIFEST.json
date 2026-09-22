@@ -25,8 +25,8 @@
     "demo/archive/index.html": "6d52d0e21f324ed578a3a75d6c396f3f3733bc3373570f69f1f4df6cc74a8dd6",
     "demo/archive/manifest.json": "93cfe97d8b15b36ed81d26a7fb22f7ccde206de734bc5ae6cc88f68413f116ba",
     "demo/evidence.json": "86a8650ff501123cc2b56da88006dd3ad94c16942825be4d281a2958f6ffa4b4",
-    "demo/index.html": "25753a9940152cf72d10e45cd46332bcc4d4829cfd1aa7171f71cc12b3547319",
-    "demo/manifest.json": "6f049c1a14b31e9732e9069589009e781f1e29a96c8ced3b4c0a23bff63b7e70",
+    "demo/index.html": "cee25501fc8d4e0bc15a0e22dc823c04600c3c3ee34c0c8a020a55582e111430",
+    "demo/manifest.json": "086372dc8c958465e73191fe4576251638183008d0b858ed872776d3886efe0f",
     "demo/review-400.csv": "126aeda6651c74774ec0aba97419ecda36a9dd64700473e019d39b84c72358e4",
     "demo/review-800.csv": "f4cc1b288b70cf6cdab8348676ae04ea453e831c0fb2870adfd59c1de1927425",
     "docs/DASHBOARD.md": "91abf0c12673ad7171c32c6c4d7a363cfa843e12ceda06d7a3db2d520805953c",
@@ -135,7 +135,7 @@
     "report-ui/src/palette.css": "bf89bacccffe012c4732c7d9ff8d50b11b6a970156392de774351d3289c388bc",
     "report-ui/src/sorting.ts": "aef2ecda72c57ed3451a756592dc3229d88d30f5abea1a5b1333624520935b8c",
     "report-ui/src/stress.ts": "24844d735098a7b9aa0bcedd4c178ca130e49ed8e6a38f06b0fd54b3866e8d61",
-    "report-ui/src/styles.css": "705fee69ac8511ab914b65570ec739b93a7a11d564a73ed4cb10b838b79c686c",
+    "report-ui/src/styles.css": "16a08d78fbf581bf72f0024a0538deaf9fc4c52199a1db38c8f043cd9c6ba194",
     "report-ui/src/styles.d.ts": "35d26ea66c86da9701e4f4b467913481ffeae910761cea34c775c5dacb7f8eaa",
     "report-ui/src/types.ts": "b4e96beee04f1f3c6c7f626bd4b170c7bed40d1f871383ab1068360535a03f4d",
     "report-ui/stress.test.mjs": "861a46963db002c37c5847c6269f2cfaaa8a351ceb64c9403ea0634e93b498e9",
@@ -233,7 +233,7 @@
     "ui_tests": 9,
     "original_files_verified": 5,
     "demo_rebuild": "8 files byte-identical",
-    "presentation_update": "Financial Stress Predictor title and active-use-case copy; icon-only accessible theme selector."
+    "presentation_update": "Soft blue table headers using the custom accent palette in both themes."
   },
   "source_history_included": false
 }
