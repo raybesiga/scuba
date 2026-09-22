@@ -10,7 +10,7 @@
   },
   "evidence_sha256": "86a8650ff501123cc2b56da88006dd3ad94c16942825be4d281a2958f6ffa4b4",
   "export_source_sha256": "fd7c4fe6ec16b0711201949b7c896896d1e27c6ad92d01546d0ef0898b35950e",
-  "html_sha256": "059afecf329689d3f5ca377aa8af1eefb446a7c30af6343c6360bbca7296f356",
+  "html_sha256": "d5a03d4b5f2863cb22283b201620b4fffb928fa640ed101cd6f7b5ba760ad268",
   "network_requests_in_build": 0,
   "presentation": "Radix Themes",
   "review_exports_sha256": {
@@ -29,7 +29,7 @@
     "src/palette.css": "bf89bacccffe012c4732c7d9ff8d50b11b6a970156392de774351d3289c388bc",
     "src/sorting.ts": "aef2ecda72c57ed3451a756592dc3229d88d30f5abea1a5b1333624520935b8c",
     "src/stress.ts": "870c97f2c9eef91b4cf0ff6caa7ae7d1ea9aece9099172724e8e7487470758b6",
-    "src/styles.css": "16a08d78fbf581bf72f0024a0538deaf9fc4c52199a1db38c8f043cd9c6ba194",
+    "src/styles.css": "1875b2d06923a80550309ed01215e3e26dbc06374b51e7710926ef64f051b799",
     "src/styles.d.ts": "35d26ea66c86da9701e4f4b467913481ffeae910761cea34c775c5dacb7f8eaa",
     "src/types.ts": "b4e96beee04f1f3c6c7f626bd4b170c7bed40d1f871383ab1068360535a03f4d"
   }

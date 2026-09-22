@@ -25,8 +25,8 @@
     "demo/archive/index.html": "6d52d0e21f324ed578a3a75d6c396f3f3733bc3373570f69f1f4df6cc74a8dd6",
     "demo/archive/manifest.json": "93cfe97d8b15b36ed81d26a7fb22f7ccde206de734bc5ae6cc88f68413f116ba",
     "demo/evidence.json": "86a8650ff501123cc2b56da88006dd3ad94c16942825be4d281a2958f6ffa4b4",
-    "demo/index.html": "059afecf329689d3f5ca377aa8af1eefb446a7c30af6343c6360bbca7296f356",
-    "demo/manifest.json": "982023d4e2dd5c775e27953eca29e3ad7cd9046f289a376185bfacb348e1a417",
+    "demo/index.html": "d5a03d4b5f2863cb22283b201620b4fffb928fa640ed101cd6f7b5ba760ad268",
+    "demo/manifest.json": "25772f8007eabebe81c0ee3e0748276455aa7fb6118a390156a92618eec0109c",
     "demo/review-400.csv": "126aeda6651c74774ec0aba97419ecda36a9dd64700473e019d39b84c72358e4",
     "demo/review-800.csv": "f4cc1b288b70cf6cdab8348676ae04ea453e831c0fb2870adfd59c1de1927425",
     "docs/DASHBOARD.md": "91abf0c12673ad7171c32c6c4d7a363cfa843e12ceda06d7a3db2d520805953c",
@@ -135,7 +135,7 @@
     "report-ui/src/palette.css": "bf89bacccffe012c4732c7d9ff8d50b11b6a970156392de774351d3289c388bc",
     "report-ui/src/sorting.ts": "aef2ecda72c57ed3451a756592dc3229d88d30f5abea1a5b1333624520935b8c",
     "report-ui/src/stress.ts": "870c97f2c9eef91b4cf0ff6caa7ae7d1ea9aece9099172724e8e7487470758b6",
-    "report-ui/src/styles.css": "16a08d78fbf581bf72f0024a0538deaf9fc4c52199a1db38c8f043cd9c6ba194",
+    "report-ui/src/styles.css": "1875b2d06923a80550309ed01215e3e26dbc06374b51e7710926ef64f051b799",
     "report-ui/src/styles.d.ts": "35d26ea66c86da9701e4f4b467913481ffeae910761cea34c775c5dacb7f8eaa",
     "report-ui/src/types.ts": "b4e96beee04f1f3c6c7f626bd4b170c7bed40d1f871383ab1068360535a03f4d",
     "report-ui/stress.test.mjs": "0a3647f89cae5f0ae5c86acd14dc330d1b6856ebce38568e9e5f6b0403ebdfa6",
@@ -233,7 +233,7 @@
     "ui_tests": 12,
     "original_files_verified": 5,
     "demo_rebuild": "8 files byte-identical",
-    "presentation_update": "Full-width calibration table with guidance below; clear held-out evaluation card copy."
+    "presentation_update": "Table headers use the same soft accent background as the Validation demo badge, without the default grey overlay."
   },
   "source_history_included": false
 }

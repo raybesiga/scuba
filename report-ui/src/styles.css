@@ -41,7 +41,8 @@ body {
   white-space: nowrap;
 }
 .table-scroll .rt-TableHeader {
-  background-color: var(--accent-3);
+  background-color: var(--color-background);
+  --table-row-background-color: var(--accent-a3);
 }
 .table-scroll tbody tr:hover {
   background: var(--accent-a2);
