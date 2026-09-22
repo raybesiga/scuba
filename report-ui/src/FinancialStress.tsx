@@ -674,11 +674,23 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
                 aria-label="Color theme"
                 onValueChange={(v) => setTheme(v as "light" | "dark")}
               >
-                <SegmentedControl.Item value="light">
-                  <SunIcon /> Light
+                <SegmentedControl.Item
+                  value="light"
+                  aria-label="Light theme"
+                  title="Light theme"
+                >
+                  <Flex align="center" justify="center">
+                    <SunIcon aria-hidden="true" />
+                  </Flex>
                 </SegmentedControl.Item>
-                <SegmentedControl.Item value="dark">
-                  <MoonIcon /> Dark
+                <SegmentedControl.Item
+                  value="dark"
+                  aria-label="Dark theme"
+                  title="Dark theme"
+                >
+                  <Flex align="center" justify="center">
+                    <MoonIcon aria-hidden="true" />
+                  </Flex>
                 </SegmentedControl.Item>
               </SegmentedControl.Root>
             </Flex>
@@ -696,7 +708,7 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
                 <Badge>Validation demo</Badge>
               </Flex>
               <Heading as="h1" size="7" mt="4">
-                Customer care, with earlier signals.
+                Financial Stress Predictor
               </Heading>
               <Text as="p" color="gray" mt="3">
                 Six months of activity · predicted financial stress in the next
@@ -857,8 +869,7 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
                     One use case at a time
                   </Heading>
                   <Text as="p" mt="3" size="2">
-                    Financial Stress is the active workflow. Nedbank
-                    transaction-volume forecasting is planned for later.
+                    Financial Stress Predictor is the active use case.
                   </Text>
                   <Text as="p" mt="3" size="2" color="gray">
                     The synthetic dormancy benchmark is preserved as an archive.
