@@ -190,7 +190,7 @@ export function activityBaselineSummary(row: Snapshot) {
   const difference = latest - baseline;
   const format = (value: number) =>
     value.toLocaleString("en-US", { maximumFractionDigits: 1 });
-  const start = `${format(latest)} transactions in M1`;
+  const start = `${format(latest)} transactions in the last month`;
   if (difference === 0)
     return `${start}. Matching the monthly baseline of ${format(baseline)}.`;
   const relative =

@@ -217,12 +217,12 @@ test("activity baseline uses each record’s preceding five months, excluding th
   record.activity = { deposit: [29, 24, 25, 27, 37, 45] };
   assert.equal(
     activityBaselineSummary(record),
-    "45 transactions in M1. 16.6 (58.5%) above the monthly baseline of 28.4.",
+    "45 transactions in the last month. 16.6 (58.5%) above the monthly baseline of 28.4.",
   );
   record.activity = { deposit: [10, 20, 30, 20, 20, 5] };
   assert.equal(
     activityBaselineSummary(record),
-    "5 transactions in M1. 15 (75%) below the monthly baseline of 20.",
+    "5 transactions in the last month. 15 (75%) below the monthly baseline of 20.",
   );
   assert.match(
     activityBaselineSummary(row("B", 0.8)),
@@ -234,11 +234,11 @@ test("activity baseline handles zero history without inventing a percentage chan
   record.activity = { deposit: [0, 0, 0, 0, 0, 5] };
   assert.equal(
     activityBaselineSummary(record),
-    "5 transactions in M1. 5 above the monthly baseline of 0.",
+    "5 transactions in the last month. 5 above the monthly baseline of 0.",
   );
   record.activity.deposit[5] = 0;
   assert.equal(
     activityBaselineSummary(record),
-    "0 transactions in M1. Matching the monthly baseline of 0.",
+    "0 transactions in the last month. Matching the monthly baseline of 0.",
   );
 });

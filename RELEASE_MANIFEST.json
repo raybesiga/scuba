@@ -25,8 +25,8 @@
     "demo/archive/index.html": "6d52d0e21f324ed578a3a75d6c396f3f3733bc3373570f69f1f4df6cc74a8dd6",
     "demo/archive/manifest.json": "93cfe97d8b15b36ed81d26a7fb22f7ccde206de734bc5ae6cc88f68413f116ba",
     "demo/evidence.json": "86a8650ff501123cc2b56da88006dd3ad94c16942825be4d281a2958f6ffa4b4",
-    "demo/index.html": "48021f49adedd517f79fc49b5202593db051bc50a6b8cff84d1008efd136b657",
-    "demo/manifest.json": "a3c31bb1871180fbfc5fdfa2aa61108bcd952e182ce910d140f345a3da3c875a",
+    "demo/index.html": "a734e7c073ab3cf27d72be8e6dd6578c56a3d655148408ef66b432a246ec2411",
+    "demo/manifest.json": "e5e5bee1829d5cc1db741f8f97092f39e7858d2d1e6fffb46e29ff13d3e9d240",
     "demo/review-400.csv": "126aeda6651c74774ec0aba97419ecda36a9dd64700473e019d39b84c72358e4",
     "demo/review-800.csv": "f4cc1b288b70cf6cdab8348676ae04ea453e831c0fb2870adfd59c1de1927425",
     "docs/DASHBOARD.md": "91abf0c12673ad7171c32c6c4d7a363cfa843e12ceda06d7a3db2d520805953c",
@@ -134,11 +134,11 @@
     "report-ui/src/main.tsx": "b561a698e636c81dd5fa3fa90fa57ebea6cd15bbc47a3a8f7ebaa2d505a560bf",
     "report-ui/src/palette.css": "bf89bacccffe012c4732c7d9ff8d50b11b6a970156392de774351d3289c388bc",
     "report-ui/src/sorting.ts": "aef2ecda72c57ed3451a756592dc3229d88d30f5abea1a5b1333624520935b8c",
-    "report-ui/src/stress.ts": "496d43273e6ef25cd463164f3d1b4146a0d59dc5600809a8162a71c3375e6f15",
+    "report-ui/src/stress.ts": "5799f5c50f16238080f1e360c8153deccd202f34348b048eb3d55d54b75f8572",
     "report-ui/src/styles.css": "1875b2d06923a80550309ed01215e3e26dbc06374b51e7710926ef64f051b799",
     "report-ui/src/styles.d.ts": "35d26ea66c86da9701e4f4b467913481ffeae910761cea34c775c5dacb7f8eaa",
     "report-ui/src/types.ts": "b4e96beee04f1f3c6c7f626bd4b170c7bed40d1f871383ab1068360535a03f4d",
-    "report-ui/stress.test.mjs": "3cebadc578d408203c3d40eb2e45c55262077ab34863f657252cd35ac8866851",
+    "report-ui/stress.test.mjs": "d04bfa5c565bbf683e05a2d05f4013d1571bbb68fc644f6613f6ffcdb273c72e",
     "report-ui/tsconfig.json": "228c34c1d819a7add668c0a148b335748ba9a5e29493bc5013cc3cb6c4473ceb",
     "scripts/audit_tabpfn_contract_sources.py": "ed6e3aba022ec65142381bf5cf64693c9dd260ea1429aa4b208c358fea7cf5f7",
     "scripts/revalidate_tabpfn_response.py": "b4f241c439b119969dd0e4fc5805e8ec288a4f81e9d4d022f0afe41393018858",
@@ -233,7 +233,7 @@
     "ui_tests": 17,
     "original_files_verified": 5,
     "demo_rebuild": "8 files byte-identical",
-    "presentation_update": "Activity baseline comparison uses two sentences instead of an em dash."
+    "presentation_update": "Activity baseline summary uses last month instead of M1."
   },
   "source_history_included": false
 }
