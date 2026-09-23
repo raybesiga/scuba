@@ -31,6 +31,7 @@ import {
   shortlist,
   searchSnapshots,
   totalActivity,
+  activityBaselineSummary,
   stressNames,
   predictionGap,
   calibrationNarrative,
@@ -111,11 +112,10 @@ function Detail({ row }: { row: Snapshot | null }) {
         ))}
       </Box>
       <Text as="p" size="2">
-        {number(totals[5])} transactions in M1, compared with{" "}
-        {number(totals[4])} in M2.
+        {activityBaselineSummary(row)}
       </Text>
       <Text as="p" size="1" color="gray" mt="2">
-        Observed context, not a causal explanation of the prediction.
+        Baseline: average activity over the preceding five months (M6–M2).
       </Text>
       <details className="snapshot-breakdown">
         <summary>View monthly breakdown</summary>

@@ -5,6 +5,7 @@ import {
   searchSnapshots,
   reviewCsv,
   totalActivity,
+  activityBaselineSummary,
   predictionGap,
   calibrationNarrative,
 } from "./src/stress.ts";
@@ -210,4 +211,34 @@ test("CSV preserves precision and rank, escapes text and excludes observed label
 });
 test("activity combines counts at matching monthly positions", () => {
   assert.deepEqual(totalActivity(row("A", 0.5)), [7, 7, 7, 7, 7, 7]);
+});
+test("activity baseline uses each record’s preceding five months, excluding the latest month", () => {
+  const record = row("A", 0.5);
+  record.activity = { deposit: [29, 24, 25, 27, 37, 45] };
+  assert.equal(
+    activityBaselineSummary(record),
+    "45 transactions in M1 — 16.6 (58.5%) above the monthly baseline of 28.4.",
+  );
+  record.activity = { deposit: [10, 20, 30, 20, 20, 5] };
+  assert.equal(
+    activityBaselineSummary(record),
+    "5 transactions in M1 — 15 (75%) below the monthly baseline of 20.",
+  );
+  assert.match(
+    activityBaselineSummary(row("B", 0.8)),
+    /matching the monthly baseline of 7/,
+  );
+});
+test("activity baseline handles zero history without inventing a percentage change", () => {
+  const record = row("A", 0.5);
+  record.activity = { deposit: [0, 0, 0, 0, 0, 5] };
+  assert.equal(
+    activityBaselineSummary(record),
+    "5 transactions in M1 — 5 above the monthly baseline of 0.",
+  );
+  record.activity.deposit[5] = 0;
+  assert.equal(
+    activityBaselineSummary(record),
+    "0 transactions in M1 — matching the monthly baseline of 0.",
+  );
 });

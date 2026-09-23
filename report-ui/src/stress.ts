@@ -183,3 +183,19 @@ export function totalActivity(row: Snapshot) {
     Object.values(row.activity).reduce((sum, v) => sum + v[i], 0),
   );
 }
+export function activityBaselineSummary(row: Snapshot) {
+  const totals = totalActivity(row);
+  const baseline = totals.slice(0, 5).reduce((sum, v) => sum + v, 0) / 5;
+  const latest = totals[5];
+  const difference = latest - baseline;
+  const format = (value: number) =>
+    value.toLocaleString("en-US", { maximumFractionDigits: 1 });
+  const start = `${format(latest)} transactions in M1`;
+  if (difference === 0)
+    return `${start} — matching the monthly baseline of ${format(baseline)}.`;
+  const relative =
+    baseline === 0
+      ? ""
+      : ` (${format((Math.abs(difference) / baseline) * 100)}%)`;
+  return `${start} — ${format(Math.abs(difference))}${relative} ${difference > 0 ? "above" : "below"} the monthly baseline of ${format(baseline)}.`;
+}
