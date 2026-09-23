@@ -192,10 +192,10 @@ export function activityBaselineSummary(row: Snapshot) {
     value.toLocaleString("en-US", { maximumFractionDigits: 1 });
   const start = `${format(latest)} transactions in M1`;
   if (difference === 0)
-    return `${start} — matching the monthly baseline of ${format(baseline)}.`;
+    return `${start}. Matching the monthly baseline of ${format(baseline)}.`;
   const relative =
     baseline === 0
       ? ""
       : ` (${format((Math.abs(difference) / baseline) * 100)}%)`;
-  return `${start} — ${format(Math.abs(difference))}${relative} ${difference > 0 ? "above" : "below"} the monthly baseline of ${format(baseline)}.`;
+  return `${start}. ${format(Math.abs(difference))}${relative} ${difference > 0 ? "above" : "below"} the monthly baseline of ${format(baseline)}.`;
 }
