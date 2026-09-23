@@ -524,14 +524,12 @@ function Evidence({
                 b.observed_fraction,
               );
               return (
-                <Flex direction="column" gap="1">
-                  <Text color={gap.color} weight="medium">
-                    {gap.value}
-                  </Text>
+                <Flex align="center" gap="2">
+                  <Text weight="medium">{gap.value}</Text>
                   {gap.label && (
-                    <Text size="1" color={gap.color}>
+                    <Badge size="1" variant="soft" color={gap.color}>
                       {gap.label}
-                    </Text>
+                    </Badge>
                   )}
                 </Flex>
               );

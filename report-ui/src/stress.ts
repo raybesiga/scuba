@@ -26,7 +26,7 @@ export function predictionGap(mean: number | null, observed: number | null) {
     absolute: Math.abs(gap),
     value: `${gap > 0 ? "+" : "−"}${magnitude} pp`,
     label: gap > 0 ? "Underestimated" : "Overestimated",
-    color: gap > 0 ? ("amber" as const) : ("blue" as const),
+    color: gap > 0 ? ("amber" as const) : ("jade" as const),
   };
 }
 export type Snapshot = {

@@ -25,8 +25,8 @@
     "demo/archive/index.html": "6d52d0e21f324ed578a3a75d6c396f3f3733bc3373570f69f1f4df6cc74a8dd6",
     "demo/archive/manifest.json": "93cfe97d8b15b36ed81d26a7fb22f7ccde206de734bc5ae6cc88f68413f116ba",
     "demo/evidence.json": "86a8650ff501123cc2b56da88006dd3ad94c16942825be4d281a2958f6ffa4b4",
-    "demo/index.html": "d5a03d4b5f2863cb22283b201620b4fffb928fa640ed101cd6f7b5ba760ad268",
-    "demo/manifest.json": "25772f8007eabebe81c0ee3e0748276455aa7fb6118a390156a92618eec0109c",
+    "demo/index.html": "c6f1bd41d643a613634547849332e8161ee6abacc67b6670d93f33ed3c8780e8",
+    "demo/manifest.json": "aca3ea4feb3eefaa1a1c211b5a12fbd3616f0940d11d771530edf72d3fd1087f",
     "demo/review-400.csv": "126aeda6651c74774ec0aba97419ecda36a9dd64700473e019d39b84c72358e4",
     "demo/review-800.csv": "f4cc1b288b70cf6cdab8348676ae04ea453e831c0fb2870adfd59c1de1927425",
     "docs/DASHBOARD.md": "91abf0c12673ad7171c32c6c4d7a363cfa843e12ceda06d7a3db2d520805953c",
@@ -130,15 +130,15 @@
     "report-ui/sorting.test.mjs": "a50c940edc11c573aaac2be75d820813400891357db9f430e03f5d6c555ecc75",
     "report-ui/src/App.tsx": "a050ae54dc93ca4bb9aa9cd6141836b01cb72a5f9260d85dadbea73c1e999e25",
     "report-ui/src/Dashboard.tsx": "7cf06f20696c1e3cf06f0d24aa3723d30dce876d732c3c1c184fd56e200c8518",
-    "report-ui/src/FinancialStress.tsx": "5966a9c4cf39742ebccf3ced8e50052c0f9789d24b016917dbdd6e0873011d05",
+    "report-ui/src/FinancialStress.tsx": "997aaabaaafa8fa0e076bdb86a7c83667e9b18125904d8ba8073053b916c1327",
     "report-ui/src/main.tsx": "b561a698e636c81dd5fa3fa90fa57ebea6cd15bbc47a3a8f7ebaa2d505a560bf",
     "report-ui/src/palette.css": "bf89bacccffe012c4732c7d9ff8d50b11b6a970156392de774351d3289c388bc",
     "report-ui/src/sorting.ts": "aef2ecda72c57ed3451a756592dc3229d88d30f5abea1a5b1333624520935b8c",
-    "report-ui/src/stress.ts": "870c97f2c9eef91b4cf0ff6caa7ae7d1ea9aece9099172724e8e7487470758b6",
+    "report-ui/src/stress.ts": "913685a81c130f74bf4e2ce953cd33e0fbd823bf0359bcbe939792ad38426c8c",
     "report-ui/src/styles.css": "1875b2d06923a80550309ed01215e3e26dbc06374b51e7710926ef64f051b799",
     "report-ui/src/styles.d.ts": "35d26ea66c86da9701e4f4b467913481ffeae910761cea34c775c5dacb7f8eaa",
     "report-ui/src/types.ts": "b4e96beee04f1f3c6c7f626bd4b170c7bed40d1f871383ab1068360535a03f4d",
-    "report-ui/stress.test.mjs": "0a3647f89cae5f0ae5c86acd14dc330d1b6856ebce38568e9e5f6b0403ebdfa6",
+    "report-ui/stress.test.mjs": "711a33cf13582178814a4e2519c5ab604d830f3525dda5cb76bad2fce2a0a368",
     "report-ui/tsconfig.json": "228c34c1d819a7add668c0a148b335748ba9a5e29493bc5013cc3cb6c4473ceb",
     "scripts/audit_tabpfn_contract_sources.py": "ed6e3aba022ec65142381bf5cf64693c9dd260ea1429aa4b208c358fea7cf5f7",
     "scripts/revalidate_tabpfn_response.py": "b4f241c439b119969dd0e4fc5805e8ec288a4f81e9d4d022f0afe41393018858",
@@ -233,7 +233,7 @@
     "ui_tests": 12,
     "original_files_verified": 5,
     "demo_rebuild": "8 files byte-identical",
-    "presentation_update": "Table headers use the same soft accent background as the Validation demo badge, without the default grey overlay."
+    "presentation_update": "Inline Radix badges beside prediction gaps: amber for underestimation, jade for overestimation and grey for near-zero gaps."
   },
   "source_history_included": false
 }

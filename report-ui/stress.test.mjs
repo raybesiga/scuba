@@ -18,7 +18,7 @@ test("prediction gaps use unrounded probabilities and distinguish both direction
   });
   assert.equal(predictionGap(0.033, 0.03).value, "−0.3 pp");
   assert.equal(predictionGap(0.033, 0.03).label, "Overestimated");
-  assert.equal(predictionGap(0.033, 0.03).color, "blue");
+  assert.equal(predictionGap(0.033, 0.03).color, "jade");
   // Rounding each probability first would incorrectly produce a 0.1 pp gap.
   assert.equal(predictionGap(0.14649, 0.14651).value, "≈0.0 pp");
 });
