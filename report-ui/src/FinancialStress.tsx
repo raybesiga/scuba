@@ -33,6 +33,7 @@ import {
   totalActivity,
   stressNames,
   predictionGap,
+  calibrationNarrative,
   type Snapshot,
   type StressReport,
 } from "./stress";
@@ -426,6 +427,7 @@ function Evidence({
     metrics = final ? data.final_evaluation!.metrics : data.metrics,
     cohort = final ? data.final_evaluation!.cohort : data.cohorts.validation,
     m = metrics[model],
+    narrative = calibrationNarrative(metrics, budget, model),
     review = metrics.tabpfn_3_5_plus.top_budgets[budget],
     groups = (
       final ? data.final_evaluation!.cohort_audit : data.cohort_audit
@@ -501,8 +503,8 @@ function Evidence({
           </Select.Root>
         </Flex>
         <Text as="p" size="2" color="gray" mt="2" mb="4">
-          For groups assigned similar probabilities, compare the average
-          prediction with the fraction that experienced stress.
+          Check how closely each model’s risk estimates match observed stress.
+          Choose a model to inspect its probability ranges.
         </Text>
         <DataTable
           label="Calibration with group sizes"
@@ -546,27 +548,31 @@ function Evidence({
             4: {
               firstDirection: "descending",
               description:
-                "Observed stress minus mean prediction, in percentage points (pp), calculated before rounding. Sort by largest absolute gap, then smallest, then restore predicted-range order.",
+                "Observed stress minus mean prediction, in percentage points (pp), calculated before rounding. Grey means the gap rounds to zero, not proven agreement. Sort by largest absolute gap, then smallest, then restore predicted-range order.",
             },
           }}
         />
         <Box mt="3">
           <Heading as="h3" size="3">
-            Reading the gaps
+            What this means for review
           </Heading>
           <Text as="p" size="2" mt="2">
-            Positive: stress was underestimated. Negative: overestimated. Grey:
-            the gap rounds to zero, not proof of agreement.
+            {narrative.comparison}
           </Text>
           <Text as="p" size="2" mt="2">
-            Average calibration gap:{" "}
-            <strong>{(100 * m.ece_10_bins).toFixed(1)} pp</strong>
+            {narrative.review}
           </Text>
-          <Text as="p" size="1" color="gray" mt="1">
-            Absolute gaps weighted by group size; pp = percentage points.
+          <Text as="p" size="2" color="gray" mt="2">
+            {narrative.selected}
           </Text>
           <Text as="p" size="1" color="gray" mt="2">
-            Small groups are less stable. No confidence intervals are shown.
+            Average gaps are weighted by group size. Each model can place
+            different snapshots in the same range; small groups are less stable.
+            These are observed differences, without confidence intervals.
+          </Text>
+          <Text as="p" size="1" color="gray" mt="2">
+            Constant prior gives everyone the same probability. Its near-zero
+            calibration gap does not help it rank snapshots for review.
           </Text>
         </Box>
       </Box>

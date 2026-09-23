@@ -6,8 +6,115 @@ import {
   reviewCsv,
   totalActivity,
   predictionGap,
+  calibrationNarrative,
 } from "./src/stress.ts";
 import { sortRowIndices } from "./src/sorting.ts";
+
+function narrativeMetrics() {
+  return Object.fromEntries(
+    [
+      ["tabpfn_3_5_plus", 0.01, 45, 24],
+      ["xgboost", 0.03, 40, 25],
+      ["catboost", 0.05, 35, 20],
+      ["logistic_regression", 0.02, 30, 15],
+      ["constant_prior", 0, 10, 5],
+    ].map(([name, ece, ten, five]) => [
+      name,
+      {
+        ece_10_bins: ece,
+        top_budgets: {
+          0.1: { selected: 100, tp: ten },
+          0.05: { selected: 50, tp: five },
+        },
+        reliability: [
+          {
+            lower: 0,
+            upper: 0.1,
+            rows: 800,
+            mean_probability: 0.04,
+            observed_fraction: 0.05,
+          },
+          {
+            lower: 0.5,
+            upper: 0.6,
+            rows: 40,
+            mean_probability: 0.55,
+            observed_fraction: 0.7,
+          },
+          {
+            lower: 0.9,
+            upper: 1,
+            rows: 0,
+            mean_probability: null,
+            observed_fraction: null,
+          },
+        ],
+      },
+    ]),
+  );
+}
+test("calibration narrative compares all learned models and follows review capacity", () => {
+  const metrics = narrativeMetrics();
+  const ten = calibrationNarrative(metrics, "0.1", "tabpfn_3_5_plus");
+  assert.match(
+    ten.comparison,
+    /1.0 percentage points, compared with 2.0 for Logistic regression, 3.0 for XGBoost and 5.0 for CatBoost/,
+  );
+  assert.match(
+    ten.review,
+    /At 100 reviews.*45 stress cases: 5 more than XGBoost/,
+  );
+  assert.match(
+    calibrationNarrative(metrics, "0.05", "tabpfn_3_5_plus").review,
+    /At 50 reviews.*24 stress cases: 1 fewer than XGBoost/,
+  );
+  metrics.xgboost.top_budgets["0.1"].tp = 45;
+  assert.match(
+    calibrationNarrative(metrics, "0.1", "tabpfn_3_5_plus").review,
+    /same number as XGBoost/,
+  );
+});
+test("calibration narrative uses the supplied partition and selected model, including sparse ranges", () => {
+  const metrics = narrativeMetrics();
+  metrics.tabpfn_3_5_plus.ece_10_bins = 0.008;
+  metrics.catboost.reliability = [
+    {
+      lower: 0.1,
+      upper: 0.2,
+      rows: 500,
+      mean_probability: 0.15,
+      observed_fraction: 0.2,
+    },
+    {
+      lower: 0.8,
+      upper: 0.9,
+      rows: 3,
+      mean_probability: 0.85,
+      observed_fraction: 0.5,
+    },
+  ];
+  const result = calibrationNarrative(metrics, "0.1", "catboost");
+  assert.match(result.comparison, /0.8 percentage points/);
+  assert.equal(
+    result.selected,
+    "CatBoost’s largest observed gap is in the 80–90% range: 85.0% predicted versus 50.0% observed stress, across 3 snapshots.",
+  );
+});
+test("calibration narrative excludes empty and missing bins without changing their order", () => {
+  const metrics = narrativeMetrics();
+  const bins = metrics.tabpfn_3_5_plus.reliability;
+  const original = structuredClone(bins);
+  assert.match(
+    calibrationNarrative(metrics, "0.1", "tabpfn_3_5_plus").selected,
+    /50–60% range.*40 snapshots/,
+  );
+  assert.deepEqual(bins, original);
+  metrics.tabpfn_3_5_plus.reliability = [original[2]];
+  assert.match(
+    calibrationNarrative(metrics, "0.1", "tabpfn_3_5_plus").selected,
+    /no populated probability ranges/,
+  );
+});
 
 test("prediction gaps use unrounded probabilities and distinguish both directions", () => {
   assert.deepEqual(predictionGap(0.5484, 0.6502), {
