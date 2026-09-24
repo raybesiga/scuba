@@ -226,10 +226,13 @@
     "tests/test_tabpfn_revalidation.py": "54b65c504d49b9728b2b53d1511295c3fc951f7d5167503b1981b3c8f87e76f5",
     "tests/test_tabpfn_runner.py": "688987d609ca89980b540be7cbe854800990bda3f587f7d7840f3704a55754f3",
     "tests/test_xgboost.py": "c1a317ed79380bfe67a325cd546d9be70840c2c697d6a20e012dbf96ac2cdc38",
-    "uv.lock": "969aeca7e4f28a14ba690ee25d2d03b4d64182441060996d11ac658c9efd06ed"
+    "uv.lock": "969aeca7e4f28a14ba690ee25d2d03b4d64182441060996d11ac658c9efd06ed",
+    "src/scuba/financial_uncertainty.py": "8497c36e32a346629b5172fd174096082c3e28fc7cb476e79273e55668dd3764",
+    "tests/test_financial_uncertainty.py": "ff9d57395f21fba7b4ffe4e40e49cb66d21e9121dbbbf5d4b9d815bb87eeddd8",
+    "docs/F4_UNCERTAINTY_SPEC.md": "40e67dc04b5198a1f4a5ef543bc6670c29d798609b4e5f567a1f7b2e67eeeb95"
   },
   "verification": {
-    "python_tests": 155,
+    "python_tests": 158,
     "ui_tests": 17,
     "original_files_verified": 5,
     "demo_rebuild": "8 files byte-identical",
