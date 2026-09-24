@@ -70,25 +70,17 @@ export type AuditGroup = {
 };
 export function calibrationNarrative(
   metrics: Record<string, StressMetric>,
-  budget: string,
   selectedModel: string,
 ) {
   const count = (value: number) => value.toLocaleString("en-US");
   const gap = (key: string) => (100 * metrics[key].ece_10_bins).toFixed(1);
-  const others = ["logistic_regression", "xgboost", "catboost"]
-    .sort((a, b) => metrics[a].ece_10_bins - metrics[b].ece_10_bins)
-    .map((key) => `${gap(key)} for ${stressNames[key]}`);
   const comparison =
-    `TabPFN-3.5-Plus has an average calibration gap of ${gap("tabpfn_3_5_plus")} percentage points, ` +
-    `compared with ${others.slice(0, -1).join(", ")} and ${others.at(-1)}. Lower means closer agreement with observed stress.`;
-  const plus = metrics.tabpfn_3_5_plus.top_budgets[budget];
-  const reference = metrics.xgboost.top_budgets[budget];
-  const difference = plus.tp - reference.tp;
-  const change =
-    difference === 0
-      ? "the same number as XGBoost"
-      : `${count(Math.abs(difference))} ${difference > 0 ? "more" : "fewer"} than XGBoost`;
-  const review = `At ${count(plus.selected)} reviews, TabPFN-3.5-Plus finds ${count(plus.tp)} stress cases: ${change} at the same capacity.`;
+    "Average calibration gap in percentage points (lower is better): " +
+    ["tabpfn_3_5_plus", "logistic_regression", "xgboost", "catboost"]
+      .sort((a, b) => metrics[a].ece_10_bins - metrics[b].ece_10_bins)
+      .map((key) => `${stressNames[key]} ${gap(key)}`)
+      .join("; ") +
+    ".";
   const populated = metrics[selectedModel].reliability.filter(
     (bin) =>
       bin.rows > 0 &&
@@ -101,10 +93,10 @@ export function calibrationNarrative(
       Math.abs(a.observed_fraction! - a.mean_probability!),
   )[0];
   const selected = largest
-    ? `${stressNames[selectedModel]}’s largest observed gap is in the ${Math.round(largest.lower * 100)}–${Math.round(largest.upper * 100)}% range: ` +
-      `${(100 * largest.mean_probability!).toFixed(1)}% predicted versus ${(100 * largest.observed_fraction!).toFixed(1)}% observed stress, across ${count(largest.rows)} snapshots.`
+    ? `${stressNames[selectedModel]}’s largest mismatch: ${(100 * largest.mean_probability!).toFixed(1)}% predicted versus ${(100 * largest.observed_fraction!).toFixed(1)}% observed stress ` +
+      `(${Math.round(largest.lower * 100)}–${Math.round(largest.upper * 100)}% range; ${count(largest.rows)} records).`
     : `${stressNames[selectedModel]} has no populated probability ranges to compare.`;
-  return { comparison, review, selected };
+  return { comparison, selected };
 }
 export type StressReport = {
   dataset: "financial_stress";

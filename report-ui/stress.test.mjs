@@ -55,25 +55,17 @@ function narrativeMetrics() {
     ]),
   );
 }
-test("calibration narrative compares all learned models and follows review capacity", () => {
+test("calibration narrative orders trained models by measured gap and excludes the constant prior", () => {
   const metrics = narrativeMetrics();
-  const ten = calibrationNarrative(metrics, "0.1", "tabpfn_3_5_plus");
-  assert.match(
-    ten.comparison,
-    /1.0 percentage points, compared with 2.0 for Logistic regression, 3.0 for XGBoost and 5.0 for CatBoost/,
+  const result = calibrationNarrative(metrics, "tabpfn_3_5_plus");
+  assert.equal(
+    result.comparison,
+    "Average calibration gap in percentage points (lower is better): TabPFN-3.5-Plus 1.0; Logistic regression 2.0; XGBoost 3.0; CatBoost 5.0.",
   );
+  metrics.xgboost.ece_10_bins = 0.005;
   assert.match(
-    ten.review,
-    /At 100 reviews.*45 stress cases: 5 more than XGBoost/,
-  );
-  assert.match(
-    calibrationNarrative(metrics, "0.05", "tabpfn_3_5_plus").review,
-    /At 50 reviews.*24 stress cases: 1 fewer than XGBoost/,
-  );
-  metrics.xgboost.top_budgets["0.1"].tp = 45;
-  assert.match(
-    calibrationNarrative(metrics, "0.1", "tabpfn_3_5_plus").review,
-    /same number as XGBoost/,
+    calibrationNarrative(metrics, "xgboost").comparison,
+    /better\): XGBoost 0.5; TabPFN-3.5-Plus 1.0/,
   );
 });
 test("calibration narrative uses the supplied partition and selected model, including sparse ranges", () => {
@@ -95,11 +87,11 @@ test("calibration narrative uses the supplied partition and selected model, incl
       observed_fraction: 0.5,
     },
   ];
-  const result = calibrationNarrative(metrics, "0.1", "catboost");
-  assert.match(result.comparison, /0.8 percentage points/);
+  const result = calibrationNarrative(metrics, "catboost");
+  assert.match(result.comparison, /TabPFN-3.5-Plus 0.8/);
   assert.equal(
     result.selected,
-    "CatBoost’s largest observed gap is in the 80–90% range: 85.0% predicted versus 50.0% observed stress, across 3 snapshots.",
+    "CatBoost’s largest mismatch: 85.0% predicted versus 50.0% observed stress (80–90% range; 3 records).",
   );
 });
 test("calibration narrative excludes empty and missing bins without changing their order", () => {
@@ -107,13 +99,13 @@ test("calibration narrative excludes empty and missing bins without changing the
   const bins = metrics.tabpfn_3_5_plus.reliability;
   const original = structuredClone(bins);
   assert.match(
-    calibrationNarrative(metrics, "0.1", "tabpfn_3_5_plus").selected,
-    /50–60% range.*40 snapshots/,
+    calibrationNarrative(metrics, "tabpfn_3_5_plus").selected,
+    /50–60% range; 40 records/,
   );
   assert.deepEqual(bins, original);
   metrics.tabpfn_3_5_plus.reliability = [original[2]];
   assert.match(
-    calibrationNarrative(metrics, "0.1", "tabpfn_3_5_plus").selected,
+    calibrationNarrative(metrics, "tabpfn_3_5_plus").selected,
     /no populated probability ranges/,
   );
 });

@@ -573,7 +573,7 @@ function Evidence({
     metrics = final ? data.final_evaluation!.metrics : data.metrics,
     cohort = final ? data.final_evaluation!.cohort : data.cohorts.validation,
     m = metrics[model],
-    narrative = calibrationNarrative(metrics, budget, model),
+    narrative = calibrationNarrative(metrics, model),
     review = metrics.tabpfn_3_5_plus.top_budgets[budget],
     groups = (
       final ? data.final_evaluation!.cohort_audit : data.cohort_audit
@@ -706,26 +706,26 @@ function Evidence({
         />
         <Box mt="3">
           <Heading as="h3" size="3">
-            What this means for review
+            Calibration takeaway
           </Heading>
           <Text as="p" size="2" mt="2">
             {narrative.comparison}
           </Text>
-          <Text as="p" size="2" mt="2">
-            {narrative.review}
-          </Text>
           <Text as="p" size="2" color="gray" mt="2">
             {narrative.selected}
           </Text>
-          <Text as="p" size="1" color="gray" mt="2">
-            Average gaps are weighted by group size. Each model can place
-            different snapshots in the same range; small groups are less stable.
-            These are observed differences, without confidence intervals.
-          </Text>
-          <Text as="p" size="1" color="gray" mt="2">
-            Constant prior gives everyone the same probability. Its near-zero
-            calibration gap does not help it rank snapshots for review.
-          </Text>
+          <details className="snapshot-breakdown">
+            <summary>How to read these results</summary>
+            <Text as="p" size="2" color="gray">
+              Gaps are weighted by group size. Models can place different
+              records in each range. Small groups are less stable; these
+              calibration comparisons have no confidence intervals.
+            </Text>
+            <Text as="p" size="2" color="gray" mt="2">
+              Constant prior assigns everyone the same probability. A small gap
+              alone does not mean a model can identify who needs review.
+            </Text>
+          </details>
         </Box>
       </Box>
       <Box>
