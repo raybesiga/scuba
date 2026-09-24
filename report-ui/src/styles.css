@@ -354,3 +354,10 @@ th[aria-sort="descending"] .table-sort-button svg {
 .snapshot-detail .table-scroll table {
   min-width: 620px;
 }
+
+.operator-comparison table {
+  min-width: 680px;
+}
+.operator-comparison .outside-shortlist {
+  border-left: 2px solid var(--gray-7);
+}

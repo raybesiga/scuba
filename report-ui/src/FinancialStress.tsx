@@ -465,19 +465,67 @@ function OperatorComparison({
       <Text as="p" size="2" mt="3" mb="3">
         {operatorComparison(metrics, budget, comparator)}
       </Text>
-      <DataTable
-        label="Operator review comparison"
-        headers={[
-          "Model",
-          "Stress cases found",
-          "Reviews without stress",
-          "Stress cases missed",
-        ]}
-        rows={["tabpfn_3_5_plus", comparator].map((k) => {
-          const r = metrics[k].top_budgets[budget];
-          return [stressNames[k], number(r.tp), number(r.fp), number(r.fn)];
-        })}
-      />
+      <Box
+        className="table-scroll operator-comparison"
+        role="region"
+        aria-label="Operator review comparison"
+        tabIndex={0}
+      >
+        <Table.Root variant="surface" size="2">
+          <Table.Header>
+            <Table.Row>
+              <Table.ColumnHeaderCell rowSpan={2} scope="col">
+                Model
+              </Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell colSpan={3} scope="colgroup">
+                Inside the shortlist ·{" "}
+                {number(metrics.tabpfn_3_5_plus.top_budgets[budget].selected)}{" "}
+                records
+              </Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell
+                scope="colgroup"
+                className="outside-shortlist"
+              >
+                Outside the shortlist
+              </Table.ColumnHeaderCell>
+            </Table.Row>
+            <Table.Row>
+              <Table.ColumnHeaderCell scope="col">
+                With stress
+              </Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell scope="col">
+                Without stress
+              </Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell scope="col">
+                Total selected
+              </Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell scope="col" className="outside-shortlist">
+                Stress cases missed
+              </Table.ColumnHeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {["tabpfn_3_5_plus", comparator].map((k) => {
+              const r = metrics[k].top_budgets[budget];
+              return (
+                <Table.Row key={k}>
+                  <Table.RowHeaderCell scope="row">
+                    {stressNames[k]}
+                  </Table.RowHeaderCell>
+                  <Table.Cell>{number(r.tp)}</Table.Cell>
+                  <Table.Cell>{number(r.fp)}</Table.Cell>
+                  <Table.Cell>
+                    <Text weight="bold">{number(r.selected)}</Text>
+                  </Table.Cell>
+                  <Table.Cell className="outside-shortlist">
+                    {number(r.fn)}
+                  </Table.Cell>
+                </Table.Row>
+              );
+            })}
+          </Table.Body>
+        </Table.Root>
+      </Box>
       {interval && loss && (
         <Box mt="3">
           <Text as="p" size="2">
