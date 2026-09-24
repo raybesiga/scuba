@@ -43,27 +43,12 @@ the declared CC BY-SA 4.0 licence and Zindi attribution. The separately explored
 Nedbank source data and local repository history are excluded from the proposed
 public delivery snapshot.
 
-## Two-minute demo script
+## Two-minute recording walkthrough
 
-1. **0:00–0:25 — value.** Open Final holdout at 10%. “With capacity to review
-   800 records, TabPFN finds 542 stress cases versus XGBoost's 512. That is 30
-   additional cases within the same workload.” Point to 258 versus 288 reviews
-   without stress. Explain that these are held-out observations.
-2. **0:25–0:45 — choice.** Switch to 5%: 315 versus 296 found in 400 reviews.
-   Compare CatBoost, then return to XGBoost. Show the 95% interval and explain
-   the independent-row assumption in one sentence.
-3. **0:45–1:20 — workflow.** Open Review workspace. State that this interactive
-   list is the separate validation demo, so its counts differ from final results.
-   Search for a snapshot, inspect its activity relative to its own baseline and
-   export the shortlist. “A care team verifies context, then considers suitable
-   support under its policies.” Do not describe the trend as a model explanation.
-4. **1:20–1:40 — evidence.** Show model quality and calibration. TabPFN drives
-   the ranking and outperforms the fixed comparators on this final evaluation.
-   The app makes the workload trade-off visible rather than choosing an offer.
-5. **1:40–2:00 — delivery.** Explain the source attribution, row-holdout limits
-   and verified offline rebuild. “The next operational step is a pilot measuring
-   whether this prioritisation improves support outcomes.”
+The updated [recording walkthrough](FINANCIAL_STRESS_WALKTHROUGH.md) contains
+word-for-word narration, timed screen cues, the judging-criteria mapping and a
+reference table separating validation from final-holdout results.
 
-The script is prepared but has not been rehearsed or recorded. Video is optional
-under the supplied terms. Add the reviewed public repository link when authorised;
-do not submit the local development repository with its Nedbank history.
+It is prepared for review and rehearsal in Cap; no recording has been made.
+The supplied submission screenshot labels the optional video field “YouTube URL”.
+Public release and hackathon submission remain pending.
