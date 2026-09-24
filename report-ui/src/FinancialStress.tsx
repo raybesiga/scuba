@@ -526,31 +526,40 @@ function OperatorComparison({
           </Table.Body>
         </Table.Root>
       </Box>
-      {interval && loss && (
+      {interval && loss && comparator === "xgboost" && (
         <Box mt="3">
           <Text as="p" size="2">
-            Against XGBoost: {interval.estimate} additional stress cases. The
-            95% interval is {interval.lower.toFixed(1)} to{" "}
-            {interval.upper.toFixed(1)} cases.
-            {interval.lower <= 0 && interval.upper >= 0
-              ? " This interval includes no capture advantage."
-              : " This interval excludes zero."}
+            The estimated gain over XGBoost is{" "}
+            {number(Math.round(interval.lower))} to{" "}
+            {number(Math.round(interval.upper))} stress cases at the same review
+            capacity (95% confidence interval).
           </Text>
-          <Text as="p" size="2" mt="2">
-            Log-loss difference: {loss.estimate.toFixed(4)} (95% interval{" "}
-            {loss.lower.toFixed(4)} to {loss.upper.toFixed(4)}). Negative values
-            favour TabPFN.
-          </Text>
-          <Text as="p" size="1" color="gray" mt="2">
-            Post-hoc paired bootstrap, {number(uncertainty!.repeats)} resamples.
-            Assumes independent rows; repeated customers and future performance
-            are not assessed.
-          </Text>
+          <details className="snapshot-breakdown">
+            <summary>How certain is this result?</summary>
+            <Text as="p" size="2" color="gray">
+              The observed difference is {interval.estimate} stress cases. The
+              interval is {interval.lower.toFixed(1)} to{" "}
+              {interval.upper.toFixed(1)}.
+              {interval.lower <= 0 && interval.upper >= 0
+                ? " It includes no capture advantage."
+                : " It excludes zero."}
+            </Text>
+            <Text as="p" size="2" color="gray" mt="2">
+              Log-loss difference: {loss.estimate.toFixed(4)} (95% interval{" "}
+              {loss.lower.toFixed(4)} to {loss.upper.toFixed(4)}). Negative
+              values favour TabPFN.
+            </Text>
+            <Text as="p" size="2" color="gray" mt="2">
+              Post-hoc paired bootstrap with {number(uncertainty!.repeats)}{" "}
+              resamples. Assumes independent records. These intervals do not
+              assess repeated customers, retraining or future performance.
+            </Text>
+          </details>
         </Box>
       )}
       <Text as="p" size="1" color="gray" mt="3">
-        {final ? "Final holdout" : "Validation"} results. Follow-up support and
-        its benefits still need testing with an operator.
+        Whether this prioritisation improves customer outcomes still needs
+        testing.
       </Text>
     </Box>
   );

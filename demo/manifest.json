@@ -10,7 +10,7 @@
   },
   "evidence_sha256": "e07c54043a9454e91786c39426836f697ed2b011b82b8e93ba922b9f974762f4",
   "export_source_sha256": "22a6d78044875f9752a1e25eac9ebcacb5e466559c171ccfe6bc7ec9da0bf1c0",
-  "html_sha256": "f392a585d48b61c02ae5f85de5b0972ec035ca7300918c91b268f6eebf20f2d7",
+  "html_sha256": "0e06714a697c52079f7c3e47d7e85ca05be75c4a09ed78f8f25c34056a1031df",
   "network_requests_in_build": 0,
   "presentation": "Radix Themes",
   "review_exports_sha256": {
@@ -24,7 +24,7 @@
     "build.mjs": "98fb8e345d1051be64d3a2ab03ee76c7f09dbeb1202a80925678abe6ac650cb5",
     "src/App.tsx": "a050ae54dc93ca4bb9aa9cd6141836b01cb72a5f9260d85dadbea73c1e999e25",
     "src/Dashboard.tsx": "7cf06f20696c1e3cf06f0d24aa3723d30dce876d732c3c1c184fd56e200c8518",
-    "src/FinancialStress.tsx": "ce7dd3415fedf324102db898077bf9f01a19a132c76a320bbded6c7ec5a6e17f",
+    "src/FinancialStress.tsx": "14f9a516c619948516b02f2abf3e4667c5019613e769ba498325573c061491d8",
     "src/main.tsx": "b561a698e636c81dd5fa3fa90fa57ebea6cd15bbc47a3a8f7ebaa2d505a560bf",
     "src/palette.css": "bf89bacccffe012c4732c7d9ff8d50b11b6a970156392de774351d3289c388bc",
     "src/sorting.ts": "aef2ecda72c57ed3451a756592dc3229d88d30f5abea1a5b1333624520935b8c",
