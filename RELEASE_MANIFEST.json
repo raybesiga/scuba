@@ -25,8 +25,8 @@
     "demo/archive/index.html": "6d52d0e21f324ed578a3a75d6c396f3f3733bc3373570f69f1f4df6cc74a8dd6",
     "demo/archive/manifest.json": "93cfe97d8b15b36ed81d26a7fb22f7ccde206de734bc5ae6cc88f68413f116ba",
     "demo/evidence.json": "86a8650ff501123cc2b56da88006dd3ad94c16942825be4d281a2958f6ffa4b4",
-    "demo/index.html": "a734e7c073ab3cf27d72be8e6dd6578c56a3d655148408ef66b432a246ec2411",
-    "demo/manifest.json": "e5e5bee1829d5cc1db741f8f97092f39e7858d2d1e6fffb46e29ff13d3e9d240",
+    "demo/index.html": "2ce0b8594ccced4cc095cc424a920a2f5eb4581a89f2218372c561bfac817035",
+    "demo/manifest.json": "0739bb73aff893d5745f87d553fc687c4feb3363fbbc5e639bf783a6b8d4c891",
     "demo/review-400.csv": "126aeda6651c74774ec0aba97419ecda36a9dd64700473e019d39b84c72358e4",
     "demo/review-800.csv": "f4cc1b288b70cf6cdab8348676ae04ea453e831c0fb2870adfd59c1de1927425",
     "docs/DASHBOARD.md": "91abf0c12673ad7171c32c6c4d7a363cfa843e12ceda06d7a3db2d520805953c",
@@ -130,7 +130,7 @@
     "report-ui/sorting.test.mjs": "a50c940edc11c573aaac2be75d820813400891357db9f430e03f5d6c555ecc75",
     "report-ui/src/App.tsx": "a050ae54dc93ca4bb9aa9cd6141836b01cb72a5f9260d85dadbea73c1e999e25",
     "report-ui/src/Dashboard.tsx": "7cf06f20696c1e3cf06f0d24aa3723d30dce876d732c3c1c184fd56e200c8518",
-    "report-ui/src/FinancialStress.tsx": "d745c99661806e9870b4cc461d8cc7cbbfd70ee62d69630e14c09550d7c63d89",
+    "report-ui/src/FinancialStress.tsx": "d5d9973a5dd65563c35b3925b36a3c0dd0686950248a45e141a4cc73a08a34c5",
     "report-ui/src/main.tsx": "b561a698e636c81dd5fa3fa90fa57ebea6cd15bbc47a3a8f7ebaa2d505a560bf",
     "report-ui/src/palette.css": "bf89bacccffe012c4732c7d9ff8d50b11b6a970156392de774351d3289c388bc",
     "report-ui/src/sorting.ts": "aef2ecda72c57ed3451a756592dc3229d88d30f5abea1a5b1333624520935b8c",
@@ -233,7 +233,7 @@
     "ui_tests": 17,
     "original_files_verified": 5,
     "demo_rebuild": "8 files byte-identical",
-    "presentation_update": "Activity baseline summary uses last month instead of M1."
+    "presentation_update": "Result cards show stress cases captured, difference versus XGBoost and review precision, following selected capacity and validation/final holdout tab; evaluation set labelled in header."
   },
   "source_history_included": false
 }

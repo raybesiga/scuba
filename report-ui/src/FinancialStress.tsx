@@ -680,7 +680,15 @@ function Evidence({
 }
 export function FinancialStressApp({ data }: { data: StressReport }) {
   const [theme, setTheme] = useState<"light" | "dark">("light"),
-    [budget, setBudget] = useState("0.1");
+    [budget, setBudget] = useState("0.1"),
+    [section, setSection] = useState("review");
+  const final = section === "final" ? data.final_evaluation : undefined,
+    resultLabel = final ? "Final holdout" : "Validation",
+    metrics = final ? final.metrics : data.metrics,
+    cohort = final ? final.cohort : data.cohorts.validation,
+    result = metrics.tabpfn_3_5_plus.top_budgets[budget],
+    reference = metrics.xgboost.top_budgets[budget],
+    difference = result.tp - reference.tp;
   return (
     <Theme
       appearance={theme}
@@ -745,7 +753,7 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
             <Box>
               <Flex gap="3" align="center">
                 <Text className="eyebrow">SCUBA / FINANCIAL STRESS</Text>
-                <Badge>Validation demo</Badge>
+                <Badge>{resultLabel} demo</Badge>
               </Flex>
               <Heading as="h1" size="7" mt="4">
                 Financial Stress Predictor
@@ -757,60 +765,64 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
             </Box>
             <Box className="workspace-status">
               <Text as="p" size="2">
-                <CheckCircledIcon />{" "}
-                {data.final_evaluation
-                  ? "Final holdout verified"
-                  : "Verified model comparison"}
+                <CheckCircledIcon /> {resultLabel} results
               </Text>
               <Text as="p" size="1" color="gray" mt="2">
-                {data.final_evaluation
-                  ? "Final results available · no live customer actions"
-                  : "Final holdout reserved · no live customer actions"}
+                {number(cohort.rows)} held-out snapshots ·{" "}
+                {Object.keys(metrics).length} models compared
               </Text>
             </Box>
           </Flex>
-          <Grid columns={{ initial: "1", sm: "3" }} gap="4" mb="5">
+          <Text as="p" size="2" color="gray" mb="3">
+            TabPFN-3.5-Plus · {resultLabel} · Top {Number(budget) * 100}%
+            reviewed
+          </Text>
+          <Grid
+            columns={{ initial: "1", sm: "3" }}
+            gap="4"
+            mb="5"
+            role="region"
+            aria-label="Model result summary"
+          >
             <Box className="fact">
               <Text size="2" color="gray">
-                Validation snapshots
+                Stress cases found
               </Text>
               <Heading as="h2" size="6" mt="2">
-                {number(data.cohorts.validation.rows)}
+                {number(result.tp)}
               </Heading>
               <Text size="2" color="gray">
-                {number(data.cohorts.validation.positives)} labelled stress
-                cases ·{" "}
-                {percent(
-                  data.cohorts.validation.positives /
-                    data.cohorts.validation.rows,
-                )}
+                Of {number(cohort.positives)} stress cases ·{" "}
+                {number(result.selected)} records reviewed
               </Text>
             </Box>
             <Box className="fact">
               <Text size="2" color="gray">
-                Leading validation model
+                Additional cases vs XGBoost
               </Text>
-              <Heading as="h2" size="5" mt="2">
-                TabPFN-3.5-Plus
+              <Heading as="h2" size="6" mt="2">
+                {difference > 0 ? "+" : ""}
+                {number(difference)}
               </Heading>
               <Text size="2" color="gray">
-                {score(data.metrics.tabpfn_3_5_plus.log_loss)} log loss ·{" "}
-                {Object.keys(data.metrics).length} models compared
+                {number(result.tp)} vs {number(reference.tp)} found · same
+                review capacity
               </Text>
             </Box>
             <Box className="fact">
               <Text size="2" color="gray">
-                Evaluation basis
+                Reviewed records with stress
               </Text>
-              <Heading as="h2" size="5" mt="2">
-                Held-out snapshots
+              <Heading as="h2" size="6" mt="2">
+                {percent(result.selected ? result.tp / result.selected : null)}
               </Heading>
               <Text size="2" color="gray">
-                Evaluation rows were not used for training
+                {number(result.tp)} of {number(result.selected)} reviewed
+                records had stress
               </Text>
             </Box>
           </Grid>
-          <Tabs.Root defaultValue="review">
+          <Tabs.Root value={section} onValueChange={setSection}>
             <Box className="tabs-scroll">
               <Tabs.List aria-label="Financial Stress sections">
                 <Tabs.Trigger value="review">Review workspace</Tabs.Trigger>
@@ -944,8 +956,8 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
             color="gray"
             style={{ paddingBlock: "var(--space-6)" }}
           >
-            SCUBA · Financial Stress validation demo · Review support, not
-            automated customer decisions
+            SCUBA · Financial Stress {resultLabel.toLowerCase()} demo · Review
+            support, not automated customer decisions
           </Text>
         </Container>
       </Box>
