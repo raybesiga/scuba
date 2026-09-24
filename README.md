@@ -30,7 +30,9 @@ Five models were trained on the same 24,000 rows and evaluated on the same reser
 
 There are 1,200 labelled stress cases in that holdout. TabPFN found 30 more than
 XGBoost at the same review capacity. These are observed point estimates, not
-proof that outreach changes outcomes. See [full evaluation](docs/F4_RESULTS.md).
+proof that outreach changes outcomes. A post-hoc paired row-bootstrap 95% interval
+for the 30-case advantage is 9–50 cases, assuming independent rows.
+See [full evaluation](docs/F4_RESULTS.md) and [uncertainty results](docs/F4_UNCERTAINTY_RESULTS.md).
 
 ## Rebuild and verify
 
@@ -41,6 +43,10 @@ network access unless the locked packages are cached:
 uv sync --locked --python 3.14.5 --extra models --extra tabpfn
 npm ci --prefix report-ui --ignore-scripts
 ```
+
+A fresh dependency installation passed 158 Python tests and 18 UI tests and
+reproduced all eight demo files byte-for-byte on 24 September 2026.
+See [release readiness](docs/RELEASE_READINESS.md).
 
 Then run offline:
 

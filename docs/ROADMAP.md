@@ -6,6 +6,19 @@ Active status: **Financial Stress F0–F3 complete for the local validation demo
 
 Preserved synthetic benchmark status: **M0–M5 complete for the approved technical scope; delivery review remains.** Final local temporal tests, diagnostic random-reference evaluations and 72 timing fits cover all three frozen seeds. The approved primary TabPFN-3.5-Plus final-test prediction is verified and included in the standalone report. TabPFN-3.5-Plus AP is 0.3601 versus CatBoost 0.3522 and XGBoost 0.3487; paired intervals against both include zero. All 117 Python tests and Ruff checks pass; four UI tests, TypeScript and formatting also pass. The [Radix report](RADIX_REPORT.md) uses the requested light/dark palette; its TypeScript and formatting checks also pass. The [dashboard overview](DASHBOARD.md), [one-command rebuild](DEMO_REBUILD.md) and [demo storyboard](DEMO_STORYBOARD.md) are complete. A fresh dependency installation reproduced identical dashboard bytes; see [M5 results](M5_RESULTS.md). Spoken delivery still needs presenter rehearsal. Additional hosted variants, random-reference and sensitivity runs were not budgeted; actual token charges are unavailable. See [hosted final results and scope closure](M4_HOSTED_FINAL_RESULTS.md), [local final results](M4_FINAL_RESULTS.md) and [checkpoint resolution](M3_CHECKPOINT_RESOLUTION.md).
 
+## Release readiness update — 24 September 2026
+
+- Complete: equal-capacity operator comparison, final paired uncertainty and
+  fresh-dependency release verification. 158 Python tests and 18 UI tests pass;
+  all eight rebuilt demo files match the staged release byte-for-byte.
+- Ready for review: updated two-minute demo script and private release package.
+- Remaining: presenter rehearsal, final owner review, authorised public release
+  and hackathon submission. The full-data metadata issue remains separate and
+  its predictions remain excluded from this demo.
+
+See [release readiness](RELEASE_READINESS.md) and
+[final uncertainty](F4_UNCERTAINTY_RESULTS.md).
+
 ## Active priority — Financial Stress
 
 Decision confirmed by the user on 21 September 2026: **Prior Labs first, Financial

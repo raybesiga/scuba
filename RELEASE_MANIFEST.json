@@ -2,7 +2,6 @@
   "schema": "scuba.private-release/v1",
   "repository": "https://github.com/raybesiga/scuba",
   "intended_visibility": "private",
-  "source_zip_sha256": "7f10a706cb371859752c9bbea6ad946e5cca3113dc1862b85450e6afeea91ef6",
   "files": {
     ".env.example": "c06ebdb13f5b1b195219b635f5571545fb25e7c8fdfce08cb265c072c0719c72",
     ".gitattributes": "997255e4e8c9cb0171a93e52d40f517cc9934c75039425dc2d472d0892d183ab",
@@ -12,8 +11,8 @@
     "LICENSE_SCOPE.md": "c199ee49e71b585a29484da5147ba4f5458e0a6a4df8a2f97617e4b7d98af7a1",
     "Makefile": "0d4f4c1bffac99bacc7d543d17db9199029d178208fbd62281a886d8b2b674c7",
     "PRIVATE_PREPARATION.md": "19aee85ca05f86031ae5abc32ca147290646f42638380d1b2ac50d0e48071ba3",
-    "README.md": "b0b03c6ad8a51a2bf30b1ea2b5fd7557a16117f3c54b56ef0adaff110e206f8c",
-    "RELEASE_VERIFICATION.json": "aa2edb9263bac3142198fb3a6292bc99b5763aa62737c10634028d1c0a10bcb0",
+    "README.md": "1a0b5b66d5ffaa4a1cf46232fe7a0e8c5d4e6edb9e50bed39b37035deb974674",
+    "RELEASE_VERIFICATION.json": "3ffdae09f83956283e8ac39da939312cfc53d0f5beded5510c5d01951502c418",
     "datasets/financial-stress/README.md": "2b823e78e28a531dca7e6d8da25dc4f2a7f33ec697b5f9ffd3bdd776b536c69b",
     "datasets/financial-stress/files/SampleSubmission.csv": "abe8491a7a01fb2567632589ed2633db62352d4711de29a911fff0c26db45535",
     "datasets/financial-stress/files/StarterNotebook.ipynb": "1afe22ee1e043f11cff4984495b21da9f76d6e6b2dc2d2a3ea992c776821cd7c",
@@ -61,9 +60,9 @@
     "docs/M5_RESULTS.md": "b36880839dc6698d15d40f8f22a234544ecbb230b8c8a0e12363f166e914d03c",
     "docs/N0_RESULTS.md": "e189c44b54fab784bb493b2e140fb00b882e2140de7ffa4a458ecd7c9d84ff7b",
     "docs/PRIOR_LABS_COLUMN_COUNT_QUESTION.md": "349aa1df04fe3cb898677aedf00f21eafad5dd80d8e623fa0ebbe5bd2f4f9383",
-    "docs/PRIOR_LABS_SUBMISSION_DRAFT.md": "c00c0adf0ed59b763acf4c544b936ccd34c2bfbaf00a4e883361a0ed80a39bda",
+    "docs/PRIOR_LABS_SUBMISSION_DRAFT.md": "08de198102b5e55eca1631a262cad463bc15fb38f5b8c93d23a6e367473fe8ab",
     "docs/RADIX_REPORT.md": "cded47cd17af5c82143a35fc912bb5d3a4f9e4e6261a98f1c45117e8c55f1b48",
-    "docs/ROADMAP.md": "cb747691164c0c9df945c34910449f6127f3909edc7c9cc80f2fc5094c098c3c",
+    "docs/ROADMAP.md": "1b671134628c81b700cf389d50e0e67a68f2d113ea1aa4774f1351d4f9933ead",
     "docs/demo-inputs.json": "1704cda2669ef6511e427e4a885f3783720ff480c0e488f5aeb1b563dd7881e7",
     "docs/explanation/FINANCIAL_STRESS.md": "351ca43cc715b47b70e62609b46aef7b307c3615d5634834e03ef04ed2ae2289",
     "docs/how-to/FINANCIAL_STRESS.md": "f95cb7107f7fab8ed8363fb7daa6dd1b0e29409d7c8593347d85e9b4227596f2",
@@ -230,14 +229,18 @@
     "src/scuba/financial_uncertainty.py": "8497c36e32a346629b5172fd174096082c3e28fc7cb476e79273e55668dd3764",
     "tests/test_financial_uncertainty.py": "ff9d57395f21fba7b4ffe4e40e49cb66d21e9121dbbbf5d4b9d815bb87eeddd8",
     "docs/F4_UNCERTAINTY_SPEC.md": "40e67dc04b5198a1f4a5ef543bc6670c29d798609b4e5f567a1f7b2e67eeeb95",
-    "docs/F4_UNCERTAINTY_RESULTS.md": "0b54e4f88a52ab78af71dc5ef97df33dfa2c953b9360b5f834b485039c1a7fee"
+    "docs/F4_UNCERTAINTY_RESULTS.md": "0b54e4f88a52ab78af71dc5ef97df33dfa2c953b9360b5f834b485039c1a7fee",
+    "docs/RELEASE_READINESS.md": "7a621ba1da527ce7daa184a97f6555bc1a31f93f7c0b9ffee9b33bdc86c7c4b7"
   },
   "verification": {
     "python_tests": 158,
     "ui_tests": 18,
     "original_files_verified": 5,
     "demo_rebuild": "8 files byte-identical",
-    "presentation_update": "Equal-capacity model comparison and post-hoc paired final uncertainty"
+    "presentation_update": "Equal-capacity model comparison and post-hoc paired final uncertainty",
+    "fresh_dependencies": true,
+    "byte_identical_rebuilt_demo_files": 8
   },
-  "source_history_included": false
+  "source_history_included": false,
+  "initial_import_zip_sha256": "7f10a706cb371859752c9bbea6ad946e5cca3113dc1862b85450e6afeea91ef6"
 }

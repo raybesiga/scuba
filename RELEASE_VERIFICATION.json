@@ -1,7 +1,7 @@
 {
   "status": "verified_local_release_candidate",
-  "python_tests": 155,
-  "ui_tests": 9,
+  "python_tests": 158,
+  "ui_tests": 18,
   "ruff": "passed",
   "typescript": "passed",
   "ui_format": "passed",
@@ -16,11 +16,13 @@
     "review-800.csv"
   ],
   "browser_checks": [
-    "validation capacity switches 800 to 400 and updates export",
-    "final holdout shows 542 versus 512 at 10%",
-    "square cards and readable final table"
+    "Final holdout capacities: 542/512 at 800 and 315/296 at 400",
+    "Paired bootstrap intervals agree with saved evidence",
+    "CatBoost comparison follows selected capacity",
+    "Validation workspace remains separately labelled"
   ],
-  "dependencies": "Existing locked dependencies used; fresh install not verified",
+  "dependencies": "Fresh locked Python environment and fresh npm installation verified; staged demo rebuilt byte-identically",
   "full_data_predictions": "excluded; column metadata unresolved",
-  "publication_status": "private preparation; public release and hackathon submission pending"
+  "publication_status": "private preparation; public release and hackathon submission pending",
+  "verified_on": "2026-09-24"
 }
