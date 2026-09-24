@@ -35,6 +35,7 @@ import {
   stressNames,
   predictionGap,
   calibrationNarrative,
+  operatorComparison,
   type Snapshot,
   type StressReport,
 } from "./stress";
@@ -277,6 +278,7 @@ function Review({
           </Text>
         </Box>
       </Grid>
+      <OperatorComparison data={data} budget={budget} />
       <Grid columns={{ initial: "1", md: "2fr 1fr" }} gap="5" align="start">
         <Box className="dashboard-module review-module">
           <Flex justify="between" align="center" gap="3" wrap="wrap">
@@ -412,14 +414,113 @@ function Review({
     </Flex>
   );
 }
+function OperatorComparison({
+  data,
+  budget,
+  final = false,
+  setBudget,
+}: {
+  data: StressReport;
+  budget: string;
+  final?: boolean;
+  setBudget?: (value: string) => void;
+}) {
+  const [comparator, setComparator] = useState("xgboost");
+  const metrics = final ? data.final_evaluation!.metrics : data.metrics;
+  const uncertainty = final ? data.final_uncertainty : undefined;
+  const interval = uncertainty?.differences[`capture_${budget}`];
+  const loss = uncertainty?.differences.log_loss;
+  return (
+    <Box className="dashboard-module">
+      <Flex justify="between" align="center" wrap="wrap" gap="3">
+        <Heading as="h2" size="4">
+          What changes at the same review capacity?
+        </Heading>
+        <Select.Root value={comparator} onValueChange={setComparator}>
+          <Select.Trigger aria-label="Compare TabPFN with" />
+          <Select.Content>
+            {Object.keys(stressNames)
+              .filter((k) => k !== "tabpfn_3_5_plus")
+              .map((k) => (
+                <Select.Item key={k} value={k}>
+                  {stressNames[k]}
+                </Select.Item>
+              ))}
+          </Select.Content>
+        </Select.Root>
+      </Flex>
+      {setBudget && (
+        <Box mt="3">
+          <SegmentedControl.Root
+            aria-label="Comparison review capacity"
+            value={budget}
+            onValueChange={setBudget}
+          >
+            <SegmentedControl.Item value="0.05">
+              Top 5% · 400 reviews
+            </SegmentedControl.Item>
+            <SegmentedControl.Item value="0.1">
+              Top 10% · 800 reviews
+            </SegmentedControl.Item>
+          </SegmentedControl.Root>
+        </Box>
+      )}
+      <Text as="p" size="2" mt="3" mb="3">
+        {operatorComparison(metrics, budget, comparator)}
+      </Text>
+      <DataTable
+        label="Operator review comparison"
+        headers={[
+          "Model",
+          "Stress cases found",
+          "Reviews without stress",
+          "Stress cases missed",
+        ]}
+        rows={["tabpfn_3_5_plus", comparator].map((k) => {
+          const r = metrics[k].top_budgets[budget];
+          return [stressNames[k], number(r.tp), number(r.fp), number(r.fn)];
+        })}
+      />
+      {interval && loss && (
+        <Box mt="3">
+          <Text as="p" size="2">
+            Against XGBoost: {interval.estimate} additional stress cases. The
+            95% interval is {interval.lower.toFixed(1)} to{" "}
+            {interval.upper.toFixed(1)} cases.
+            {interval.lower <= 0 && interval.upper >= 0
+              ? " This interval includes no capture advantage."
+              : " This interval excludes zero."}
+          </Text>
+          <Text as="p" size="2" mt="2">
+            Log-loss difference: {loss.estimate.toFixed(4)} (95% interval{" "}
+            {loss.lower.toFixed(4)} to {loss.upper.toFixed(4)}). Negative values
+            favour TabPFN.
+          </Text>
+          <Text as="p" size="1" color="gray" mt="2">
+            Post-hoc paired bootstrap, {number(uncertainty!.repeats)} resamples.
+            Assumes independent rows; repeated customers and future performance
+            are not assessed.
+          </Text>
+        </Box>
+      )}
+      <Text as="p" size="1" color="gray" mt="3">
+        {final ? "Final holdout" : "Validation"} results. Follow-up support and
+        its benefits still need testing with an operator.
+      </Text>
+    </Box>
+  );
+}
+
 function Evidence({
   data,
   budget,
+  setBudget,
   final = false,
 }: {
   data: StressReport;
   budget: string;
   final?: boolean;
+  setBudget: (value: string) => void;
 }) {
   const [model, setModel] = useState("tabpfn_3_5_plus"),
     [dimension, setDimension] = useState("region");
@@ -434,6 +535,12 @@ function Evidence({
     ).filter((r) => r.dimension === dimension);
   return (
     <Flex direction="column" gap="6">
+      <OperatorComparison
+        data={data}
+        budget={budget}
+        final={final}
+        setBudget={setBudget}
+      />
       <Box>
         <Heading as="h2" size="5">
           {final
@@ -843,14 +950,19 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
               value="evidence"
               style={{ paddingTop: "var(--space-5)" }}
             >
-              <Evidence data={data} budget={budget} />
+              <Evidence data={data} budget={budget} setBudget={setBudget} />
             </Tabs.Content>
             {data.final_evaluation && (
               <Tabs.Content
                 value="final"
                 style={{ paddingTop: "var(--space-5)" }}
               >
-                <Evidence data={data} budget={budget} final />
+                <Evidence
+                  data={data}
+                  budget={budget}
+                  setBudget={setBudget}
+                  final
+                />
               </Tabs.Content>
             )}
             <Tabs.Content

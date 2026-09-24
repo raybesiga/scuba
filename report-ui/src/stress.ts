@@ -119,6 +119,13 @@ export type StressReport = {
   sources: Record<string, string>;
   identity: { requested_alias: string; reported_model_path: string };
   final_evaluated: false;
+  final_uncertainty?: {
+    repeats: number;
+    differences: Record<
+      string,
+      { estimate: number; lower: number; upper: number }
+    >;
+  };
   final_evaluation?: {
     status: "verified_final";
     cohort: { rows: number; positives: number };
@@ -198,4 +205,19 @@ export function activityBaselineSummary(row: Snapshot) {
       ? ""
       : ` (${format((Math.abs(difference) / baseline) * 100)}%)`;
   return `${start}. ${format(Math.abs(difference))}${relative} ${difference > 0 ? "above" : "below"} the monthly baseline of ${format(baseline)}.`;
+}
+
+export function operatorComparison(
+  metrics: Record<string, StressMetric>,
+  budget: string,
+  comparator: string,
+) {
+  const plus = metrics.tabpfn_3_5_plus.top_budgets[budget];
+  const baseline = metrics[comparator].top_budgets[budget];
+  const difference = plus.tp - baseline.tp;
+  const change =
+    difference === 0
+      ? "the same number of stress cases"
+      : `${Math.abs(difference).toLocaleString("en-US")} ${difference > 0 ? "more" : "fewer"} stress cases`;
+  return `With ${plus.selected.toLocaleString("en-US")} reviews, TabPFN-3.5-Plus finds ${change} ${difference === 0 ? "as" : "than"} ${stressNames[comparator]}. The operator can prioritise support reviews within the same workload.`;
 }

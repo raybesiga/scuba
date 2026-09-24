@@ -8,6 +8,7 @@ import {
   activityBaselineSummary,
   predictionGap,
   calibrationNarrative,
+  operatorComparison,
 } from "./src/stress.ts";
 import { sortRowIndices } from "./src/sorting.ts";
 
@@ -241,4 +242,22 @@ test("activity baseline handles zero history without inventing a percentage chan
     activityBaselineSummary(record),
     "0 transactions in the last month. Matching the monthly baseline of 0.",
   );
+});
+
+test("operator comparison follows comparator and capacity without claiming intervention benefit", () => {
+  const metrics = narrativeMetrics();
+  assert.match(
+    operatorComparison(metrics, "0.1", "xgboost"),
+    /100 reviews.*5 more stress cases than XGBoost/,
+  );
+  assert.match(
+    operatorComparison(metrics, "0.05", "xgboost"),
+    /50 reviews.*1 fewer stress cases than XGBoost/,
+  );
+  assert.match(
+    operatorComparison(metrics, "0.1", "catboost"),
+    /10 more stress cases than CatBoost/,
+  );
+  metrics.xgboost.top_budgets["0.1"].tp = 45;
+  assert.match(operatorComparison(metrics, "0.1", "xgboost"), /same number/);
 });

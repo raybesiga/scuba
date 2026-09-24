@@ -13,6 +13,7 @@ from sklearn.metrics import roc_auc_score
 
 from scuba.evaluation import point_metrics
 from scuba.financial_stress import TARGET, digest, load_validation_rows, write_json
+from scuba.financial_uncertainty import paired_intervals
 from scuba.integrations.tabpfn_rest import validate_prediction
 from scuba.integrations.tabpfn_revalidation import retained_value
 
@@ -211,6 +212,37 @@ def build(prepared, local, hosted, ablation, output, archive, final=None):
             or final_data["status"] != "verified_final"
         ):
             raise ValueError("final evidence belongs to another experiment")
+        root = Path(final).parent.parent
+        pm = read(Path(prepared) / "manifest.json")
+        final_rows_path = Path(prepared) / "final.csv"
+        if digest(final_rows_path) != pm["files"]["final.csv"]:
+            raise ValueError("final rows changed")
+        rows = pd.read_csv(final_rows_path, float_precision="round_trip", dtype={"ID": str})
+        predictions = {}
+        for directory, filename, models in (
+            ("final-local-v1", "metrics.json", ["xgboost"]),
+            ("final-hosted-v1", "manifest.json", ["tabpfn_3_5_plus"]),
+        ):
+            manifest = read(root / directory / filename)
+            if (
+                digest(root / directory / filename)
+                != final_data["sources"]["local" if directory == "final-local-v1" else "hosted"]
+            ):
+                raise ValueError("uncertainty source differs from verified final evidence")
+            predictions.update(
+                checked_predictions(
+                    root / directory, manifest, rows, models, filename="final_predictions.csv"
+                )
+            )
+        data["final_uncertainty"] = paired_intervals(
+            rows[TARGET], predictions["tabpfn_3_5_plus"], predictions["xgboost"], rows.ID
+        )
+        data["final_uncertainty"]["sources"] = {
+            "rows": digest(final_rows_path),
+            "local_predictions": digest(root / "final-local-v1/final_predictions.csv"),
+            "hosted_predictions": digest(root / "final-hosted-v1/final_predictions.csv"),
+            "analysis_source": digest(ROOT / "src/scuba/financial_uncertainty.py"),
+        }
         data["final_evaluation"] = final_data
         data["sources"]["final_evaluation"] = digest(final)
     # Preserve an existing complete synthetic dashboard, including its evidence.
