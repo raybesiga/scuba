@@ -13,25 +13,25 @@ This is the recording version of the pitch. Read the quoted narration; the scree
 - Keep the uncertainty explanation collapsed. Have the clean release README ready in a second tab for the closing shot.
 - Hide notifications and unrelated windows. Record only the dashboard and README.
 
-## 0:00–0:20 · The operator's problem
+## 0:00–0:25 · The operator's problem
 
 **Screen:** Final holdout headline cards.
 
-> Customer-care teams have limited time to identify people who may need support. SCUBA's Financial Stress Predictor uses TabPFN-3.5-Plus to turn six months of activity into a prioritised review list, based on the likelihood of financial stress in the next thirty days.
+> Customer-care teams need to know whom to review first. SCUBA uses TabPFN-3.5-Plus to assess 182 inputs: six months of transaction counts and amounts across bill payments, merchant spending and bank transfers, alongside activity frequency and customer profile information. It combines these inputs to estimate financial-stress risk over the next thirty days and prioritise records for review.
 
-## 0:20–0:50 · Show the advantage
+## 0:25–0:55 · Show the advantage
 
 **Screen:** Scroll to “What changes at the same review capacity?” Point to both model rows, then the interval below the table.
 
 > On eight thousand reserved test records, TabPFN identifies five hundred and forty-two stress cases in an eight-hundred-record shortlist. XGBoost identifies five hundred and twelve. That is thirty additional cases at the same workload. The other two hundred and fifty-eight shortlisted records did not have stress. Another six hundred and fifty-eight stress cases remain outside the list. Our estimated gain is nine to fifty cases at ninety-five percent confidence, assuming independent records.
 
-## 0:50–1:05 · Show the wider comparison
+## 0:55–1:10 · Show the wider comparison
 
 **Screen:** Scroll to “Final holdout: how the models compare”. Keep the 800-review setting.
 
 > We compared five models using the same training and test records. TabPFN also leads on probability accuracy and ranking quality. This makes its contribution measurable, beyond a single headline result.
 
-## 1:05–1:40 · Demonstrate the operator workflow
+## 1:10–1:40 · Demonstrate the operator workflow
 
 **Screen:** Open **Review workspace**. Scroll to the review list. Select a different snapshot, show its activity and baseline, then click **Export 800 snapshots**. Return to the page after the download.
 
@@ -62,6 +62,8 @@ Do not read this table aloud. Use it to check that the visible tab matches the n
 | Final holdout · 5% (optional extra shot) | 8,000 | 400 | 315 | 296 |
 
 Each evaluation set contains 1,200 labelled stress cases. On the final holdout, **542 + 258 = 800 shortlisted records**, while **542 + 658 = 1,200 stress cases across the full test set**.
+
+The opening describes the supplied model inputs, not measured feature importance. The monthly transaction chart shows one view of the record; it does not represent all 182 inputs. Feature examples follow the supplied data dictionary.
 
 The evaluation is a row holdout: dates and persistent customer identifiers are unavailable. The demo replays verified predictions; it does not make a live model request. Transaction changes are context, not an explanation of the model's prediction. Improved customer outcomes still require a pilot.
 
