@@ -261,20 +261,17 @@ function Review({
         <Box className="dashboard-module">
           <Text className="eyebrow">OBSERVED IN VALIDATION</Text>
           <Heading as="h2" size="8" mt="3">
-            {number(m.tp)}{" "}
-            <Text size="3" color="gray">
-              / {number(data.cohorts.validation.positives)}
-            </Text>
+            {number(m.tp)}
           </Heading>
           <Text as="p" size="2" mt="2">
-            stress cases found among {number(m.selected)} reviewed snapshots
+            stress cases in the {number(m.selected)}-record shortlist
           </Text>
           <Text as="p" size="2" color="gray" mt="2">
             {m.tp - x.tp} more than XGBoost at the same capacity.
           </Text>
           <Text as="p" size="1" color="gray" mt="3">
-            {number(m.fp)} false positives · {number(m.fn)} stress cases outside
-            the list. Historical outcomes, not proven outreach benefit.
+            The shortlist also contains {number(m.fp)} records without stress.
+            Another {number(m.fn)} stress cases are outside the shortlist.
           </Text>
         </Box>
       </Grid>
@@ -881,8 +878,9 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
             </Box>
           </Flex>
           <Text as="p" size="2" color="gray" mb="3">
-            TabPFN-3.5-Plus · {resultLabel} · Top {Number(budget) * 100}%
-            reviewed
+            TabPFN-3.5-Plus selects {number(result.selected)} of the{" "}
+            {number(cohort.rows)} {resultLabel.toLowerCase()} records for review
+            (top {Number(budget) * 100}%).
           </Text>
           <Grid
             columns={{ initial: "1", sm: "3" }}
@@ -899,8 +897,7 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
                 {number(result.tp)}
               </Heading>
               <Text size="2" color="gray">
-                Of {number(cohort.positives)} stress cases ·{" "}
-                {number(result.selected)} records reviewed
+                In the {number(result.selected)}-record shortlist
               </Text>
             </Box>
             <Box className="fact">
@@ -912,23 +909,28 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
                 {number(difference)}
               </Heading>
               <Text size="2" color="gray">
-                {number(result.tp)} vs {number(reference.tp)} found · same
-                review capacity
+                {number(result.tp)} vs {number(reference.tp)} found in equally
+                sized shortlists
               </Text>
             </Box>
             <Box className="fact">
               <Text size="2" color="gray">
-                Reviewed records with stress
+                Shortlisted records with stress
               </Text>
               <Heading as="h2" size="6" mt="2">
                 {percent(result.selected ? result.tp / result.selected : null)}
               </Heading>
               <Text size="2" color="gray">
-                {number(result.tp)} of {number(result.selected)} reviewed
-                records had stress
+                {number(result.tp)} of {number(result.selected)} selected
+                records
               </Text>
             </Box>
           </Grid>
+          <Text as="p" size="2" color="gray" mb="5">
+            The full {resultLabel.toLowerCase()} set contains{" "}
+            {number(cohort.positives)} stress cases: {number(result.tp)} in this
+            shortlist and {number(result.fn)} outside it.
+          </Text>
           <Tabs.Root value={section} onValueChange={setSection}>
             <Box className="tabs-scroll">
               <Tabs.List aria-label="Financial Stress sections">
