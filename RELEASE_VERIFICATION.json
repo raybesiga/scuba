@@ -24,5 +24,25 @@
   "dependencies": "Fresh locked Python environment and fresh npm installation verified; staged demo rebuilt byte-identically",
   "full_data_predictions": "excluded; column metadata unresolved",
   "publication_status": "private preparation; public release and hackathon submission pending",
-  "verified_on": "2026-09-24"
+  "verified_on": "2026-09-24",
+  "documentation_review": {
+    "verified_on": "2026-09-28",
+    "scope": "isolated staged release; existing locked dependencies, not a fresh installation",
+    "python_tests": 158,
+    "ui_tests": 18,
+    "ruff": "passed",
+    "typescript": "passed",
+    "ui_format": "passed",
+    "active_documentation_links": "passed; frozen attribution retained; external URLs not fetched",
+    "source_checksums": "passed",
+    "prepared_partitions": "byte-identical; new manifest records newer preparation-code hash",
+    "local_final_input": "bundled frozen evidence/prepared-v1",
+    "local_prediction_replay": [
+      "validation: byte-identical",
+      "final: byte-identical",
+      "without age/gender: byte-identical"
+    ],
+    "offline_hosted_plan": "passed without a model request",
+    "rebuild_matching_files": 8
+  }
 }

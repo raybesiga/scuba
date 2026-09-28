@@ -77,17 +77,22 @@ Expected output includes the prepared train/validation/final partitions and
 membership file, then validation predictions and metrics for the constant prior,
 logistic regression, XGBoost and CatBoost. The supplied notebook is not executed.
 
-Reproduce the local final-holdout comparison with the frozen protocol:
+Reproduce the local final-holdout comparison using the bundled preparation and
+frozen protocol:
 
 ```sh
 PYTHONPATH=src .venv/bin/python -m scuba.financial_final local \
-  --prepared artifacts/reproduce-prepared \
+  --prepared evidence/prepared-v1 \
   --protocol docs/reference/financial-stress-final-protocol-v1.json \
   --output artifacts/reproduce-final
 ```
 
-The protocol checks input and execution-source hashes before scoring. Results
-must use the original model settings; timing and run-provenance fields can differ.
+The protocol checks input and execution-source hashes before scoring. Use
+`evidence/prepared-v1` here: fresh preparation reproduces the partition bytes, but
+records a newer preparation-code hash and cannot pass the frozen manifest check.
+In the development checkout, use
+`artifacts/financial-stress/portable-evidence-v1/prepared-v1`. Results use the
+original model settings; timing and run-provenance fields can differ.
 A fresh fit is a new run, not a replacement for the saved evidence bundle.
 If hashes fail, inspect the mismatch rather than changing expected hashes.
 
