@@ -1,5 +1,8 @@
 # M2 results — local comparators
 
+Synthetic benchmark archive. This dated record is separate from the
+[Financial Stress entry](README.md). Status and test counts describe that milestone.
+
 **Status: complete, 20 September 2026.** All four local comparators ran on the frozen 15,000-customer M1 bundles for seeds 3501/3502/3503. All 46 tests pass in both the project environment and a fresh environment installed offline from the uv cache. Primary predictions and metrics replay byte for byte in that fresh environment. These are synthetic validation results; no test cohort was fitted or scored.
 
 ## Protocol and cohorts
@@ -79,4 +82,5 @@ With the existing approved M1 inputs and installed locked dependencies, use a ne
 
 Repeat for seeds 3502/3503. M1 root manifests include historical package-source hashes, so regenerating with modified M2 sources creates a different, deliberately rejected manifest. To reconstruct missing frozen bundles, use M1 commit `8abfc39` with Python 3.14.5 and the declared M1 seed/configuration, then run M2 against those bundles. M5 will package the full clean-checkout reproduction workflow.
 
-Next is M3: TabPFN quickstart/REST integration, an offline-tested adapter, explicit variant/access/budget checks and an approved live run where available. No TabPFN fit or API request has occurred. M4 retains final test metrics, diagnostic random reference, calibration, capture/lift, FP/FN, subgroup uncertainty, permutation checks and controlled latency. These results establish local workflow behaviour under invented assumptions, not real-world model quality.
+Hosted integration and final evaluation subsequently completed. See the
+[archive guide](SYNTHETIC_ARCHIVE.md).

@@ -1,5 +1,8 @@
 # M5 demo build and rehearsal results
 
+Synthetic benchmark archive. This dated record is separate from the
+[Financial Stress entry](README.md). Status and test counts describe that milestone.
+
 21 September 2026. **M5 technical acceptance is complete:** one-command presentation rebuild, a 2–3 minute storyboard and clean-environment replay pass. Spoken delivery has not been recorded or timed; the presenter must practise it before recording or submission. No publication or submission has occurred.
 
 ## Clean checkout evidence

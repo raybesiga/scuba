@@ -1,5 +1,8 @@
 # M3 offline request-contract audit
 
+Synthetic benchmark archive. This dated record is separate from the
+[Financial Stress entry](README.md). Status and test counts describe that milestone.
+
 Reviewed 21 September 2026. **Offline source and emitted-request checks passed; live server interpretation remains unresolved.** This audit made no TabPFN request, loaded no credential and changed no approved payload, model setting or request envelope. M3 remains in progress.
 
 ## Sources and reproducibility

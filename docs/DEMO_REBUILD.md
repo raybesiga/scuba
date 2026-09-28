@@ -1,8 +1,13 @@
 # Rebuild the frozen demo
 
+Synthetic benchmark archive. This dated record is separate from the
+[Financial Stress entry](README.md). Status and test counts describe that milestone.
+
 Audience: a reviewer or presenter rebuilding the saved SCUBA results locally.
 
-This procedure rebuilds the presentation from verified M4 evidence. It does not regenerate the benchmark, refit models or replay paid predictions. The hosted response remains a saved observation. The evidence files are ignored by Git and must accompany a checkout separately.
+This procedure rebuilds the presentation from verified M4 evidence. It does not regenerate the benchmark, refit models or replay paid predictions. The hosted response remains a saved observation. The original 19-file synthetic evidence bundle must accompany this historical
+rebuild. The Financial Stress release includes an already-built synthetic archive;
+its current rebuild is described in the [run guide](how-to/FINANCIAL_STRESS.md).
 
 ## Prerequisites
 
@@ -65,4 +70,6 @@ No source path rewriting is required. Evidence retains its original relative pat
 
 Presentation replay proves that the saved evidence can be checked and displayed on a fresh dependency installation. It does not independently reproduce hosted model execution or measured latency.
 
-For the original synthetic bundle, use a separate checkout of M1 commit `8abfc39` with Python 3.14.5. Run its `scuba prepare` command for 15,000 customers with each seed 3501, 3502 and 3503, keeping split seed 3501. The historical source hashes are part of those manifests; regenerating from current sources is not an exact M1 replay. Then follow [local comparator results](M2_RESULTS.md) and [frozen final evaluation instructions](M4_FINAL_RESULTS.md) against the original plans and approved hashes. Local timing varies by machine. A new hosted run requires separate approval and cannot reproduce the server's historical state exactly.
+For the original synthetic bundle, use a separate checkout of development commit
+`8abfc39` with Python 3.14.5. That commit belongs to the development repository
+and is not included in the clean release history. Run its `scuba prepare` command for 15,000 customers with each seed 3501, 3502 and 3503, keeping split seed 3501. The historical source hashes are part of those manifests; regenerating from current sources is not an exact M1 replay. Then follow [local comparator results](M2_RESULTS.md) and [frozen final evaluation instructions](M4_FINAL_RESULTS.md) against the original plans and approved hashes. Local timing varies by machine. A new hosted run requires separate approval and cannot reproduce the server's historical state exactly.

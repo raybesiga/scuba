@@ -1,5 +1,8 @@
 # M3 checkpoint identity resolution
 
+Synthetic benchmark archive. This dated record is separate from the
+[Financial Stress entry](README.md). Status and test counts describe that milestone.
+
 21 September 2026. The approved prediction-only continuation reused the retained fitted model and validation upload. The estimate was 10,000 tokens (`quota_v3`); actual per-operation tokens remain unavailable. Recorded stages are limits (0.924 s), estimate (0.244 s) and one prediction (4.773 s). It made no upload or fit request and no retry.
 
 ## Observed failure and evidence

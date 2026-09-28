@@ -1,5 +1,8 @@
 # M4 validation evaluation results
 
+Synthetic benchmark archive. This dated record is separate from the
+[Financial Stress entry](README.md). Status and test counts describe that milestone.
+
 **Status: validation evaluation complete. M4 subsequently completed for the approved scope; see [hosted final results](M4_HOSTED_FINAL_RESULTS.md).** Updated 21 September 2026. The new offline tools evaluated saved predictions for all three frozen seeds under [M4 protocol v1](M4_SPEC.md). Hosted Plus is available for seed 3501 only. No model was trained, no API request was made and no test prediction was produced.
 
 Plus retains the highest observed primary AP, but both paired AP-difference intervals against the tree comparators include zero. This evidence does not establish a stable advantage. At the primary 10% review budget, Plus identifies 95 of 269 positive outcomes versus CatBoost’s 93 and XGBoost’s 92. These are synthetic validation diagnostics, not intervention effects or deployment results.

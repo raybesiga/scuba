@@ -1,5 +1,8 @@
 # M4 final local results
 
+Synthetic benchmark archive. This dated record is separate from the
+[Financial Stress entry](README.md). Status and test counts describe that milestone.
+
 Recorded 21 September 2026. **Local final evaluation, random reference and timing are complete. M4 is now complete for the approved scope; see the subsequent [hosted final-test results](M4_HOSTED_FINAL_RESULTS.md) and combined report.** All data are synthetic; these results demonstrate the workflow, not real-customer performance.
 
 The [frozen final protocol](M4_FINAL_PROTOCOL.md) was recorded before test inference. It retains the original M2 recipes, training partitions, raw probabilities and thresholds. See the separate [validation results](M4_RESULTS.md) for hosted Plus; its validation AP must not be compared directly with local test AP.
