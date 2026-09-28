@@ -50,6 +50,7 @@ The app does not contact customers or choose a support offer.
 
 The [run guide](docs/how-to/FINANCIAL_STRESS.md) covers locked dependency setup,
 offline demo rebuilding, local model evaluation and optional hosted execution.
+To run a new TabPFN prediction, [get your own Prior Labs API key](docs/how-to/FINANCIAL_STRESS.md#get-your-own-prior-labs-api-key).
 Python 3.14.5 and Node 24 are the verified runtimes. Initial dependency installation
 requires network access unless packages are cached; demo replay is offline.
 

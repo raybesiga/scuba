@@ -119,16 +119,43 @@ PYTHONPATH=src .venv/bin/python -m scuba.financial_comparison preflight \
   --prepared artifacts/reproduce-prepared --output artifacts/hosted-plan-review
 ```
 
-Inspect its feature order, dimensions, settings and payload hashes. An explicit
-`preflight --online` additionally checks current limits and the estimate; it sends
-metadata only. Store `TABPFN_TOKEN` in the environment or ignored local `.env`.
-Never include it in the repository or command output.
+Inspect its feature order, dimensions, settings and payload hashes.
+
+### Get your own Prior Labs API key
+
+To run a new hosted prediction, use your own Prior Labs account:
+
+1. [Sign up or sign in to Prior Labs](https://platform.priorlabs.ai/).
+2. Open [API Keys](https://platform.priorlabs.ai/account/api-keys) and generate a key.
+3. Add the following line to a local `.env` file in the checkout root, replacing
+   the placeholder with your key. This file is ignored by Git.
+
+```dotenv
+TABPFN_TOKEN=your-prior-labs-api-key
+```
+
+Alternatively, supply `TABPFN_TOKEN` through your environment. SCUBA reads the
+key only for online commands. Keep it out of commits, screenshots and shared logs.
+No key is needed for the saved dashboard, local models or offline plan above.
+
+With the key configured, check your account limits and the estimated token use:
+
+```sh
+PYTHONPATH=src .venv/bin/python -m scuba.financial_comparison preflight \
+  --prepared artifacts/reproduce-prepared --output artifacts/hosted-online-review --online
+```
+
+This sends metadata, not dataset rows. Review the returned limits and estimate
+before authorising the upload and choosing a token ceiling for the prediction.
 
 `run-hosted` requires `--approved-plan`, `--allow-upload` and a positive
 `--max-estimated-tokens`. It rechecks the plan and estimate, makes one prediction
 attempt and does not retry automatically. Use `--help` for its complete options.
 An estimate ceiling is not an actual billing guarantee. Inspect retained evidence
 before deciding whether a failed request should be repeated.
+
+For a different dataset, start with the [official TabPFN client examples](https://github.com/PriorLabs/tabpfn-client#quick-start).
+SCUBA’s commands above expect the Financial Stress schema and fixed split.
 
 The [full-data runner](FINANCIAL_STRESS_FULL_DATA.md) is a separate experiment.
 Its unresolved outputs are not needed for this demo.
