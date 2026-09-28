@@ -1,77 +1,81 @@
-# SCUBA — mobile-money signals for customer care
+# SCUBA · Financial Stress Predictor
 
-SCUBA uses **TabPFN-3.5-Plus** to help a customer-care operator prioritise a review
-list from six months of mobile-money activity. Choose a review capacity, inspect
-ranked snapshots and their activity context, then export a shortlist for human
-review. The supplied target is financial stress in the following 30 days.
+**Find more financial-stress cases within the same customer-care review workload.**
 
-## Try the demo
+SCUBA uses TabPFN-3.5-Plus to rank records for human review. The model receives
+182 inputs: six months of transaction counts, amounts and balances, alongside
+activity frequency and customer profile information. An operator chooses a
+review capacity, inspects individual activity and exports a shortlist.
 
-Open [demo/index.html](demo/index.html) in a browser. The dashboard is self-contained
-and uses saved, verified predictions: no API key or model request is needed.
-The review workspace uses validation snapshots; the **Final holdout** tab shows
-the separate reserved evaluation. A synthetic benchmark is available in the archive.
+Built for the Prior Labs TabPFN-3.5 Hackathon. The working app is the entry;
+the model comparison shows why TabPFN is central to it.
 
-## What the model showed
+## What TabPFN adds
 
-Five models were trained on the same 24,000 rows and evaluated on the same reserved
-8,000-row holdout, with settings frozen before evaluation.
+On the reserved **8,000-record final holdout**, TabPFN found **542 stress cases**
+in an **800-record shortlist**. XGBoost found **512** at the same capacity:
+**30 additional cases without increasing the review workload**.
 
-| Model | Log loss ↓ | AUROC ↑ | Stress cases found in 800 reviews |
+| Model | Log loss ↓ | AUROC ↑ | Stress cases found in 800 records |
 | --- | ---: | ---: | ---: |
-| TabPFN-3.5-Plus | 0.2799 | 0.8784 | 542 |
+| TabPFN-3.5-Plus | **0.2799** | **0.8784** | **542** |
 | XGBoost | 0.3073 | 0.8560 | 512 |
 | CatBoost | 0.3300 | 0.8384 | 472 |
 | Logistic regression | 0.3806 | 0.7410 | 352 |
 | Constant prior | 0.4227 | 0.5000 | 126 |
 
-There are 1,200 labelled stress cases in that holdout. TabPFN found 30 more than
-XGBoost at the same review capacity. These are observed point estimates, not
-proof that outreach changes outcomes. See [full evaluation](docs/F4_RESULTS.md).
+Lower log loss means better probability estimates; higher AUROC means better
+ranking. All five models used the same 24,000 training records and fixed settings.
+The final holdout contains 1,200 stress cases. TabPFN's shortlist includes 542
+records with stress and 258 without; 658 stress cases remain outside it.
 
-## Rebuild and verify
+A post-hoc paired bootstrap gives a 95% interval of **9–50 additional cases**
+versus XGBoost, assuming independent records. See the [final results](docs/F4_RESULTS.md)
+and [uncertainty analysis](docs/F4_UNCERTAINTY_RESULTS.md).
 
-The verified runtime is Python 3.14.5 and Node 24. Dependency installation needs
-network access unless the locked packages are cached:
+## Try the workflow
 
-```sh
-uv sync --locked --python 3.14.5 --extra models --extra tabpfn
-npm ci --prefix report-ui --ignore-scripts
-```
+Follow the [setup and run guide](docs/how-to/FINANCIAL_STRESS.md#run-the-saved-demo).
+The packaged dashboard uses saved predictions and needs no API key.
 
-Then run offline:
+1. Open **Final holdout** to compare models at the same 400- or 800-record capacity.
+2. Open **Review workspace** to inspect the ranked validation records and their activity.
+3. Export the selected shortlist for a customer-care review.
 
-```sh
-make check
-make ui-check
-PYTHONPATH=src .venv/bin/python -m scuba.source_bundle --bundle datasets/financial-stress --verify
-PYTHONPATH=src .venv/bin/python -m scuba.financial_demo build --evidence evidence --output rebuilt-demo
-```
+The workspace uses a separate validation sample, where TabPFN finds **565** cases
+in 800 records. That is why its count differs from the final holdout's **542**.
+The app does not contact customers or choose a support offer.
 
-The rebuild verifies checksums, model identity, row alignment and final metrics
-before producing the dashboard. Choose a new output directory for each rebuild.
-See [training and evaluation instructions](docs/how-to/FINANCIAL_STRESS.md) to
-reproduce the local models. Hosted predictions are optional, separately approved
-service calls; credentials belong in an ignored local `.env`, never this repository.
+## Reproduce the evidence
 
-## Data, scope and limitations
+The [run guide](docs/how-to/FINANCIAL_STRESS.md) covers locked dependency setup,
+offline demo rebuilding, local model evaluation and optional hosted execution.
+Python 3.14.5 and Node 24 are the verified runtimes. Initial dependency installation
+requires network access unless packages are cached; demo replay is offline.
 
-The original [Financial Stress files](datasets/financial-stress/README.md) are
-included with hashes and attribution. The supplied Zindi rules declare CC BY-SA
-4.0 for the data; original SCUBA code is Apache-2.0. Derived data and reference
-material retain their applicable source terms. See [licence scope](LICENSE_SCOPE.md).
+The release includes the original Financial Stress inputs, saved predictions,
+checksums and tests. Rebuilding verifies the evidence and recomputes the displayed
+results. Replaying saved predictions does not rerun the hosted model.
 
-The dataset has no observation dates or persistent customer identifier. Evaluation
-therefore uses a stratified row holdout; distinct customers and temporal separation
-are unverified. Real versus synthetic origin and operational label mechanics are
-also unverified. SCUBA supports human review, not credit decisions, automated
-contact, personalised offer effectiveness or causal explanations.
+## Data and limits
 
-A separate all-40,000-row fit returned 30,000 unlabelled predictions. Their
-column-count metadata remains unresolved after one diagnostic, so those outputs
-are **excluded from this demo and its performance claims**. See the
-[integration record](docs/FINANCIAL_STRESS_FULL_DATA_RESULTS.md).
+The source is the [Zindi Financial Stress Prediction Challenge, September edition](datasets/financial-stress/README.md).
+The target is its supplied 30-day liquidity-stress label. Dates and persistent
+customer identifiers are absent, so the evaluation separates rows; it cannot
+establish future performance or separation between people. The dataset's
+real/synthetic origin and operational definition of stress remain unverified.
 
-Nedbank data, private response archives, credentials and development Git history
-are excluded from this delivery snapshot. Historical documentation may mention
-the deferred Nedbank experiment. [Project description and demo script](docs/PRIOR_LABS_SUBMISSION_DRAFT.md).
+This prototype demonstrates review prioritisation. Whether that prioritisation
+improves customer outcomes needs an operator pilot. See the
+[method and limitations](docs/FINANCIAL_STRESS_METHOD.md).
+
+Original code and documentation are Apache-2.0. Source data and adaptations retain
+the declared CC BY-SA 4.0 licence and attribution. See [licence scope](LICENSE_SCOPE.md)
+and [data provenance](DATA_PROVENANCE.md).
+
+## Explore
+
+- [Documentation guide](docs/README.md)
+- [Two-minute recording walkthrough](docs/FINANCIAL_STRESS_WALKTHROUGH.md)
+- [Hackathon project description](docs/PRIOR_LABS_SUBMISSION_DRAFT.md)
+- [Earlier synthetic benchmark](docs/SYNTHETIC_ARCHIVE.md)

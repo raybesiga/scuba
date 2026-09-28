@@ -1,6 +1,6 @@
 # Financial Stress Predictor: recording walkthrough
 
-Review draft · 24 September 2026 · approximately two minutes
+Recording script · approximately two minutes
 
 **Pitch:** TabPFN helps a customer-care team find more financial-stress cases within the same review workload.
 
@@ -67,4 +67,4 @@ The opening describes the supplied model inputs, not measured feature importance
 
 The evaluation is a row holdout: dates and persistent customer identifiers are unavailable. The demo replays verified predictions; it does not make a live model request. Transaction changes are context, not an explanation of the model's prediction. Improved customer outcomes still require a pilot.
 
-The screenshot supplied on 24 September labels the optional video field **YouTube URL**. Record in Cap, review the recording, then upload an approved export to YouTube for that field. Uploading the recording and submitting the entry are separate steps; neither has been performed.
+The supplied submission form labels the optional video field **YouTube URL**. Record in Cap, review the recording, then upload the approved export to YouTube for that field.

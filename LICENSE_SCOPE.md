@@ -1,28 +1,19 @@
 # Licence scope
 
-Original SCUBA project code and documentation are licensed under the Apache
-License, Version 2.0 in `LICENSE`.
+Original SCUBA code and documentation use the Apache License, Version 2.0,
+in [LICENSE](LICENSE). Third-party material keeps its own terms.
 
-Third-party material retains its own terms:
+- The [Financial Stress source files](datasets/financial-stress/README.md) retain
+  the declared CC BY-SA 4.0 licence and Zindi attribution. The supplied notebook
+  is third-party reference material, not Apache-2.0 project code.
+- Financial Stress partitions, predictions, diagnostics and review exports are
+  data adaptations. They retain CC BY-SA 4.0 attribution and identify SCUBA's changes.
+- The [supplied hackathon terms](docs/reference/TABPFN_3_5_HACKATHON_TERMS.txt)
+  are unchanged third-party text, not relicensed project documentation.
+- Dependencies, model weights and hosted services retain their respective terms.
 
-- The [Financial Stress source package](datasets/financial-stress/README.md) retains
-  its declared CC BY-SA 4.0 data licence and attribution, based on the challenge
-  rules supplied by the user. The supplied notebook is third-party reference
-  material, not Apache-2.0 project code.
-
-- The Nedbank/Zindi source package, including its supplied reference script,
-  notebook and documentation, states CC BY-SA 4.0 in its original README. It is
-  not relicensed under Apache-2.0. Preserve its attribution and licence when
-  distributing permitted copies or adaptations.
-- `docs/reference/TABPFN_3_5_HACKATHON_TERMS.txt` is an unchanged user-provided
-  copy of Prior Labs' terms, retained for submission review. It is not authored
-  by this project or relicensed under Apache-2.0.
-- Dependencies and model weights retain their respective licences. This project's
-  licence grants no rights to those materials or hosted services.
-
-The Nedbank source challenge also publishes a requirement to delete data within 30 days
-of its close. Its relationship to the stated CC BY-SA licence remains unresolved.
-Local Git inclusion was explicitly requested by the user; it does not establish
-permission for public republication. Resolve this before publishing a repository
-containing these files or any commits that contain them. Git history retains
-deleted files: deleting the current copies alone does not remove their history.
+The hackathon release excludes the deferred Nedbank dataset and development Git
+history. In the development checkout, Nedbank material retains its source terms;
+its unresolved post-close retention condition is recorded in the local
+`datasets/nedbank/THIRD_PARTY_NOTICE.md`. Local possession or deletion from the
+working tree does not establish permission to publish it or remove it from history.
