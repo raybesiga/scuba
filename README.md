@@ -33,11 +33,6 @@ A post-hoc paired bootstrap gives a 95% interval of **9–50 additional cases**
 versus XGBoost, assuming independent records. See the [final results](docs/F4_RESULTS.md)
 and [uncertainty analysis](docs/F4_UNCERTAINTY_RESULTS.md).
 
-![Final-holdout comparison: TabPFN finds 542 stress cases versus XGBoost’s 512 in equally sized 800-record shortlists.](docs/images/financial-stress-final-holdout.jpg)
-
-*Final holdout: compare stress cases found at the same review capacity, with the
-five-model results below.*
-
 ## Try the workflow
 
 Follow the [setup and run guide](docs/how-to/FINANCIAL_STRESS.md#run-the-saved-demo).
@@ -51,10 +46,26 @@ The workspace uses a separate validation sample, where TabPFN finds **565** case
 in 800 records. That is why its count differs from the final holdout's **542**.
 The app does not contact customers or choose a support offer.
 
-![Operator workspace filtered to a selected validation record, showing its stress probability, monthly activity and comparison with its own baseline.](docs/images/financial-stress-operator-workflow.jpg)
+![Validation dashboard: 565 stress cases found in an 800-record shortlist, 36 more than XGBoost.](docs/images/financial-stress-validation-overview.png)
 
-*Operator workflow: find a record in the shortlist and inspect its recent activity
-against its own baseline before considering support. This view uses validation records.*
+*Validation results at an 800-record review capacity.*
+
+![Ranked validation shortlist alongside the selected record’s stress probability, monthly activity and personal activity baseline.](docs/images/financial-stress-operator-workflow.png)
+
+*Select a record to inspect its recent activity against its own baseline before
+considering support.*
+
+<details>
+<summary>Compare models at the same review capacity (validation)</summary>
+
+TabPFN finds **36 more stress cases than XGBoost** and **63 more than CatBoost**
+in equally sized 800-record validation shortlists.
+
+![Validation comparison with XGBoost: 565 versus 529 stress cases found.](docs/images/financial-stress-validation-xgboost.png)
+
+![Validation comparison with CatBoost: 565 versus 502 stress cases found.](docs/images/financial-stress-validation-catboost.png)
+
+</details>
 
 ## Reproduce the evidence
 
