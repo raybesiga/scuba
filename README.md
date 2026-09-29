@@ -33,6 +33,11 @@ A post-hoc paired bootstrap gives a 95% interval of **9–50 additional cases**
 versus XGBoost, assuming independent records. See the [final results](docs/F4_RESULTS.md)
 and [uncertainty analysis](docs/F4_UNCERTAINTY_RESULTS.md).
 
+![Final-holdout comparison: TabPFN finds 542 stress cases versus XGBoost’s 512 in equally sized 800-record shortlists.](docs/images/financial-stress-final-holdout.jpg)
+
+*Final holdout: compare stress cases found at the same review capacity, with the
+five-model results below.*
+
 ## Try the workflow
 
 Follow the [setup and run guide](docs/how-to/FINANCIAL_STRESS.md#run-the-saved-demo).
@@ -45,6 +50,11 @@ The packaged dashboard uses saved predictions and needs no API key.
 The workspace uses a separate validation sample, where TabPFN finds **565** cases
 in 800 records. That is why its count differs from the final holdout's **542**.
 The app does not contact customers or choose a support offer.
+
+![Operator workspace filtered to a selected validation record, showing its stress probability, monthly activity and comparison with its own baseline.](docs/images/financial-stress-operator-workflow.jpg)
+
+*Operator workflow: find a record in the shortlist and inspect its recent activity
+against its own baseline before considering support. This view uses validation records.*
 
 ## Reproduce the evidence
 
