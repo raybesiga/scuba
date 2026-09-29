@@ -13,8 +13,9 @@ the model comparison shows why TabPFN is central to it.
 ## What TabPFN adds
 
 On the reserved **8,000-record final holdout**, TabPFN found **542 stress cases**
-in an **800-record shortlist**. XGBoost found **512** at the same capacity:
-**30 additional cases without increasing the review workload**.
+in an **800-record shortlist**, compared with **512 for XGBoost** and
+**472 for CatBoost**. That is **30 more cases than XGBoost** and **70 more than
+CatBoost**, without increasing the review workload.
 
 | Model | Log loss ↓ | AUROC ↑ | Stress cases found in 800 records |
 | --- | ---: | ---: | ---: |

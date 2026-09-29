@@ -1,7 +1,4 @@
 {
-  "schema": "scuba.private-release/v1",
-  "repository": "https://github.com/raybesiga/scuba",
-  "intended_visibility": "private",
   "files": {
     ".env.example": "c06ebdb13f5b1b195219b635f5571545fb25e7c8fdfce08cb265c072c0719c72",
     ".gitattributes": "997255e4e8c9cb0171a93e52d40f517cc9934c75039425dc2d472d0892d183ab",
@@ -10,7 +7,7 @@
     "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
     "LICENSE_SCOPE.md": "d4404ba53251dcaf1cd5a70fab4496948eea401486a8b8c0c5564a70fe760b1c",
     "Makefile": "0d4f4c1bffac99bacc7d543d17db9199029d178208fbd62281a886d8b2b674c7",
-    "README.md": "a55d6e10830bd1f16b4630d4528c22b2f608bff7354ef568c47536ff853715bf",
+    "README.md": "7613732f2fe14b4c4766c53487d4247c1e7490f9ee1b3bb133f8a3955b63de74",
     "RELEASE_VERIFICATION.json": "eef1a9f1887a8d11e4dba0b32f282a97e3d7658b1cd55a62213c3713fb821a8e",
     "datasets/financial-stress/README.md": "2b823e78e28a531dca7e6d8da25dc4f2a7f33ec697b5f9ffd3bdd776b536c69b",
     "datasets/financial-stress/files/SampleSubmission.csv": "abe8491a7a01fb2567632589ed2633db62352d4711de29a911fff0c26db45535",
@@ -238,15 +235,18 @@
     "tests/test_xgboost.py": "c1a317ed79380bfe67a325cd546d9be70840c2c697d6a20e012dbf96ac2cdc38",
     "uv.lock": "969aeca7e4f28a14ba690ee25d2d03b4d64182441060996d11ac658c9efd06ed"
   },
-  "verification": {
-    "python_tests": 158,
-    "ui_tests": 18,
-    "original_files_verified": 5,
-    "demo_rebuild": "8 files byte-identical",
-    "presentation_update": "Concise final capture interval; statistical methodology disclosed on demand for XGBoost only",
-    "fresh_dependencies": true,
-    "byte_identical_rebuilt_demo_files": 8
-  },
+  "initial_import_zip_sha256": "7f10a706cb371859752c9bbea6ad946e5cca3113dc1862b85450e6afeea91ef6",
+  "intended_visibility": "private",
+  "repository": "https://github.com/raybesiga/scuba",
+  "schema": "scuba.private-release/v1",
   "source_history_included": false,
-  "initial_import_zip_sha256": "7f10a706cb371859752c9bbea6ad946e5cca3113dc1862b85450e6afeea91ef6"
+  "verification": {
+    "byte_identical_rebuilt_demo_files": 8,
+    "demo_rebuild": "8 files byte-identical",
+    "fresh_dependencies": true,
+    "original_files_verified": 5,
+    "presentation_update": "Concise final capture interval; statistical methodology disclosed on demand for XGBoost only",
+    "python_tests": 158,
+    "ui_tests": 18
+  }
 }
