@@ -33,6 +33,19 @@ A post-hoc paired bootstrap gives a 95% interval of **9–50 additional cases**
 versus XGBoost, assuming independent records. See the [final results](docs/F4_RESULTS.md)
 and [uncertainty analysis](docs/F4_UNCERTAINTY_RESULTS.md).
 
+![Final-holdout comparison: TabPFN finds 542 stress cases versus XGBoost’s 512 in equally sized 800-record shortlists.](docs/images/financial-stress-final-xgboost.png)
+
+*Final holdout: 30 additional stress cases found at the same review capacity.*
+
+<details>
+<summary>Final-holdout comparison with CatBoost</summary>
+
+TabPFN finds **70 more stress cases than CatBoost** in an 800-record shortlist.
+
+![Final-holdout comparison with CatBoost: 542 versus 472 stress cases found.](docs/images/financial-stress-final-catboost.png)
+
+</details>
+
 ## Try the workflow
 
 Follow the [setup and run guide](docs/how-to/FINANCIAL_STRESS.md#run-the-saved-demo).
