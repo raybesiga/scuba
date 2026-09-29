@@ -9,8 +9,38 @@ import {
   predictionGap,
   calibrationNarrative,
   operatorComparison,
+  captureIntervalInterpretation,
 } from "./src/stress.ts";
 import { sortRowIndices } from "./src/sorting.ts";
+
+test("capture intervals including zero do not establish an advantage", () => {
+  for (const [lower, upper] of [
+    [-6, 15],
+    [0, 15],
+    [-6, 0],
+    [0, 0],
+  ]) {
+    assert.equal(
+      captureIntervalInterpretation(lower, upper),
+      "The interval includes zero, so an advantage is not established.",
+    );
+  }
+});
+
+test("capture intervals exclude zero on either side using unrounded bounds", () => {
+  for (const [lower, upper] of [
+    [3, 36],
+    [9, 50],
+    [-15, -6],
+    [0.01, 15],
+    [-6, -0.01],
+  ]) {
+    assert.equal(
+      captureIntervalInterpretation(lower, upper),
+      "The interval excludes zero.",
+    );
+  }
+});
 
 function narrativeMetrics() {
   return Object.fromEntries(

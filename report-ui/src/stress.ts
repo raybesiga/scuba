@@ -199,6 +199,12 @@ export function activityBaselineSummary(row: Snapshot) {
   return `${start}. ${format(Math.abs(difference))}${relative} ${difference > 0 ? "above" : "below"} the monthly baseline of ${format(baseline)}.`;
 }
 
+export function captureIntervalInterpretation(lower: number, upper: number) {
+  return lower <= 0 && upper >= 0
+    ? "The interval includes zero, so an advantage is not established."
+    : "The interval excludes zero.";
+}
+
 export function operatorComparison(
   metrics: Record<string, StressMetric>,
   budget: string,

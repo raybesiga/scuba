@@ -36,6 +36,7 @@ import {
   predictionGap,
   calibrationNarrative,
   operatorComparison,
+  captureIntervalInterpretation,
   type Snapshot,
   type StressReport,
 } from "./stress";
@@ -535,7 +536,7 @@ function OperatorComparison({
       {interval && loss && comparator === "xgboost" && (
         <Box mt="3">
           <Text as="p" size="2">
-            The estimated gain over XGBoost is{" "}
+            The estimated difference from XGBoost is{" "}
             {number(Math.round(interval.lower))} to{" "}
             {number(Math.round(interval.upper))} stress cases at the same review
             capacity (95% confidence interval).
@@ -545,10 +546,8 @@ function OperatorComparison({
             <Text as="p" size="2" color="gray">
               The observed difference is {interval.estimate} stress cases. The
               interval is {interval.lower.toFixed(1)} to{" "}
-              {interval.upper.toFixed(1)}.
-              {interval.lower <= 0 && interval.upper >= 0
-                ? " It includes no capture advantage."
-                : " It excludes zero."}
+              {interval.upper.toFixed(1)}.{" "}
+              {captureIntervalInterpretation(interval.lower, interval.upper)}
             </Text>
             <Text as="p" size="2" color="gray" mt="2">
               Log-loss difference: {loss.estimate.toFixed(4)} (95% interval{" "}
