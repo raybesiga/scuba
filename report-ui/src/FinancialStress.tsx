@@ -31,8 +31,12 @@ import {
   shortlist,
   searchSnapshots,
   totalActivity,
+  activityBaselineSummary,
   stressNames,
   predictionGap,
+  calibrationNarrative,
+  operatorComparison,
+  captureIntervalInterpretation,
   type Snapshot,
   type StressReport,
 } from "./stress";
@@ -110,11 +114,10 @@ function Detail({ row }: { row: Snapshot | null }) {
         ))}
       </Box>
       <Text as="p" size="2">
-        {number(totals[5])} transactions in M1, compared with{" "}
-        {number(totals[4])} in M2.
+        {activityBaselineSummary(row)}
       </Text>
       <Text as="p" size="1" color="gray" mt="2">
-        Observed context, not a causal explanation of the prediction.
+        Baseline: average activity over the preceding five months (M6–M2).
       </Text>
       <details className="snapshot-breakdown">
         <summary>View monthly breakdown</summary>
@@ -259,23 +262,21 @@ function Review({
         <Box className="dashboard-module">
           <Text className="eyebrow">OBSERVED IN VALIDATION</Text>
           <Heading as="h2" size="8" mt="3">
-            {number(m.tp)}{" "}
-            <Text size="3" color="gray">
-              / {number(data.cohorts.validation.positives)}
-            </Text>
+            {number(m.tp)}
           </Heading>
           <Text as="p" size="2" mt="2">
-            stress cases found among {number(m.selected)} reviewed snapshots
+            stress cases in the {number(m.selected)}-record shortlist
           </Text>
           <Text as="p" size="2" color="gray" mt="2">
             {m.tp - x.tp} more than XGBoost at the same capacity.
           </Text>
           <Text as="p" size="1" color="gray" mt="3">
-            {number(m.fp)} false positives · {number(m.fn)} stress cases outside
-            the list. Historical outcomes, not proven outreach benefit.
+            The shortlist also contains {number(m.fp)} records without stress.
+            Another {number(m.fn)} stress cases are outside the shortlist.
           </Text>
         </Box>
       </Grid>
+      <OperatorComparison data={data} budget={budget} />
       <Grid columns={{ initial: "1", md: "2fr 1fr" }} gap="5" align="start">
         <Box className="dashboard-module review-module">
           <Flex justify="between" align="center" gap="3" wrap="wrap">
@@ -411,14 +412,174 @@ function Review({
     </Flex>
   );
 }
+function OperatorComparison({
+  data,
+  budget,
+  final = false,
+  setBudget,
+}: {
+  data: StressReport;
+  budget: string;
+  final?: boolean;
+  setBudget?: (value: string) => void;
+}) {
+  const [comparator, setComparator] = useState("xgboost");
+  const metrics = final ? data.final_evaluation!.metrics : data.metrics;
+  const uncertainty = final ? data.final_uncertainty : undefined;
+  const interval = uncertainty?.differences[`capture_${budget}`];
+  const loss = uncertainty?.differences.log_loss;
+  return (
+    <Box className="dashboard-module">
+      <Flex
+        direction={setBudget ? "column" : "row"}
+        justify="between"
+        align={setBudget ? "stretch" : "center"}
+        wrap="wrap"
+        gap="3"
+      >
+        <Heading as="h2" size="4">
+          What changes at the same review capacity?
+        </Heading>
+        <Flex justify="between" align="center" wrap="wrap" gap="3">
+          {setBudget && (
+            <SegmentedControl.Root
+              aria-label="Comparison review capacity"
+              value={budget}
+              onValueChange={setBudget}
+            >
+              <SegmentedControl.Item value="0.05">
+                Top 5% · 400 reviews
+              </SegmentedControl.Item>
+              <SegmentedControl.Item value="0.1">
+                Top 10% · 800 reviews
+              </SegmentedControl.Item>
+            </SegmentedControl.Root>
+          )}
+          <Select.Root value={comparator} onValueChange={setComparator}>
+            <Select.Trigger aria-label="Compare TabPFN with" />
+            <Select.Content>
+              {Object.keys(stressNames)
+                .filter((k) => k !== "tabpfn_3_5_plus")
+                .map((k) => (
+                  <Select.Item key={k} value={k}>
+                    {stressNames[k]}
+                  </Select.Item>
+                ))}
+            </Select.Content>
+          </Select.Root>
+        </Flex>
+      </Flex>
+      <Text as="p" size="2" mt="3" mb="3">
+        {operatorComparison(metrics, budget, comparator)}
+      </Text>
+      <Box
+        className="table-scroll operator-comparison"
+        role="region"
+        aria-label="Operator review comparison"
+        tabIndex={0}
+      >
+        <Table.Root variant="surface" size="2">
+          <Table.Header>
+            <Table.Row>
+              <Table.ColumnHeaderCell rowSpan={2} scope="col">
+                Model
+              </Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell colSpan={3} scope="colgroup">
+                Inside the shortlist ·{" "}
+                {number(metrics.tabpfn_3_5_plus.top_budgets[budget].selected)}{" "}
+                records
+              </Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell
+                scope="colgroup"
+                className="outside-shortlist"
+              >
+                Outside the shortlist
+              </Table.ColumnHeaderCell>
+            </Table.Row>
+            <Table.Row>
+              <Table.ColumnHeaderCell scope="col">
+                With stress
+              </Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell scope="col">
+                Without stress
+              </Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell scope="col">
+                Total selected
+              </Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell scope="col" className="outside-shortlist">
+                Stress cases missed
+              </Table.ColumnHeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {["tabpfn_3_5_plus", comparator].map((k) => {
+              const r = metrics[k].top_budgets[budget];
+              return (
+                <Table.Row key={k}>
+                  <Table.RowHeaderCell scope="row">
+                    {stressNames[k]}
+                  </Table.RowHeaderCell>
+                  <Table.Cell>{number(r.tp)}</Table.Cell>
+                  <Table.Cell>{number(r.fp)}</Table.Cell>
+                  <Table.Cell>
+                    <Text weight="bold">{number(r.selected)}</Text>
+                  </Table.Cell>
+                  <Table.Cell className="outside-shortlist">
+                    {number(r.fn)}
+                  </Table.Cell>
+                </Table.Row>
+              );
+            })}
+          </Table.Body>
+        </Table.Root>
+      </Box>
+      {interval && loss && comparator === "xgboost" && (
+        <Box mt="3">
+          <Text as="p" size="2">
+            The estimated difference from XGBoost is{" "}
+            {number(Math.round(interval.lower))} to{" "}
+            {number(Math.round(interval.upper))} stress cases at the same review
+            capacity (95% confidence interval).
+          </Text>
+          <details className="snapshot-breakdown">
+            <summary>How certain is this result?</summary>
+            <Text as="p" size="2" color="gray">
+              The observed difference is {interval.estimate} stress cases. The
+              interval is {interval.lower.toFixed(1)} to{" "}
+              {interval.upper.toFixed(1)}.{" "}
+              {captureIntervalInterpretation(interval.lower, interval.upper)}
+            </Text>
+            <Text as="p" size="2" color="gray" mt="2">
+              Log-loss difference: {loss.estimate.toFixed(4)} (95% interval{" "}
+              {loss.lower.toFixed(4)} to {loss.upper.toFixed(4)}). Negative
+              values favour TabPFN.
+            </Text>
+            <Text as="p" size="2" color="gray" mt="2">
+              Post-hoc paired bootstrap with {number(uncertainty!.repeats)}{" "}
+              resamples. Assumes independent records. These intervals do not
+              assess repeated customers, retraining or future performance.
+            </Text>
+          </details>
+        </Box>
+      )}
+      <Text as="p" size="1" color="gray" mt="3">
+        Whether this prioritisation improves customer outcomes still needs
+        testing.
+      </Text>
+    </Box>
+  );
+}
+
 function Evidence({
   data,
   budget,
+  setBudget,
   final = false,
 }: {
   data: StressReport;
   budget: string;
   final?: boolean;
+  setBudget: (value: string) => void;
 }) {
   const [model, setModel] = useState("tabpfn_3_5_plus"),
     [dimension, setDimension] = useState("region");
@@ -426,12 +587,19 @@ function Evidence({
     metrics = final ? data.final_evaluation!.metrics : data.metrics,
     cohort = final ? data.final_evaluation!.cohort : data.cohorts.validation,
     m = metrics[model],
+    narrative = calibrationNarrative(metrics, model),
     review = metrics.tabpfn_3_5_plus.top_budgets[budget],
     groups = (
       final ? data.final_evaluation!.cohort_audit : data.cohort_audit
     ).filter((r) => r.dimension === dimension);
   return (
     <Flex direction="column" gap="6">
+      <OperatorComparison
+        data={data}
+        budget={budget}
+        final={final}
+        setBudget={setBudget}
+      />
       <Box>
         <Heading as="h2" size="5">
           {final
@@ -501,8 +669,8 @@ function Evidence({
           </Select.Root>
         </Flex>
         <Text as="p" size="2" color="gray" mt="2" mb="4">
-          For groups assigned similar probabilities, compare the average
-          prediction with the fraction that experienced stress.
+          Check how closely each model’s risk estimates match observed stress.
+          Choose a model to inspect its probability ranges.
         </Text>
         <DataTable
           label="Calibration with group sizes"
@@ -546,28 +714,32 @@ function Evidence({
             4: {
               firstDirection: "descending",
               description:
-                "Observed stress minus mean prediction, in percentage points (pp), calculated before rounding. Sort by largest absolute gap, then smallest, then restore predicted-range order.",
+                "Observed stress minus mean prediction, in percentage points (pp), calculated before rounding. Grey means the gap rounds to zero, not proven agreement. Sort by largest absolute gap, then smallest, then restore predicted-range order.",
             },
           }}
         />
         <Box mt="3">
           <Heading as="h3" size="3">
-            Reading the gaps
+            Calibration takeaway
           </Heading>
           <Text as="p" size="2" mt="2">
-            Positive: stress was underestimated. Negative: overestimated. Grey:
-            the gap rounds to zero, not proof of agreement.
+            {narrative.comparison}
           </Text>
-          <Text as="p" size="2" mt="2">
-            Average calibration gap:{" "}
-            <strong>{(100 * m.ece_10_bins).toFixed(1)} pp</strong>
+          <Text as="p" size="2" color="gray" mt="2">
+            {narrative.selected}
           </Text>
-          <Text as="p" size="1" color="gray" mt="1">
-            Absolute gaps weighted by group size; pp = percentage points.
-          </Text>
-          <Text as="p" size="1" color="gray" mt="2">
-            Small groups are less stable. No confidence intervals are shown.
-          </Text>
+          <details className="snapshot-breakdown">
+            <summary>How to read these results</summary>
+            <Text as="p" size="2" color="gray">
+              Gaps are weighted by group size. Models can place different
+              records in each range. Small groups are less stable; these
+              calibration comparisons have no confidence intervals.
+            </Text>
+            <Text as="p" size="2" color="gray" mt="2">
+              Constant prior assigns everyone the same probability. A small gap
+              alone does not mean a model can identify who needs review.
+            </Text>
+          </details>
         </Box>
       </Box>
       <Box>
@@ -674,7 +846,15 @@ function Evidence({
 }
 export function FinancialStressApp({ data }: { data: StressReport }) {
   const [theme, setTheme] = useState<"light" | "dark">("light"),
-    [budget, setBudget] = useState("0.1");
+    [budget, setBudget] = useState("0.1"),
+    [section, setSection] = useState("review");
+  const final = section === "final" ? data.final_evaluation : undefined,
+    resultLabel = final ? "Final holdout" : "Validation",
+    metrics = final ? final.metrics : data.metrics,
+    cohort = final ? final.cohort : data.cohorts.validation,
+    result = metrics.tabpfn_3_5_plus.top_budgets[budget],
+    reference = metrics.xgboost.top_budgets[budget],
+    difference = result.tp - reference.tp;
   return (
     <Theme
       appearance={theme}
@@ -739,7 +919,7 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
             <Box>
               <Flex gap="3" align="center">
                 <Text className="eyebrow">SCUBA / FINANCIAL STRESS</Text>
-                <Badge>Validation demo</Badge>
+                <Badge>{resultLabel} demo</Badge>
               </Flex>
               <Heading as="h1" size="7" mt="4">
                 Financial Stress Predictor
@@ -751,60 +931,69 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
             </Box>
             <Box className="workspace-status">
               <Text as="p" size="2">
-                <CheckCircledIcon />{" "}
-                {data.final_evaluation
-                  ? "Final holdout verified"
-                  : "Verified model comparison"}
+                <CheckCircledIcon /> {resultLabel} results
               </Text>
               <Text as="p" size="1" color="gray" mt="2">
-                {data.final_evaluation
-                  ? "Final results available · no live customer actions"
-                  : "Final holdout reserved · no live customer actions"}
+                {number(cohort.rows)} held-out snapshots ·{" "}
+                {Object.keys(metrics).length} models compared
               </Text>
             </Box>
           </Flex>
-          <Grid columns={{ initial: "1", sm: "3" }} gap="4" mb="5">
+          <Text as="p" size="2" color="gray" mb="3">
+            TabPFN-3.5-Plus selects {number(result.selected)} of the{" "}
+            {number(cohort.rows)} {resultLabel.toLowerCase()} records for review
+            (top {Number(budget) * 100}%).
+          </Text>
+          <Grid
+            columns={{ initial: "1", sm: "3" }}
+            gap="4"
+            mb="5"
+            role="region"
+            aria-label="Model result summary"
+          >
             <Box className="fact">
               <Text size="2" color="gray">
-                Validation snapshots
+                Stress cases found
               </Text>
               <Heading as="h2" size="6" mt="2">
-                {number(data.cohorts.validation.rows)}
+                {number(result.tp)}
               </Heading>
               <Text size="2" color="gray">
-                {number(data.cohorts.validation.positives)} labelled stress
-                cases ·{" "}
-                {percent(
-                  data.cohorts.validation.positives /
-                    data.cohorts.validation.rows,
-                )}
+                In the {number(result.selected)}-record shortlist
               </Text>
             </Box>
             <Box className="fact">
               <Text size="2" color="gray">
-                Leading validation model
+                Additional cases vs XGBoost
               </Text>
-              <Heading as="h2" size="5" mt="2">
-                TabPFN-3.5-Plus
+              <Heading as="h2" size="6" mt="2">
+                {difference > 0 ? "+" : ""}
+                {number(difference)}
               </Heading>
               <Text size="2" color="gray">
-                {score(data.metrics.tabpfn_3_5_plus.log_loss)} log loss ·{" "}
-                {Object.keys(data.metrics).length} models compared
+                {number(result.tp)} vs {number(reference.tp)} found in equally
+                sized shortlists
               </Text>
             </Box>
             <Box className="fact">
               <Text size="2" color="gray">
-                Evaluation basis
+                Shortlisted records with stress
               </Text>
-              <Heading as="h2" size="5" mt="2">
-                Held-out snapshots
+              <Heading as="h2" size="6" mt="2">
+                {percent(result.selected ? result.tp / result.selected : null)}
               </Heading>
               <Text size="2" color="gray">
-                Evaluation rows were not used for training
+                {number(result.tp)} of {number(result.selected)} selected
+                records
               </Text>
             </Box>
           </Grid>
-          <Tabs.Root defaultValue="review">
+          <Text as="p" size="2" color="gray" mb="5">
+            The full {resultLabel.toLowerCase()} set contains{" "}
+            {number(cohort.positives)} stress cases: {number(result.tp)} in this
+            shortlist and {number(result.fn)} outside it.
+          </Text>
+          <Tabs.Root value={section} onValueChange={setSection}>
             <Box className="tabs-scroll">
               <Tabs.List aria-label="Financial Stress sections">
                 <Tabs.Trigger value="review">Review workspace</Tabs.Trigger>
@@ -825,14 +1014,19 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
               value="evidence"
               style={{ paddingTop: "var(--space-5)" }}
             >
-              <Evidence data={data} budget={budget} />
+              <Evidence data={data} budget={budget} setBudget={setBudget} />
             </Tabs.Content>
             {data.final_evaluation && (
               <Tabs.Content
                 value="final"
                 style={{ paddingTop: "var(--space-5)" }}
               >
-                <Evidence data={data} budget={budget} final />
+                <Evidence
+                  data={data}
+                  budget={budget}
+                  setBudget={setBudget}
+                  final
+                />
               </Tabs.Content>
             )}
             <Tabs.Content
@@ -938,8 +1132,8 @@ export function FinancialStressApp({ data }: { data: StressReport }) {
             color="gray"
             style={{ paddingBlock: "var(--space-6)" }}
           >
-            SCUBA · Financial Stress validation demo · Review support, not
-            automated customer decisions
+            SCUBA · Financial Stress {resultLabel.toLowerCase()} demo · Review
+            support, not automated customer decisions
           </Text>
         </Container>
       </Box>

@@ -1,5 +1,8 @@
 # M4 hosted final-test results
 
+Synthetic benchmark archive. This dated record is separate from the
+[Financial Stress entry](README.md). Status and test counts describe that milestone.
+
 Recorded 21 September 2026. **M4 is complete for the approved scope.** The approved feature upload and single Plus prediction succeeded. The saved response was independently revalidated and evaluated offline; the complete report is `artifacts/m4-complete-report/index.html`. [Local final results](M4_FINAL_RESULTS.md) and [validation results](M4_RESULTS.md) remain distinct evidence records.
 
 ## Final comparison
@@ -88,4 +91,6 @@ The completed report uses `scuba.final_report.build_report` with the six local r
 | Repeated hosted timing | Not run; approval covered one prediction |
 | Actual hosted token charges | Unavailable in the response; estimate preserved separately |
 
-These omissions are explicit rather than inferred results. No synthetic score implies real-world accuracy or intervention benefit. **M5 is next:** a single-command local report rebuild, a 2–3 minute demo storyboard and a clean-environment rehearsal. Publishing, pushing and submission still need explicit approval.
+These synthetic results do not establish real-world accuracy or customer benefit.
+The subsequent [M5 record](M5_RESULTS.md) documents the completed offline rebuild
+and clean-environment verification.

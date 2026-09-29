@@ -68,6 +68,36 @@ export type AuditGroup = {
   sparse: boolean;
   budgets: Record<string, { selected: number; captured: number }>;
 };
+export function calibrationNarrative(
+  metrics: Record<string, StressMetric>,
+  selectedModel: string,
+) {
+  const count = (value: number) => value.toLocaleString("en-US");
+  const gap = (key: string) => (100 * metrics[key].ece_10_bins).toFixed(1);
+  const comparison =
+    "Average calibration gap in percentage points (lower is better): " +
+    ["tabpfn_3_5_plus", "logistic_regression", "xgboost", "catboost"]
+      .sort((a, b) => metrics[a].ece_10_bins - metrics[b].ece_10_bins)
+      .map((key) => `${stressNames[key]} ${gap(key)}`)
+      .join("; ") +
+    ".";
+  const populated = metrics[selectedModel].reliability.filter(
+    (bin) =>
+      bin.rows > 0 &&
+      bin.mean_probability !== null &&
+      bin.observed_fraction !== null,
+  );
+  const largest = [...populated].sort(
+    (a, b) =>
+      Math.abs(b.observed_fraction! - b.mean_probability!) -
+      Math.abs(a.observed_fraction! - a.mean_probability!),
+  )[0];
+  const selected = largest
+    ? `${stressNames[selectedModel]}’s largest mismatch: ${(100 * largest.mean_probability!).toFixed(1)}% predicted versus ${(100 * largest.observed_fraction!).toFixed(1)}% observed stress ` +
+      `(${Math.round(largest.lower * 100)}–${Math.round(largest.upper * 100)}% range; ${count(largest.rows)} records).`
+    : `${stressNames[selectedModel]} has no populated probability ranges to compare.`;
+  return { comparison, selected };
+}
 export type StressReport = {
   dataset: "financial_stress";
   status: "verified_validation";
@@ -81,6 +111,13 @@ export type StressReport = {
   sources: Record<string, string>;
   identity: { requested_alias: string; reported_model_path: string };
   final_evaluated: false;
+  final_uncertainty?: {
+    repeats: number;
+    differences: Record<
+      string,
+      { estimate: number; lower: number; upper: number }
+    >;
+  };
   final_evaluation?: {
     status: "verified_final";
     cohort: { rows: number; positives: number };
@@ -144,4 +181,41 @@ export function totalActivity(row: Snapshot) {
   return Array.from({ length: 6 }, (_, i) =>
     Object.values(row.activity).reduce((sum, v) => sum + v[i], 0),
   );
+}
+export function activityBaselineSummary(row: Snapshot) {
+  const totals = totalActivity(row);
+  const baseline = totals.slice(0, 5).reduce((sum, v) => sum + v, 0) / 5;
+  const latest = totals[5];
+  const difference = latest - baseline;
+  const format = (value: number) =>
+    value.toLocaleString("en-US", { maximumFractionDigits: 1 });
+  const start = `${format(latest)} transactions in the last month`;
+  if (difference === 0)
+    return `${start}. Matching the monthly baseline of ${format(baseline)}.`;
+  const relative =
+    baseline === 0
+      ? ""
+      : ` (${format((Math.abs(difference) / baseline) * 100)}%)`;
+  return `${start}. ${format(Math.abs(difference))}${relative} ${difference > 0 ? "above" : "below"} the monthly baseline of ${format(baseline)}.`;
+}
+
+export function captureIntervalInterpretation(lower: number, upper: number) {
+  return lower <= 0 && upper >= 0
+    ? "The interval includes zero, so an advantage is not established."
+    : "The interval excludes zero.";
+}
+
+export function operatorComparison(
+  metrics: Record<string, StressMetric>,
+  budget: string,
+  comparator: string,
+) {
+  const plus = metrics.tabpfn_3_5_plus.top_budgets[budget];
+  const baseline = metrics[comparator].top_budgets[budget];
+  const difference = plus.tp - baseline.tp;
+  const change =
+    difference === 0
+      ? "the same number of stress cases"
+      : `${Math.abs(difference).toLocaleString("en-US")} ${difference > 0 ? "more" : "fewer"} stress cases`;
+  return `With ${plus.selected.toLocaleString("en-US")} reviews, TabPFN-3.5-Plus finds ${change} ${difference === 0 ? "as" : "than"} ${stressNames[comparator]}. The operator can prioritise support reviews within the same workload.`;
 }

@@ -1,5 +1,8 @@
 # M1 results — 15,000-customer benchmark
 
+Synthetic benchmark archive. This dated record is separate from the
+[Financial Stress entry](README.md). Status and test counts describe that milestone.
+
 Verified locally on 20 September 2026 with Python 3.14.5. Experiment contract v1.1; generator/feature/split versions 1.0.0; source-table schema 0.1.0. All records and scenarios are fictional. **No models have been fitted and no predictive performance is claimed.**
 
 ## Population decision
@@ -100,7 +103,3 @@ Generated bundles and the aggregate verification record remain under ignored `ar
 | 3503 | `artifacts/m1-15000-seed-3503` | `a7d499a124ffcebc08c1e9a2852546eeaaac4cbe4dfc0a883c9d567f6b4c1801` |
 
 Aggregate validation record: `artifacts/m1-15000-verification.json` (SHA-256 `84da48a95a1578c4c7ce0e28778fd1691741ef8c95d469269ddaa5fa5f1e4c5a`).
-
-## Handoff to M2
-
-Use these expanded frozen inputs, the predictor allowlist and separate membership files. Fit preprocessing only on training data and select settings on validation. If a model needs a smaller training context, define and record training-only subsampling and comparison budgets explicitly; keep held-out cohorts fixed. Do not upload data without approval. More synthetic records improve support under the simulator; uncertainty and real-world relevance still require careful interpretation.

@@ -1975,6 +1975,38 @@
       "rows": 8000
     }
   },
+  "final_uncertainty": {
+    "comparison": "tabpfn_3_5_plus minus xgboost",
+    "differences": {
+      "capture_0.05": {
+        "estimate": 19.0,
+        "lower": 3.0,
+        "upper": 36.024999999999864
+      },
+      "capture_0.1": {
+        "estimate": 30.0,
+        "lower": 9.0,
+        "upper": 50.024999999999864
+      },
+      "log_loss": {
+        "estimate": -0.027397023570148,
+        "lower": -0.03247801779100927,
+        "upper": -0.022349141350370604
+      }
+    },
+    "independent_rows_assumed": true,
+    "method": "paired ordinary row bootstrap; percentile 95% intervals",
+    "post_hoc": true,
+    "repeats": 2000,
+    "rows": 8000,
+    "seed": 3501,
+    "sources": {
+      "analysis_source": "8497c36e32a346629b5172fd174096082c3e28fc7cb476e79273e55668dd3764",
+      "hosted_predictions": "147ce68220f6a6f82dfba061da0c27b89698d1b596ea1641c2575b871a31143d",
+      "local_predictions": "16276b4656c23c666c3e708c27aeb7b84957be6a50e88ded493119f92d5dfa84",
+      "rows": "40fdde8deb065c0d9f260b565959b60eae1334e6ce8b6aa0685a27200941256e"
+    }
+  },
   "identity": {
     "policy": "plus-checkpoint-20260909-v1",
     "reported_model_path": "/app/tabpfn_models/tabpfn-v3.5-20260909.safetensors",

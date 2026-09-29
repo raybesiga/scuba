@@ -1,72 +1,50 @@
-# Prior Labs submission requirements and current scope
+# Hackathon submission checklist
 
-Recorded 21 September 2026. The canonical reference for this checklist is the
-[unchanged terms supplied by the user](reference/TABPFN_3_5_HACKATHON_TERMS.txt).
-Retaining the text is not an action accepting terms or submitting an entry.
+This checklist summarises the [organiser's terms supplied on 21 September](reference/TABPFN_3_5_HACKATHON_TERMS.txt)
+and the submission form supplied on 24 September 2026. The original terms remain
+unchanged. Deadline: **6 October 2026, 23:59 CEST** (23:59 Africa/Blantyre).
 
-## Submission contract
+## Entry
 
-| Clause | Requirement | Current evidence / remaining work |
-| --- | --- | --- |
-| 3.1 | TabPFN-3.5 must be core to the project. | Verified TabPFN-3.5-Plus runs exist for the synthetic benchmark. Verified Financial Stress TabPFN-3.5-Plus validation results are recorded in [F2](F2_RESULTS.md). |
-| 3.2 | Repository contains runnable code/instructions and input data, or a public input-data URL. | The [Financial Stress source package](../datasets/financial-stress/README.md) contains the five supplied originals with offline verification. Local preparation and baselines replay from a staged checkout; TabPFN validation is verified; the [operator UI](F3_RESULTS.md), [final holdout](F4_RESULTS.md) and portable evidence replay are complete. Login-only download access is not a verified public-data URL. |
-| 3.3 | Hold the necessary rights to use and publish submitted material. | Financial Stress rules supplied by the user state CC BY-SA 4.0. Preserve attribution. The separate Nedbank history has an unresolved retention condition and must be reviewed before public delivery. |
-| 3.5 | Public source repository under Apache-2.0 and an understandable project description. | Apache-2.0 added for original project code; third-party material retains its terms. Public delivery is not authorised by local commit approval. |
-| 3.6 | Submit by 6 October 2026, 23:59 CEST. | Same local deadline in Africa/Blantyre (UTC+2). |
-| 4.2 | TabPFN showcase 50%; creativity/practical value 30%; technical quality/reproducibility 20%. | The working operator workflow, five-model final comparison and portable replay demonstrate these criteria; [submission description](PRIOR_LABS_SUBMISSION_DRAFT.md) is prepared. |
+**SCUBA · Financial Stress Predictor** is a visual app built around TabPFN-3.5-Plus.
+Its primary theme is “Build an extension or app”, with a secondary fit under
+“Take on a hard problem”. These are suggested themes, not separate judging tracks.
 
-## Product and experiment direction
+| Judging criterion | Weight | Evidence in the entry |
+| --- | ---: | --- |
+| Showcase of TabPFN-3.5 | 50% | TabPFN drives the shortlist; the final comparison shows its advantage at a fixed review capacity. |
+| Creativity, originality and practical value | 30% | Predictions become a capacity choice, record inspection and export for customer care. |
+| Technical quality and reproducibility | 20% | Input data, locked dependencies, tests, source attribution and offline replay of verified evidence. |
 
-Decision owner: a customer-care operator choosing which customer snapshots to
-review. Financial Stress is the first use case: TabPFN-3.5 predicts the supplied
-30-day stress label from six months of summaries; the workflow prioritises review
-capacity and shows observed activity context. No learned offer effectiveness or
-causal explanation is claimed. See the [contract](explanation/FINANCIAL_STRESS.md)
-and [milestones F0–F4](ROADMAP.md).
+## Required materials
 
-Nedbank transaction-volume forecasting is deferred. A future use-case selector
-will connect both implemented workflows. The synthetic benchmark remains separate
-historical evidence, and does not validate either external dataset.
+| Requirement | Status |
+| --- | --- |
+| TabPFN-3.5 is core to the project | Complete: it supplies the ranking probabilities. |
+| Runnable repository with inputs or a public input-data URL | Prepared: source files, saved predictions and [run instructions](how-to/FINANCIAL_STRESS.md) are included. |
+| Apache-2.0 original code with applicable data rights | Licence and attribution are documented in [licence scope](../LICENSE_SCOPE.md). |
+| Public repository URL | Pending: the clean repository is private until publication is authorised. |
+| Understandable project description | [Prepared](PRIOR_LABS_SUBMISSION_DRAFT.md). |
+| Optional video | Omitted. The README screenshots and [dashboard walkthrough](FINANCIAL_STRESS_WALKTHROUGH.md) demonstrate the app. |
+| Submit through the organiser's form | Pending. |
 
-Financial Stress uses a frozen stratified row holdout because dates and persistent
-customer identifiers are unavailable. Its label mechanics and real/synthetic
-origin are unverified. Keep these limitations visible in the final demo.
+The supplied 24 September screenshot shows terms accepted. It does not show a
+submitted entry. The form asks for name, repository URL and project description;
+country, YouTube URL and social links are optional.
 
-The Financial Stress source rules supplied by the user declare CC BY-SA 4.0 reuse
-for commercial, non-commercial, research and educational purposes. Source files
-remain under that licence with attribution, separate from Apache-2.0 project code.
-The user-authorised Financial Stress training/validation upload and single hosted
-prediction are complete; public delivery has not occurred.
+## Delivery sequence
 
-## Deferred Nedbank source terms and publication status
+1. Review the PR, final description, screenshots and dashboard walkthrough.
+2. Publish the reviewed clean repository when authorised.
+3. Check the public URL and run instructions from a fresh checkout.
+4. Submit the repository URL and description. Leave the optional video field blank.
+5. Verify the entry confirmation before the deadline.
 
-Source: [Nedbank Transaction Volume Forecasting Challenge](https://zindi.world/competitions/nedbank-transaction-volume-forecasting-challenge)
-and its [data page](https://zindi.world/competitions/nedbank-transaction-volume-forecasting-challenge/data).
-The user supplied the downloaded package and explicitly requested local Git
-inclusion on 21 September 2026. There is no recorded permission to upload the
-records to Prior Labs, publish the repository, or submit an entry yet.
+The repository URL is the primary deliverable. An optional ZIP can be attached
+to a GitHub Release; do not commit a duplicate ZIP into source history.
+The development repository contains deferred Nedbank material and must not be
+published as the hackathon repository.
 
-On 21 September 2026 the challenge page listed CC-BY SA 4.0 and also stated:
-“You agree to delete the data within 30 days of competition close.” Its listed
-close is 3 May 2026. The supplied README repeats CC-BY SA 4.0 but does not resolve
-that condition. Record updated source-owner permission or applicable revised terms
-before public distribution. The Prior Labs terms do not grant rights to third-party
-datasets. See [licence scope](../LICENSE_SCOPE.md).
-
-The supplied scorer consumes raw counts and applies `log1p` internally; the Zindi
-website asks for transformed submission values. Our operator UI and local count
-evaluation should use raw counts. Entering the Zindi competition is not our goal.
-
-## F4 delivery state
-
-The reserved final comparison and portable offline evidence are verified. The
-full-data 40,000/30,000 run returned predictions with a 15,728-token estimate;
-[acceptance remains unresolved](FINANCIAL_STRESS_FULL_DATA_RESULTS.md) because
-the server reports 184 columns for the verified 182-column upload.
-The single complete-response diagnostic reproduced the same predictions and
-column count. It did not explain the discrepancy. Further inference is stopped;
-the public demo uses the separately verified validation/final-holdout evidence.
-Public repository creation and form submission remain
-unperformed. A public delivery candidate must exclude Nedbank source data and the
-local repository history. The [F4 record](F4_RESULTS.md) and
-[submission draft](PRIOR_LABS_SUBMISSION_DRAFT.md) state the current scope.
+The separate full-data inference outputs remain excluded because their column
+metadata is unresolved. The verified [final holdout](F4_RESULTS.md) supplies the
+model-quality evidence for this entry.

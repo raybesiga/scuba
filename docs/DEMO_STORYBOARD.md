@@ -1,5 +1,8 @@
 # SCUBA demo storyboard
 
+Synthetic benchmark archive. This dated record is separate from the
+[Financial Stress entry](README.md). Status and test counts describe that milestone.
+
 Audience: hackathon reviewers. Target duration: 2 minutes 50 seconds, including navigation. Start on Overview, Light theme, primary seed 3501 and Top 10%. Use the [offline rebuild](DEMO_REBUILD.md); no live API call is part of the demo.
 
 ## 0:00–0:25 — Scenario

@@ -1,5 +1,8 @@
 # Radix report presentation
 
+Synthetic benchmark archive. This dated record is separate from the
+[Financial Stress entry](README.md). Status and test counts describe that milestone.
+
 Updated 21 September 2026 at the user's request. The report now uses Radix Themes with the supplied custom light/dark palette. The current artifact is `artifacts/m4-radix-report/index.html`; the prior M4 report and all prediction/evaluation evidence remain preserved.
 
 The interface uses Radix tabs for final test, random reference, validation and evidence; Radix selectors for seed and subgroup inspection; and Radix theme switching, tables, callouts and layout components. The primary result summary remains labelled independently of the selected detail seed. Synthetic-data status, paired uncertainty and unavailable hosted routes remain explicit.
@@ -17,4 +20,5 @@ The custom palette's exact sRGB scales were copied from the rendered Radix gener
 
 Evidence record: `artifacts/radix-ui-verification.json`. The presentation requires JavaScript, with adjacent `evidence.json` available for direct inspection. No new model run, API request, upload or publication was needed.
 
-M4's scientific findings are unchanged. M5 still needs the demo storyboard and clean-environment rehearsal; the standalone Radix builder supplies the report presentation path for that work.
+The subsequent [M5 verification](M5_RESULTS.md) records the storyboard and
+clean-environment replay. The current app is [Financial Stress](F3_RESULTS.md).

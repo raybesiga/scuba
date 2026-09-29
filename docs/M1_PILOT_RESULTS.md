@@ -1,5 +1,8 @@
 # M1 pilot results — 1,800 customers
 
+Synthetic benchmark archive. This dated record is separate from the
+[Financial Stress entry](README.md). Status and test counts describe that milestone.
+
 Verified locally on 20 September 2026, Python 3.14.5. Generator/feature/split versions: `1.0.0`; source-table schema: `0.1.0`. All scenarios and records are fictional. **No models have been fitted and no predictive performance is claimed.**
 
 ## Pilot decision
@@ -94,7 +97,3 @@ Each bundle has source and derived manifests with complete configuration, schema
 | 1,800 customers / seed 3501 | `artifacts/m1-benchmark` | `ec90d40fbaf44dcd197c7093aa3a60bd3bd47f30e9ac294fc391ba5d2902a526` |
 | 1,800 customers / seed 3502 | `artifacts/m1-seed-3502` | `1a67960698cb85992e750ee3ff868e4964dd09c3b6d4e7afbb4a13de65aaa375` |
 | 1,800 customers / seed 3503 | `artifacts/m1-seed-3503` | `285263c1fcdf6a80e409c7973e433b01297ee5a63f65039d977171b4d585dda7` |
-
-## Original pilot handoff to M2
-
-Use the frozen feature allowlist and membership files. Fit preprocessing only on training rows, select settings only on validation, and keep test predictions for the final evaluation. Add and lock the actual model dependencies at that stage. The small number of test positives and sparse subgroup labels remain limitations; passing support thresholds does not establish model quality or readiness for real-world use.

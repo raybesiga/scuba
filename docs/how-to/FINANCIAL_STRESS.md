@@ -1,120 +1,171 @@
-# Prepare and evaluate Financial Stress locally
+# Run and reproduce Financial Stress
 
-Use the existing locked `models` dependencies (`uv sync --locked --extra models`
-for initial installation). The following commands are offline and do not load
-credentials. Run from the repository root; choose new output directories for
-repeat runs. The source notebook is not executed.
+Use the saved demo for the quickest review. Rebuilding the presentation and
+fitting local baselines are offline operations once dependencies are installed.
+A new hosted TabPFN prediction is a separate operation.
 
-```sh
-PYTHONPATH=src .venv/bin/python -m scuba.financial_stress prepare --output artifacts/financial-stress/prepared-v1
-PYTHONPATH=src .venv/bin/python -m scuba.financial_stress baseline --prepared artifacts/financial-stress/prepared-v1 --output artifacts/financial-stress/baseline-v1
-```
+## Run the saved demo
 
-Preparation verifies source hashes, checks schemas/IDs/labels, freezes row
-partitions and records membership and file hashes. Baseline evaluation checks the
-training and validation file hashes, fits preprocessing on training only, and
-writes validation probabilities and metrics. It does not open the final partition
-or score the challenge's unlabelled Test.csv. Outputs remain local and ignored.
-
-`metrics.json` contains log loss, AUROC, average precision, Brier, calibration,
-5%/10% review-budget outcomes, settings, runtime and evidence hashes. Predictions
-refer to snapshot IDs, not independently verified unique customers. No actual
-customer contact, offer or eligibility decision is performed.
-
-See the [contract](../explanation/FINANCIAL_STRESS.md),
-[source attribution](../../datasets/financial-stress/README.md) and
-[roadmap](../ROADMAP.md). Test with `make check`; tests use invented fixtures.
-
-## Compare local models and prepare TabPFN
-
-Use the existing prepared directory; do not regenerate the frozen partitions.
+The release checkout includes `demo/` and `evidence/`. From its root, serve the
+saved dashboard:
 
 ```sh
-PYTHONPATH=src .venv/bin/python -m scuba.financial_comparison compare --prepared artifacts/financial-stress/prepared-v1 --output artifacts/financial-stress/comparison-v1
-PYTHONPATH=src .venv/bin/python -m scuba.financial_comparison preflight --prepared artifacts/financial-stress/prepared-v1 --output artifacts/financial-stress/preflight-offline-v1
+python3 -m http.server 8880 --bind 127.0.0.1 --directory demo
 ```
 
-The first command evaluates prior, logistic regression, XGBoost and CatBoost on
-identical validation rows. The second saves a deterministic hosted plan without
-credentials or network calls. It includes payload hashes and sizes, not raw rows.
+Open <http://127.0.0.1:8880/index.html>. Stop the server with Ctrl+C. No dependency
+installation or API key is required for this saved HTML demo.
 
-An explicitly requested `preflight --online` checks current limits and token
-estimates using dimensions/settings only. It loads the local API token; it does
-not upload records, fit or predict. Inspect `preflight.json` and `plan.json` before
-approving an upload and positive estimate ceiling. The runner rechecks the estimate
-immediately before uploading; it stops if that ceiling is exceeded.
+In the development checkout, the prepared release is under
+`artifacts/scuba-private-repo`; run the command from that directory. Its Git
+history is separate from the development repository.
 
-Once the specific plan and token ceiling are approved, use:
+## Install locked dependencies
+
+Verified runtimes: Python 3.14.5 and Node 24. Install uv and select Node 24 before
+continuing. Run from the checkout root. These installation commands need network
+access unless the packages are already cached:
 
 ```sh
-PYTHONPATH=src .venv/bin/python -m scuba.financial_comparison run-hosted \
-  --prepared artifacts/financial-stress/prepared-v1 \
-  --approved-plan artifacts/financial-stress/preflight-verified-v1/plan.json \
-  --output artifacts/financial-stress/hosted-validation-v1 \
-  --allow-upload --max-estimated-tokens 10000
+uv sync --locked --python 3.14.5 --extra models --extra tabpfn
+npm ci --prefix report-ui --ignore-scripts
 ```
 
-This exact plan and 10,000-token estimate ceiling were approved and executed on
-21 September 2026. The saved output now exists; this is the historical invocation,
-not an instruction to make another paid request. The runner reconstructs and
-checks the approved payloads, then makes one prediction attempt. It retains permitted response diagnostics before
-accepting model identity, probabilities and metrics. A failure is saved in
-`manifest.json`; it makes no paid retry. Do not rerun a failed paid attempt without
-checking its evidence and obtaining any necessary new approval. Nothing reads the
-reserved final partition or sends validation labels/IDs to the service.
-
-The estimate is in service tokens, not money; actual charges may not be reported.
-See the [F2 protocol](../F2_SPEC.md) and [current results](../F2_RESULTS.md).
-
-## Build the Financial Stress workspace
-
-The local F3 dashboard uses saved, pinned validation evidence. It does not call
-TabPFN or read `final.csv`. With the locked Python/UI dependencies installed and
-these retained artifacts available, build into a new output directory:
-
-```sh
-PYTHONPATH=src .venv/bin/python -m scuba.financial_dashboard \
-  --prepared artifacts/financial-stress/prepared-v1 \
-  --local artifacts/financial-stress/comparison-verified-v1 \
-  --hosted artifacts/financial-stress/hosted-validation-v1 \
-  --ablation artifacts/financial-stress/without-age-gender-v1 \
-  --archive artifacts/m5-dashboard-model-names \
-  --output artifacts/financial-stress/dashboard-replay
-```
-
-Open `index.html` from that folder, or serve that folder locally. It contains
-`evidence.json`, `manifest.json`, `review-400.csv`, `review-800.csv` and the preserved
-synthetic dashboard under `archive/`. The CSVs contain the entire selected
-shortlist, irrespective of display search/sort/page. Evidence JSON includes the
-displayed validation features and probabilities; review CSVs omit outcome labels.
-Data adaptations retain the source CC BY-SA 4.0 attribution separately from code.
-
-The exporter rejects changed manifests or predictions. The named retained runs
-are pinned by the references in `docs/reference`; refitting produces a new run,
-including new timing/provenance, rather than silently replacing pinned evidence.
-For the completed F4 evidence package, use the portable final demo below.
-
-To perform a separate local age/gender exclusion experiment on the frozen split:
-
-```sh
-PYTHONPATH=src .venv/bin/python -m scuba.financial_comparison compare \
-  --prepared artifacts/financial-stress/prepared-v1 \
-  --output artifacts/financial-stress/without-age-gender-new \
-  --exclude-age-gender
-```
-
-This refits the three local learned baselines and records the constant-prior
-reference. It does not make a hosted call or establish TabPFN's sensitivity to
-those fields. See [F3 results](../F3_RESULTS.md) for the accepted run and checks.
+For an offline installation, add `--offline` to both commands. Missing cached
+packages must be installed before an offline replay can succeed.
 
 ## Portable final demo
 
-The completed final comparison can be replayed without credentials or model calls.
-Initial dependency installation needs package access unless the locked packages
-are already cached; subsequent evidence replay is offline. The verified runtime
-uses Python 3.14.5 and Node 24. A fresh offline installation was not verified
-because the local cache lacked the CatBoost wheel.
-Export a bundle from the retained local evidence:
+With dependencies installed, verify the code and source package:
+
+```sh
+make check
+make ui-check
+PYTHONPATH=src .venv/bin/python -m scuba.source_bundle --bundle datasets/financial-stress --verify
+```
+
+Then rebuild the dashboard:
+
+```sh
+PYTHONPATH=src .venv/bin/python -m scuba.financial_demo build --evidence evidence --output rebuilt-demo
+```
+
+In the development checkout, replace `evidence` with
+`artifacts/financial-stress/portable-evidence-v1`. Use a new output directory for
+each run; the builder refuses to overwrite one.
+
+Expected output: `index.html`, `evidence.json`, `manifest.json`, two review CSVs
+and the three-file synthetic archive. The builder checks the evidence allowlist,
+checksums, row alignment and model identity, then recomputes final metrics and
+the paired uncertainty analysis. It makes no model request.
+
+The review workspace and exports use validation records. The final-holdout tab
+shows the separate reserved evaluation. With unchanged code, locked dependencies
+and evidence, the rebuild should match the packaged demo byte for byte.
+
+## Reproduce local model fitting
+
+These commands prepare the fixed split from the original source files and fit
+all four local comparators on the training partition:
+
+```sh
+PYTHONPATH=src .venv/bin/python -m scuba.financial_stress prepare --output artifacts/reproduce-prepared
+PYTHONPATH=src .venv/bin/python -m scuba.financial_comparison compare --prepared artifacts/reproduce-prepared --output artifacts/reproduce-validation
+```
+
+Expected output includes the prepared train/validation/final partitions and
+membership file, then validation predictions and metrics for the constant prior,
+logistic regression, XGBoost and CatBoost. The supplied notebook is not executed.
+
+Reproduce the local final-holdout comparison using the bundled preparation and
+frozen protocol:
+
+```sh
+PYTHONPATH=src .venv/bin/python -m scuba.financial_final local \
+  --prepared evidence/prepared-v1 \
+  --protocol docs/reference/financial-stress-final-protocol-v1.json \
+  --output artifacts/reproduce-final
+```
+
+The protocol checks input and execution-source hashes before scoring. Use
+`evidence/prepared-v1` here: fresh preparation reproduces the partition bytes, but
+records a newer preparation-code hash and cannot pass the frozen manifest check.
+In the development checkout, use
+`artifacts/financial-stress/portable-evidence-v1/prepared-v1`. Results use the
+original model settings; timing and run-provenance fields can differ.
+A fresh fit is a new run, not a replacement for the saved evidence bundle.
+If hashes fail, inspect the mismatch rather than changing expected hashes.
+
+To repeat the local age/gender exclusion check:
+
+```sh
+PYTHONPATH=src .venv/bin/python -m scuba.financial_comparison compare \
+  --prepared artifacts/reproduce-prepared \
+  --output artifacts/reproduce-without-age-gender --exclude-age-gender
+```
+
+This check does not run TabPFN or establish fairness. See [the recorded result](../F3_RESULTS.md).
+
+## Optional hosted execution
+
+Saved predictions are sufficient to reproduce the demo. A new TabPFN run uploads
+data to Prior Labs and consumes service tokens. It needs an account, credentials,
+data-upload authorisation and an approved estimate ceiling.
+
+First produce an offline plan without loading credentials:
+
+```sh
+PYTHONPATH=src .venv/bin/python -m scuba.financial_comparison preflight \
+  --prepared artifacts/reproduce-prepared --output artifacts/hosted-plan-review
+```
+
+Inspect its feature order, dimensions, settings and payload hashes.
+
+### Get your own Prior Labs API key
+
+To run a new hosted prediction, use your own Prior Labs account:
+
+1. [Sign up or sign in to Prior Labs](https://platform.priorlabs.ai/).
+2. Open [API Keys](https://platform.priorlabs.ai/account/api-keys) and generate a key.
+3. Add the following line to a local `.env` file in the checkout root, replacing
+   the placeholder with your key. This file is ignored by Git.
+
+```dotenv
+TABPFN_TOKEN=your-prior-labs-api-key
+```
+
+Alternatively, supply `TABPFN_TOKEN` through your environment. SCUBA reads the
+key only for online commands. Keep it out of commits, screenshots and shared logs.
+No key is needed for the saved dashboard, local models or offline plan above.
+
+With the key configured, check your account limits and the estimated token use:
+
+```sh
+PYTHONPATH=src .venv/bin/python -m scuba.financial_comparison preflight \
+  --prepared artifacts/reproduce-prepared --output artifacts/hosted-online-review --online
+```
+
+This sends metadata, not dataset rows. Review the returned limits and estimate
+before authorising the upload and choosing a token ceiling for the prediction.
+
+`run-hosted` requires `--approved-plan`, `--allow-upload` and a positive
+`--max-estimated-tokens`. It rechecks the plan and estimate, makes one prediction
+attempt and does not retry automatically. Use `--help` for its complete options.
+An estimate ceiling is not an actual billing guarantee. Inspect retained evidence
+before deciding whether a failed request should be repeated.
+
+For a different dataset, start with the [official TabPFN client examples](https://github.com/PriorLabs/tabpfn-client#quick-start).
+SCUBA’s commands above expect the Financial Stress schema and fixed split.
+
+The [full-data runner](FINANCIAL_STRESS_FULL_DATA.md) is a separate experiment.
+Its unresolved outputs are not needed for this demo.
+
+## Build the Financial Stress workspace
+
+The current route is the [portable final demo](#portable-final-demo) above. The
+original validation-only F3 build is retained in [its milestone record](../F3_RESULTS.md).
+
+To export another copy of the frozen evidence from the development checkout:
 
 ```sh
 PYTHONPATH=src .venv/bin/python -m scuba.financial_demo export \
@@ -124,37 +175,5 @@ PYTHONPATH=src .venv/bin/python -m scuba.financial_demo export \
   --output artifacts/financial-stress/portable-evidence-new
 ```
 
-Copy that bundle to a clean checkout with the locked dependencies installed, then:
-
-```sh
-PYTHONPATH=src .venv/bin/python -m scuba.financial_demo build \
-  --evidence artifacts/financial-stress/portable-evidence-new \
-  --output artifacts/financial-stress/final-demo-replay
-```
-
-The builder checks every allowlisted file, revalidates the hosted response and
-independently recomputes final metrics before rebuilding the dashboard. Both
-review exports still use validation snapshots. Final holdout metrics appear in
-a separate tab. Card corners are square in both themes.
-
-## Prepare a full-data run
-
-This command creates a plan only. It verifies the supplied original files, records
-40,000 training rows and 30,000 unlabelled inference rows, and hashes payloads
-without writing or uploading them:
-
-```sh
-PYTHONPATH=src .venv/bin/python -m scuba.financial_inference \
-  --bundle datasets/financial-stress \
-  --prepared artifacts/financial-stress/prepared-v1 \
-  --output artifacts/financial-stress/full-data-plan-new
-```
-
-A full-data refit requires a separate approval and execution step. The approved
-22 September attempt returned predictions with a column-count discrepancy;
-see [execution status](../FINANCIAL_STRESS_FULL_DATA_RESULTS.md) and the
-[runner and verification guide](FINANCIAL_STRESS_FULL_DATA.md). Do not repeat
-the paid request merely because local acceptance is pending. Never treat
-unlabelled inference output as another model-quality evaluation. The approved
-final-holdout execution is already recorded in [F4 results](../F4_RESULTS.md);
-do not rerun that billable request merely to rebuild the demo.
+This export needs the original retained run directories. The release checkout
+already contains their verified portable copy under `evidence/`.
