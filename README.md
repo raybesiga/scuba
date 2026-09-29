@@ -112,6 +112,6 @@ and [data provenance](DATA_PROVENANCE.md).
 ## Explore
 
 - [Documentation guide](docs/README.md)
-- [Two-minute recording walkthrough](docs/FINANCIAL_STRESS_WALKTHROUGH.md)
+- [Dashboard walkthrough](docs/FINANCIAL_STRESS_WALKTHROUGH.md)
 - [Hackathon project description](docs/PRIOR_LABS_SUBMISSION_DRAFT.md)
 - [Earlier synthetic benchmark](docs/SYNTHETIC_ARCHIVE.md)
