@@ -1,7 +1,7 @@
 # Financial Stress delivery status
 
-Updated 28 September 2026. The model comparison and working app are complete.
-The remaining submission work is recording review, authorised publication and
+Updated 29 September 2026. The model comparison and working app are complete.
+The remaining submission work is PR review, authorised public access and
 submission through the organiser's form.
 
 | Work | Status | Evidence |
@@ -12,7 +12,7 @@ submission through the organiser's form.
 | Reserved final evaluation | Complete | [F4](F4_RESULTS.md) |
 | Post-hoc paired uncertainty | Complete | [Analysis](F4_UNCERTAINTY_RESULTS.md) |
 | Offline release replay | Verified on 28 September | [Release readiness](RELEASE_READINESS.md) |
-| Demo recording | Script ready; recording unconfirmed | [Walkthrough](FINANCIAL_STRESS_WALKTHROUGH.md) |
+| Written demo and screenshots | Complete; no video planned | [Walkthrough](FINANCIAL_STRESS_WALKTHROUGH.md) |
 | Public repository and submission | Pending | [Submission checklist](HACKATHON_SUBMISSION.md) |
 
 The supplied deadline is **6 October 2026, 23:59 CEST**, also 23:59 in

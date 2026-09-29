@@ -25,7 +25,7 @@ Its primary theme is “Build an extension or app”, with a secondary fit under
 | Apache-2.0 original code with applicable data rights | Licence and attribution are documented in [licence scope](../LICENSE_SCOPE.md). |
 | Public repository URL | Pending: the clean repository is private until publication is authorised. |
 | Understandable project description | [Prepared](PRIOR_LABS_SUBMISSION_DRAFT.md). |
-| Optional video | [Recording script](FINANCIAL_STRESS_WALKTHROUGH.md) ready; recording and upload unconfirmed. |
+| Optional video | Omitted. The README screenshots and [dashboard walkthrough](FINANCIAL_STRESS_WALKTHROUGH.md) demonstrate the app. |
 | Submit through the organiser's form | Pending. |
 
 The supplied 24 September screenshot shows terms accepted. It does not show a
@@ -34,10 +34,10 @@ country, YouTube URL and social links are optional.
 
 ## Delivery sequence
 
-1. Review the final description and recording.
+1. Review the PR, final description, screenshots and dashboard walkthrough.
 2. Publish the reviewed clean repository when authorised.
 3. Check the public URL and run instructions from a fresh checkout.
-4. Submit the repository URL and description; add the optional video link.
+4. Submit the repository URL and description. Leave the optional video field blank.
 5. Verify the entry confirmation before the deadline.
 
 The repository URL is the primary deliverable. An optional ZIP can be attached

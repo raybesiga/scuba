@@ -1,8 +1,8 @@
 # Financial Stress release readiness
 
 The Financial Stress model comparison and operator demo are complete. The clean
-repository and package are prepared locally. Public publication and hackathon
-submission remain pending.
+repository has a [draft PR](https://github.com/raybesiga/scuba/pull/1) for review.
+Public access and hackathon submission remain pending.
 
 ## Evidence
 
@@ -35,9 +35,9 @@ its outputs are excluded from the dashboard and performance claims.
 
 ## Remaining delivery
 
-1. Review and record the [walkthrough](FINANCIAL_STRESS_WALKTHROUGH.md).
+1. Review the PR, README screenshots and [dashboard walkthrough](FINANCIAL_STRESS_WALKTHROUGH.md).
 2. Publish the reviewed clean repository when authorised and check public access.
-3. Submit its URL and [description](PRIOR_LABS_SUBMISSION_DRAFT.md), with the optional video.
+3. Submit its URL and [description](PRIOR_LABS_SUBMISSION_DRAFT.md). No video is planned.
 
 Customer-outcome improvement is a subsequent pilot question, not a completed
 result or a prerequisite for demonstrating this prototype.
