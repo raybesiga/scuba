@@ -429,39 +429,45 @@ function OperatorComparison({
   const loss = uncertainty?.differences.log_loss;
   return (
     <Box className="dashboard-module">
-      <Flex justify="between" align="center" wrap="wrap" gap="3">
+      <Flex
+        direction={setBudget ? "column" : "row"}
+        justify="between"
+        align={setBudget ? "stretch" : "center"}
+        wrap="wrap"
+        gap="3"
+      >
         <Heading as="h2" size="4">
           What changes at the same review capacity?
         </Heading>
-        <Select.Root value={comparator} onValueChange={setComparator}>
-          <Select.Trigger aria-label="Compare TabPFN with" />
-          <Select.Content>
-            {Object.keys(stressNames)
-              .filter((k) => k !== "tabpfn_3_5_plus")
-              .map((k) => (
-                <Select.Item key={k} value={k}>
-                  {stressNames[k]}
-                </Select.Item>
-              ))}
-          </Select.Content>
-        </Select.Root>
+        <Flex justify="between" align="center" wrap="wrap" gap="3">
+          {setBudget && (
+            <SegmentedControl.Root
+              aria-label="Comparison review capacity"
+              value={budget}
+              onValueChange={setBudget}
+            >
+              <SegmentedControl.Item value="0.05">
+                Top 5% · 400 reviews
+              </SegmentedControl.Item>
+              <SegmentedControl.Item value="0.1">
+                Top 10% · 800 reviews
+              </SegmentedControl.Item>
+            </SegmentedControl.Root>
+          )}
+          <Select.Root value={comparator} onValueChange={setComparator}>
+            <Select.Trigger aria-label="Compare TabPFN with" />
+            <Select.Content>
+              {Object.keys(stressNames)
+                .filter((k) => k !== "tabpfn_3_5_plus")
+                .map((k) => (
+                  <Select.Item key={k} value={k}>
+                    {stressNames[k]}
+                  </Select.Item>
+                ))}
+            </Select.Content>
+          </Select.Root>
+        </Flex>
       </Flex>
-      {setBudget && (
-        <Box mt="3">
-          <SegmentedControl.Root
-            aria-label="Comparison review capacity"
-            value={budget}
-            onValueChange={setBudget}
-          >
-            <SegmentedControl.Item value="0.05">
-              Top 5% · 400 reviews
-            </SegmentedControl.Item>
-            <SegmentedControl.Item value="0.1">
-              Top 10% · 800 reviews
-            </SegmentedControl.Item>
-          </SegmentedControl.Root>
-        </Box>
-      )}
       <Text as="p" size="2" mt="3" mb="3">
         {operatorComparison(metrics, budget, comparator)}
       </Text>
